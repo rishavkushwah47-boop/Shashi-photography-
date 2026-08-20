@@ -1,1471 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shashi Photography Studio, Agra - Luxury Wedding Photography, Cinematic Films, Candid & Fine Art Portraits.">
-  <title>Shashi Photography Studio | Luxury Photography & Films • Agra</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==========================================================================
-       DESIGN SYSTEM & THEME
-       ========================================================================== */
-    :root {
-      --bg-dark: #0a0a0c;
-      --bg-surface: #121216;
-      --bg-card: #18181f;
-      --bg-elevated: #22222b;
-      --accent: #d4af37;
-      --accent-light: #f3e5ab;
-      --accent-glow: rgba(212, 175, 55, 0.2);
-      --text-main: #ffffff;
-      --text-muted: #a0a0ab;
-      --border-line: #2a2a35;
-      --border-focus: #d4af37;
-      --whatsapp: #25d366;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      --max-width: 1200px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-    }
-
-    body {
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition);
-    }
-
-    button, input, select, textarea {
-      font-family: inherit;
-    }
-
-    .container {
-      width: min(var(--max-width), 92%);
-      margin: 0 auto;
-    }
-
-    .section-wrap {
-      padding: 90px 0;
-      border-bottom: 1px solid var(--border-line);
-      position: relative;
-    }
-
-    .badge-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .section-heading {
-      font-family: var(--font-serif);
-      font-size: clamp(2.3rem, 4.5vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 14px;
-      color: #ffffff;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      font-weight: 300;
-      max-width: 640px;
-      line-height: 1.7;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 30px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: var(--transition);
-      border: 1px solid transparent;
-      text-align: center;
-    }
-
-    .btn-gold {
-      background-color: var(--accent);
-      color: #000000;
-      border-color: var(--accent);
-    }
-
-    .btn-gold:hover {
-      background-color: var(--accent-light);
-      border-color: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--accent-glow);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--text-main);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(10, 10, 12, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-line);
-    }
-
-    .nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 86px;
-    }
-
-    .studio-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .studio-logo img {
-      height: 54px;
-      width: auto;
-      max-width: 220px;
-      object-fit: contain;
-      display: block;
-      transition: var(--transition);
-    }
-
-    .studio-logo img:hover {
-      transform: scale(1.03);
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-menu a {
-      font-size: 0.82rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav-menu a:hover {
-      color: var(--accent);
-    }
-
-    .nav-right-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .hamburger-btn {
-      display: none;
-      background: none;
-      border: 1px solid var(--border-line);
-      color: var(--text-main);
-      font-size: 1.5rem;
-      width: 44px;
-      height: 44px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    /* ==========================================================================
-       HERO SECTION
-       ========================================================================== */
-    .hero-section {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 0 80px;
-      background: radial-gradient(circle at 50% 30%, #1d1a24 0%, #0a0a0c 75%);
-    }
-
-    .hero-container {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 6.2vw, 5.2rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 22px;
-      color: #ffffff;
-    }
-
-    .hero-text {
-      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 720px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-
-    .hero-btn-row {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* ==========================================================================
-       PORTFOLIO SECTION (MAIN FOCUS - 7 CATEGORIES)
-       ========================================================================== */
-    .portfolio-section {
-      background-color: var(--bg-surface);
-    }
-
-    .portfolio-top-bar {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .portfolio-top-bar .section-desc {
-      margin: 0 auto;
-    }
-
-    .filter-pills {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 32px;
-    }
-
-    .filter-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      color: var(--text-muted);
-      padding: 10px 22px;
-      font-size: 0.8rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: var(--transition);
-      font-weight: 500;
-    }
-
-    .filter-pill:hover,
-    .filter-pill.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000000;
-      font-weight: 700;
-    }
-
-    .portfolio-grid-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 28px;
-      margin-top: 45px;
-    }
-
-    .gallery-frame {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      transition: var(--transition);
-    }
-
-    .gallery-frame.is-hidden {
-      display: none;
-    }
-
-    .gallery-frame:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-
-    .gallery-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      display: block;
-    }
-
-    .gallery-frame:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-frame-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0.2) 60%, transparent 100%);
-      opacity: 0.9;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-    }
-
-    .gallery-frame:hover .gallery-frame-overlay {
-      opacity: 1;
-    }
-
-    .overlay-category-badge {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .overlay-shot-title {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    .future-slot-helper {
-      margin-top: 36px;
-      padding: 18px 24px;
-      background: var(--bg-card);
-      border: 1px dashed var(--border-line);
-      border-radius: 6px;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .future-slot-helper code {
-      color: var(--accent);
-      background: rgba(212, 175, 55, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    /* ==========================================================================
-       ABOUT STUDIO SECTION
-       ========================================================================== */
-    .about-section {
-      background-color: var(--bg-dark);
-      text-align: center;
-    }
-
-    .about-box {
-      max-width: 840px;
-      margin: 0 auto;
-    }
-
-    .about-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.25;
-      margin-bottom: 22px;
-      color: #ffffff;
-    }
-
-    .about-body {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.8;
-    }
-
-    .about-dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border-line);
-      text-align: left;
-    }
-
-    .pillar-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      padding: 26px;
-      border-radius: 6px;
-      transition: var(--transition);
-    }
-
-    .pillar-box:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .pillar-box h4 {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .pillar-box p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    /* ==========================================================================
-       BOOK YOUR EVENT SECTION
-       ========================================================================== */
-    .booking-section {
-      background-color: var(--bg-surface);
-    }
-
-    .booking-card-panel {
-      max-width: 840px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      border-radius: 8px;
-      padding: 44px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    }
-
-    .form-2-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .input-field {
-      margin-bottom: 20px;
-    }
-
-    .input-field.full-span {
-      grid-column: 1 / -1;
-    }
-
-    .input-field label {
-      display: block;
-      font-size: 0.74rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .input-field label span {
-      color: var(--accent);
-    }
-
-    .custom-input {
-      width: 100%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-line);
-      color: var(--text-main);
-      padding: 14px 16px;
-      font-size: 0.95rem;
-      border-radius: 4px;
-      transition: var(--transition);
-    }
-
-    .custom-input:focus {
-      outline: none;
-      border-color: var(--border-focus);
-      background: #1c1c24;
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    select.custom-input {
-      cursor: pointer;
-    }
-
-    textarea.custom-input {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .feedback-alert {
-      display: none;
-      margin-top: 20px;
-      padding: 14px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .feedback-alert.success {
-      display: block;
-      background: rgba(37, 211, 102, 0.15);
-      border: 1px solid var(--whatsapp);
-      color: #72f5a2;
-    }
-
-    .feedback-alert.error {
-      display: block;
-      background: rgba(231, 76, 60, 0.15);
-      border: 1px solid #e74c3c;
-      color: #ff8577;
-    }
-
-    /* ==========================================================================
-       CONTACT SECTION & GENERAL HELP
-       ========================================================================== */
-    .contact-section {
-      background-color: var(--bg-dark);
-    }
-
-    .contact-layout-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .contact-info-block {
-      margin-top: 28px;
-    }
-
-    .info-item {
-      margin-bottom: 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-line);
-    }
-
-    .info-item:last-child {
-      border-bottom: none;
-    }
-
-    .info-label {
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-      display: block;
-      font-weight: 700;
-    }
-
-    .info-detail {
-      font-size: 1.15rem;
-      color: var(--text-main);
-      font-weight: 300;
-    }
-
-    .info-detail a:hover {
-      color: var(--accent);
-    }
-
-    .social-media-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .social-link-btn {
-      padding: 10px 20px;
-      border: 1px solid var(--border-line);
-      border-radius: 40px;
-      font-size: 0.82rem;
-      color: var(--text-main);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-card);
-    }
-
-    .social-link-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .help-form-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      padding: 38px;
-      border-radius: 8px;
-    }
-
-    /* ==========================================================================
-       WHATSAPP FLOAT & FOOTER
-       ========================================================================== */
-    .whatsapp-bubble {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      z-index: 999;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--whatsapp);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-      font-size: 30px;
-      transition: var(--transition);
-    }
-
-    .whatsapp-bubble:hover {
-      transform: scale(1.1);
-      color: white;
-    }
-
-    footer {
-      background: #060608;
-      padding: 44px 0;
-      border-top: 1px solid var(--border-line);
-      text-align: center;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    footer .footer-logo-img {
-      height: 48px;
-      width: auto;
-      margin: 0 auto 14px;
-      display: block;
-      object-fit: contain;
-    }
-
-    /* ==========================================================================
-       LIGHTBOX VIEWER
-       ========================================================================== */
-    .lightbox-viewer {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.96);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .lightbox-viewer.is-active {
-      display: flex;
-    }
-
-    .lightbox-target-img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    .lightbox-dismiss {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 2.4rem;
-      cursor: pointer;
-    }
-
-    /* ==========================================================================
-       RESPONSIVE DESIGN
-       ========================================================================== */
-    @media (max-width: 900px) {
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 86px;
-        left: 0;
-        width: 100%;
-        background: var(--bg-surface);
-        flex-direction: column;
-        padding: 30px 24px;
-        gap: 20px;
-        border-bottom: 1px solid var(--border-line);
-      }
-
-      .nav-menu.is-active {
-        display: flex;
-      }
-
-      .hamburger-btn {
-        display: block;
-      }
-
-      .contact-layout-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .form-2-col {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .booking-card-panel {
-        padding: 30px 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .studio-logo img {
-        height: 42px;
-        max-width: 170px;
-      }
-
-      .portfolio-grid-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-btn-row {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .section-wrap {
-        padding: 70px 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shashi Photography Studio — Wedding, candid, portrait, pre-wedding and cinematic photography in Agra.">
+<title>Shashi Photography Studio | Agra</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --cream:#f7f3eb;
+  --cream-dark:#eee8dc;
+  --white:#fffdf8;
+  --black:#24221f;
+  --muted:#77726a;
+  --line:#ded7ca;
+  --accent:#9a7b4f;
+  --accent-dark:#7e633d;
+  --green:#25d366;
+  --shadow:0 18px 55px rgba(36,34,31,.09);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);color:var(--black);
+  font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden;
+}
+body.modal-open{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(247,243,235,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.navbar{
+  width:92%;max-width:1250px;min-height:82px;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{width:180px;max-height:62px;object-fit:contain}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:13px;font-weight:700}
+.nav a:hover{color:var(--accent)}
+.nav .book-btn{padding:11px 20px;background:var(--black);color:#fff!important;border-radius:25px}
+.menu{
+  display:none;border:1px solid var(--line);background:transparent;
+  padding:7px 12px;font-size:22px;border-radius:7px
+}
+
+.hero{
+  min-height:calc(100vh - 82px);display:flex;align-items:center;
+  padding:70px 20px;
+  background:
+    linear-gradient(90deg,rgba(247,243,235,.96),rgba(247,243,235,.82),rgba(247,243,235,.23)),
+    url("6B1A6378 (6).jpg") center/cover no-repeat;
+}
+.hero-inner{width:92%;max-width:1250px;margin:auto}
+.hero-content{max-width:700px;animation:fadeUp 1s ease both}
+.label{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:18px
+}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,82px);
+  line-height:1.05;font-weight:600;margin-bottom:25px
+}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);font-size:17px;line-height:1.8;max-width:620px;margin-bottom:30px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.primary-btn,.secondary-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:13px 25px;border-radius:5px;
+  font-size:13px;font-weight:700;transition:.25s;border:1px solid transparent
+}
+.primary-btn{background:var(--black);color:#fff}
+.primary-btn:hover{background:#4a4742;transform:translateY(-2px)}
+.secondary-btn{background:rgba(255,253,248,.82);border-color:var(--line)}
+.secondary-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+section{padding:95px 20px}
+.container{width:92%;max-width:1150px;margin:auto}
+.section-head{margin-bottom:55px}
+.section-head.center{text-align:center}
+.section-head small{
+  color:var(--accent);text-transform:uppercase;letter-spacing:3px;
+  font-size:11px;font-weight:700
+}
+.section-head h2{
+  font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,55px);
+  line-height:1.1;margin-top:10px
+}
+.gold{color:var(--accent)}
+.section-head p{color:var(--muted);max-width:620px;line-height:1.7;margin:14px auto 0}
+
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-image{position:relative}
+.about-image::after{
+  content:"";position:absolute;left:18px;top:18px;width:100%;height:100%;
+  border:1px solid var(--line);z-index:0
+}
+.about-image img{position:relative;z-index:1;width:100%;height:560px;object-fit:cover}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:18px}
+.experience{display:flex;align-items:center;gap:15px;margin-top:28px}
+.experience strong{font-family:'Playfair Display',serif;font-size:48px;color:var(--accent)}
+.experience span{font-size:13px;color:var(--muted)}
+
+.portfolio{background:var(--cream)}
+.category-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:35px}
+.category-btn{
+  border:1px solid var(--line);background:transparent;color:var(--black);
+  padding:10px 20px;border-radius:25px;font-size:13px;transition:.25s
+}
+.category-btn:hover,.category-btn.active{background:var(--black);color:#fff;border-color:var(--black)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.photo{background:var(--white);border:1px solid var(--line);overflow:hidden}
+.photo img{width:100%;height:430px;object-fit:cover;transition:.6s}
+.photo:hover img{transform:scale(1.035)}
+.photo-info{padding:15px 18px}
+.photo-info h3{font-size:16px;font-weight:600}
+.photo-info p{font-size:12px;color:var(--muted);margin-top:4px}
+
+.services{background:var(--white)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{
+  padding:32px 25px;background:var(--cream);border:1px solid var(--line);transition:.3s
+}
+.service:hover{transform:translateY(-5px);border-color:#c5b28f}
+.service span{color:var(--accent);font-size:12px;font-weight:700}
+.service h3{font-family:'Playfair Display',serif;font-size:25px;margin:12px 0}
+.service p{color:var(--muted);line-height:1.7;font-size:14px}
+
+.why{background:var(--cream-dark)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:var(--white);padding:28px;border:1px solid var(--line)}
+.why-card h3{font-family:'Playfair Display',serif;font-size:23px;margin-bottom:10px}
+.why-card p{color:var(--muted);line-height:1.7;font-size:14px}
+
+.book-cta{background:var(--black);color:#fff;text-align:center}
+.book-cta h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,60px)}
+.book-cta p{color:#bbb;max-width:600px;margin:15px auto 28px;line-height:1.7}
+
+.booking{
+  background:var(--cream);
+  scroll-margin-top:90px;
+}
+.form-box{
+  max-width:900px;margin:auto;background:var(--white);padding:35px;
+  border:1px solid var(--line);box-shadow:var(--shadow);border-radius:10px
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:12px;font-weight:700}
+.form-group label span{color:var(--accent)}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;border:1px solid var(--line);background:var(--cream);
+  padding:14px 15px;border-radius:5px;font-size:14px;color:var(--black);outline:none
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-note{color:var(--muted);font-size:12px;margin:0 0 20px;line-height:1.6}
+.submit-row{margin-top:22px}
+.submit-row button{width:100%}
+.form-status{
+  display:none;padding:13px 15px;margin-top:16px;border-radius:5px;
+  font-size:13px;text-align:center;line-height:1.5
+}
+.form-status.success{display:block;background:#e8f6ea;color:#28733a}
+.form-status.error{display:block;background:#fce9e9;color:#a12626}
+
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-item{padding:20px 0;border-bottom:1px solid var(--line)}
+.contact-item small{
+  display:block;color:var(--accent);text-transform:uppercase;letter-spacing:2px;
+  font-size:10px;font-weight:700;margin-bottom:7px
+}
+.contact-item a,.contact-item p{color:var(--black);font-size:15px;word-break:break-word}
+.contact-item a:hover{color:var(--accent)}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.social{
+  border:1px solid var(--line);padding:10px 16px;border-radius:25px;
+  font-size:13px;transition:.3s;display:inline-flex;align-items:center;gap:8px
+}
+.social:hover{background:var(--black);color:#fff}
+.social svg{width:17px;height:17px;display:block}
+.map-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin-top:22px;
+  min-height:48px;
+  padding:13px 20px;
+  width:auto;
+  max-width:100%;
+  color:#fff !important;
+  background:var(--black) !important;
+  border:1px solid var(--black);
+  border-radius:6px;
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.2;
+  font-size:13px;
+  font-weight:700;
+}
+.map-btn svg{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  display:block;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.map-btn:hover{
+  background:var(--accent) !important;
+  border-color:var(--accent);
+  color:#fff !important;
+  transform:translateY(-2px);
+}
+
+.help{
+  background:var(--white);
+  padding:58px 20px 70px;
+  scroll-margin-top:90px
+}
+.help-box{
+  max-width:760px;margin:auto;border:1px solid var(--line);
+  background:var(--cream);padding:28px;border-radius:10px
+}
+.help-box .form-grid{gap:14px}
+.help-box textarea{min-height:95px}
+.help-intro{text-align:center;margin-bottom:25px}
+.help-intro h2{font-family:'Playfair Display',serif;font-size:34px}
+.help-intro p{color:var(--muted);font-size:13px;margin-top:8px}
+
+footer{background:#1d1b19;color:#aaa;text-align:center;padding:28px 20px;font-size:12px}
+
+.floating-contact{
+  position:fixed;right:20px;bottom:20px;z-index:900;width:56px;height:56px;
+  background:var(--green);color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.18);transition:.3s
+}
+.floating-contact:hover{transform:scale(1.08)}
+.floating-contact svg{width:28px;height:28px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);
+  background:var(--black);color:#fff;padding:13px 18px;border-radius:7px;
+  font-size:13px;z-index:3000;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:var(--shadow);text-align:center;max-width:90%
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:850px){
+  .navbar{min-height:72px}
+  .logo{width:155px}
+  .menu{display:block}
+  .nav{
+    display:none;position:absolute;top:72px;left:0;width:100%;
+    background:var(--cream);border-bottom:1px solid var(--line);
+    padding:18px 20px;flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav.show{display:flex}
+  .nav a{padding:12px;text-align:center}
+  .nav .book-btn{text-align:center}
+  .hero{min-height:78vh;padding:60px 15px}
+  .hero h1{font-size:46px}
+  .hero p{font-size:15px}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+  .about-grid{grid-template-columns:1fr;gap:45px}
+  .about-image img{height:450px}
+  .service-grid,.why-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .photo img{height:340px}
+  .contact-grid{grid-template-columns:1fr;gap:35px}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+  .form-box{padding:23px 18px}
+}
+@media(max-width:500px){
+  .map-btn{
+    width:100%;
+    max-width:350px;
+    min-height:50px;
+  }
+
+  section{padding:70px 15px}
+  .container,.navbar,.hero-inner{width:94%}
+  .hero h1{font-size:39px}
+  .hero{
+    background:
+      linear-gradient(rgba(247,243,235,.9),rgba(247,243,235,.75)),
+      url("6B1A6378 (6).jpg") center/cover no-repeat
+  }
+  .about-image img{height:390px}
+  .photo img{height:300px}
+  .category-buttons{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px}
+  .category-btn{flex:0 0 auto}
+  .floating-contact{right:15px;bottom:15px;width:50px;height:50px}
+  .help{padding-top:48px}
+  .help-box{padding:18px}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== -->
-  <header>
-    <div class="container nav-bar">
-      <a href="#top" class="studio-logo" aria-label="Shashi Photography Studio">
-        <img src="logo.png" alt="Shashi Photography Studio" onerror="this.src='1000098538.png';">
-      </a>
-
-      <ul class="nav-menu" id="navMenuList">
-        <li><a href="#portfolio" onclick="hideNav()">Explore Portfolio</a></li>
-        <li><a href="#book" onclick="hideNav()">Book Your Event</a></li>
-        <li><a href="#about" onclick="hideNav()">About</a></li>
-        <li><a href="#contact" onclick="hideNav()">Contact</a></li>
-        <li><a href="#help" onclick="hideNav()">General Help</a></li>
-      </ul>
-
-      <div class="nav-right-actions">
-        <a href="#book" class="btn btn-gold" style="padding: 10px 18px; font-size: 0.75rem;">Book Now</a>
-        <button class="hamburger-btn" id="menuToggleBtn" aria-label="Toggle Menu">&#9776;</button>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- ==========================================================================
-       HERO SECTION
-       ========================================================================== -->
-    <section class="hero-section">
-      <div class="container hero-container">
-        <span class="badge-tag">Agra, Uttar Pradesh, India</span>
-        <h1 class="hero-title">Shashi Photography Studio</h1>
-        <p class="hero-text">
-          Wedding photography, candid photography, portraits, events and professional visual storytelling.
-        </p>
-        <div class="hero-btn-row">
-          <a href="#portfolio" class="btn btn-gold">Explore Portfolio</a>
-          <a href="#book" class="btn btn-outline">Book Your Event</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       PORTFOLIO SECTION (MAIN FOCUS - 7 CATEGORIES)
-       ========================================================================== -->
-    <section class="section-wrap portfolio-section" id="portfolio">
-      <div class="container">
-        
-        <div class="portfolio-top-bar">
-          <span class="badge-tag">Visual Portfolio</span>
-          <h2 class="section-heading">Featured Works</h2>
-          <p class="section-desc">
-            Explore our curated gallery across authentic portraits, destination weddings, candid emotions, and grand celebrations.
-          </p>
-
-          <!-- Category Filter Bar (7 Categories) -->
-          <div class="filter-pills">
-            <button class="filter-pill active" data-filter="all">All</button>
-            <button class="filter-pill" data-filter="portrait">Portrait</button>
-            <button class="filter-pill" data-filter="candid">Candid</button>
-            <button class="filter-pill" data-filter="outdoor">Outdoor</button>
-            <button class="filter-pill" data-filter="indoor">Indoor</button>
-            <button class="filter-pill" data-filter="wedding">Wedding</button>
-            <button class="filter-pill" data-filter="events">Events</button>
-          </div>
-        </div>
-
-        <!-- Portfolio Gallery Grid -->
-        <div class="portfolio-grid-layout" id="portfolioGalleryGrid">
-
-          <!-- ==================================================================
-               CURRENT PHOTOS (PORTRAIT CATEGORY ONLY)
-               ================================================================== -->
-
-          <div class="gallery-frame" data-category="portrait">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85" alt="Fine Art Studio Portrait" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Portrait</span>
-              <h3 class="overlay-shot-title">Fine Art Studio Portrait</h3>
-            </div>
-          </div>
-
-          <div class="gallery-frame" data-category="portrait">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=85" alt="Editorial Studio Light" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Portrait</span>
-              <h3 class="overlay-shot-title">Editorial Tone II</h3>
-            </div>
-          </div>
-
-          <div class="gallery-frame" data-category="portrait">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=85" alt="Natural Golden Portrait" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Portrait</span>
-              <h3 class="overlay-shot-title">Golden Hour Expression</h3>
-            </div>
-          </div>
-
-          <!-- ==================================================================
-               FUTURE PORTFOLIO IMAGES
-               Add new image filenames here (e.g. src="wedding-01.jpg")
-               ================================================================== -->
-
-          <!-- [PORTRAIT IMAGES - FUTURE PLACEHOLDERS] -->
-          <!--
-          <div class="gallery-frame" data-category="portrait">
-            <img src="portrait-04.jpg" alt="Portrait Photography" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Portrait</span>
-              <h3 class="overlay-shot-title">Studio Session</h3>
-            </div>
-          </div>
-          -->
-
-          <!-- [CANDID IMAGES - READY SLOTS] -->
-          <div class="gallery-frame" data-category="candid">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85" alt="Candid Joy Moment" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Candid</span>
-              <h3 class="overlay-shot-title">Unfiltered Emotions</h3>
-            </div>
-          </div>
-          <!--
-          <div class="gallery-frame" data-category="candid">
-            <img src="candid-02.jpg" alt="Candid Moment" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Candid</span>
-              <h3 class="overlay-shot-title">Pure Moments</h3>
-            </div>
-          </div>
-          -->
-
-          <!-- [OUTDOOR IMAGES - READY SLOTS] -->
-          <div class="gallery-frame" data-category="outdoor">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85" alt="Outdoor Heritage Shoot" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Outdoor</span>
-              <h3 class="overlay-shot-title">Heritage Agra Lights</h3>
-            </div>
-          </div>
-          <!--
-          <div class="gallery-frame" data-category="outdoor">
-            <img src="outdoor-02.jpg" alt="Outdoor Shoot" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Outdoor</span>
-              <h3 class="overlay-shot-title">Natural Landscape</h3>
-            </div>
-          </div>
-          -->
-
-          <!-- [INDOOR IMAGES - READY SLOTS] -->
-          <div class="gallery-frame" data-category="indoor">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=85" alt="Atmospheric Indoor Light" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Indoor</span>
-              <h3 class="overlay-shot-title">Ambient Indoor Art</h3>
-            </div>
-          </div>
-          <!--
-          <div class="gallery-frame" data-category="indoor">
-            <img src="indoor-02.jpg" alt="Indoor Studio" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Indoor</span>
-              <h3 class="overlay-shot-title">Studio Aesthetics</h3>
-            </div>
-          </div>
-          -->
-
-          <!-- [WEDDING IMAGES - READY SLOTS] -->
-          <div class="gallery-frame" data-category="wedding">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85" alt="Royal Wedding Ceremony" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Wedding</span>
-              <h3 class="overlay-shot-title">Royal Wedding Ceremony</h3>
-            </div>
-          </div>
-          <!--
-          <div class="gallery-frame" data-category="wedding">
-            <img src="wedding-02.jpg" alt="Wedding Vows" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Wedding</span>
-              <h3 class="overlay-shot-title">Sacred Vows</h3>
-            </div>
-          </div>
-          -->
-
-          <!-- [EVENT IMAGES - READY SLOTS] -->
-          <div class="gallery-frame" data-category="events">
-            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=85" alt="Celebration & Stage" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Events</span>
-              <h3 class="overlay-shot-title">Celebration & Stage</h3>
-            </div>
-          </div>
-          <!--
-          <div class="gallery-frame" data-category="events">
-            <img src="event-02.jpg" alt="Event Night" loading="lazy">
-            <div class="gallery-frame-overlay">
-              <span class="overlay-category-badge">Events</span>
-              <h3 class="overlay-shot-title">Live Concerts & Galas</h3>
-            </div>
-          </div>
-          -->
-
-        </div>
-
-        <div class="future-slot-helper">
-          📸 <strong>Naye Photos Upload Karne Ka Tarika:</strong> 2-3 din baad jab aap photo upload karein, toh bas GitHub repository mein image daal kar HTML code ke andar <code>src="photo-name.jpg"</code> replace kar dein.
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       ABOUT SECTION
-       ========================================================================== -->
-    <section class="section-wrap about-section" id="about">
-      <div class="container about-box">
-        <span class="badge-tag">ABOUT STUDIO</span>
-        <h2 class="about-quote">“A simple approach to beautiful photography.”</h2>
-        <p class="about-body">
-          Professional photography with a focus on quality, natural emotions and a comfortable experience.
-        </p>
-
-        <div class="about-dashboard-grid">
-          <div class="pillar-box">
-            <h4>Agra & Destinations</h4>
-            <p>Based in Agra, serving destination weddings across Uttar Pradesh and all over India.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>Cinematic Color Art</h4>
-            <p>Every frame is color-graded with precision to look timeless and high-end for decades.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>Authentic Candid Shots</h4>
-            <p>Zero forced or awkward posing. Pure expressions, genuine laughs, and raw emotional moments.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       BOOK YOUR EVENT SECTION (CONNECTED TO TELEGRAM / APPS SCRIPT)
-       ========================================================================== -->
-    <section class="section-wrap booking-section" id="book">
-      <div class="container">
-        
-        <div class="portfolio-top-bar">
-          <span class="badge-tag">Reservations</span>
-          <h2 class="section-heading">BOOK YOUR EVENT</h2>
-          <p class="section-desc">
-            Lock in your dates with Shashi Photography Studio. Fill out the booking details below to receive direct confirmation on our Telegram system.
-          </p>
-        </div>
-
-        <div class="booking-card-panel">
-          <form id="eventBookingForm">
-            
-            <div class="form-2-col">
-              <div class="input-field">
-                <label for="bName">Full Name <span>*</span></label>
-                <input type="text" id="bName" name="name" class="custom-input" placeholder="Enter your full name" required>
-              </div>
-              <div class="input-field">
-                <label for="bMobile">Mobile Number <span>*</span></label>
-                <input type="tel" id="bMobile" name="mobile" class="custom-input" placeholder="e.g. 9012323224" required>
-              </div>
-            </div>
-
-            <div class="form-2-col">
-              <div class="input-field">
-                <label for="bEmail">Email Address</label>
-                <input type="email" id="bEmail" name="email" class="custom-input" placeholder="example@gmail.com">
-              </div>
-              <div class="input-field">
-                <label for="bEventType">Event Type <span>*</span></label>
-                <select id="bEventType" name="eventType" class="custom-input" required>
-                  <option value="" disabled selected>Select event category</option>
-                  <option value="Wedding">Wedding</option>
-                  <option value="Pre-Wedding">Pre-Wedding</option>
-                  <option value="Engagement">Engagement</option>
-                  <option value="Birthday">Birthday</option>
-                  <option value="Portrait">Portrait</option>
-                  <option value="Candid">Candid</option>
-                  <option value="Outdoor Shoot">Outdoor Shoot</option>
-                  <option value="Indoor Shoot">Indoor Shoot</option>
-                  <option value="Baby / Maternity">Baby / Maternity</option>
-                  <option value="Traditional / Family Function">Traditional / Family Function</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-2-col">
-              <div class="input-field">
-                <label for="bDate">Event Date <span>*</span></label>
-                <input type="date" id="bDate" name="eventDate" class="custom-input" required>
-              </div>
-              <div class="input-field">
-                <label for="bGuests">Approximate Guests</label>
-                <input type="number" id="bGuests" name="guests" min="1" class="custom-input" placeholder="e.g. 250">
-              </div>
-            </div>
-
-            <div class="form-2-col">
-              <div class="input-field">
-                <label for="bLocation">Event Location</label>
-                <input type="text" id="bLocation" name="eventLocation" class="custom-input" placeholder="e.g. Agra, UP / Destination">
-              </div>
-              <div class="input-field">
-                <label for="bService">Service Required</label>
-                <select id="bService" name="service" class="custom-input">
-                  <option value="Photography">Photography</option>
-                  <option value="Photography + Videography">Photography + Videography</option>
-                  <option value="Cinematic Film">Cinematic Film</option>
-                  <option value="Full Event Package">Full Event Package</option>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="input-field">
-              <label for="bPreferred">Preferred Contact Method</label>
-              <select id="bPreferred" name="preferredContact" class="custom-input">
-                <option value="WhatsApp">WhatsApp</option>
-                <option value="Phone Call">Phone Call</option>
-                <option value="Email">Email</option>
-              </select>
-            </div>
-
-            <div class="input-field full-span">
-              <label for="bMessage">Requirements / Message</label>
-              <textarea id="bMessage" name="message" class="custom-input" placeholder="Share specific timings, coverage expectations, or venue details..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 16px;">
-              SUBMIT BOOKING REQUEST
-            </button>
-
-            <div id="bookingAlertBox" class="feedback-alert"></div>
-          </form>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       CONTACT & STUDIO REACH
-       ========================================================================== -->
-    <section class="section-wrap contact-section" id="contact">
-      <div class="container">
-        
-        <div class="contact-layout-grid">
-          
-          <!-- Left: Studio Details & Socials -->
-          <div>
-            <span class="badge-tag">Studio Presence</span>
-            <h2 class="section-heading">Contact Details</h2>
-            <p class="section-desc">
-              Visit our studio in Agra or get in touch via direct call, WhatsApp, or our social channels.
-            </p>
-
-            <div class="contact-info-block">
-              
-              <div class="info-item">
-                <span class="info-label">Direct Calling & WhatsApp</span>
-                <div class="info-detail">
-                  <a href="tel:89119076">8/9119076</a> &nbsp;•&nbsp; 
-                  <a href="tel:9012323224">9012323224</a>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <span class="info-label">Official Email</span>
-                <div class="info-detail">
-                  <a href="mailto:rishavkushwah47@gmail.com">rishavkushwah47@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <span class="info-label">Studio Address</span>
-                <div class="info-detail" style="font-size: 0.95rem; line-height: 1.6;">
-                  Shop No 1, Bah Road, Ater-Jaitpur Rd, Kalan, Agra, Paharpura, Uttar Pradesh 283114[span_0](start_span)[span_0](end_span)
-                </div>
-                <div style="margin-top: 14px;">
-                  <a class="btn btn-outline" style="padding: 8px 16px; font-size: 0.74rem;" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shashi+Photography+Studio,+Shop+No+1,+Bah+Road,+Ater-Jaitpur+Rd,+Kalan,+Agra,+Paharpura,+Uttar+Pradesh+283114">
-                    📍 Open On Google Maps[span_1](start_span)[span_1](end_span)
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Social Media Buttons -->
-            <div class="social-media-bar">
-              <a class="social-link-btn" href="https://www.instagram.com/shashi_photography09?igsh=MWRqeXhiaW1icGpvOQ==" target="_blank" rel="noopener">
-                Instagram[span_2](start_span)[span_2](end_span)
-              </a>
-              <a class="social-link-btn" href="https://www.facebook.com/share/1EtbYZKxSq/" target="_blank" rel="noopener">
-                Facebook
-              </a>
-              <a class="social-link-btn" href="https://wa.me/919012084273" target="_blank" rel="noopener">
-                WhatsApp[span_3](start_span)[span_3](end_span)
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: General Help / Inquiry Form -->
-          <div class="help-form-container" id="help">
-            <span class="badge-tag">Direct Help</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 8px;">General Inquiry</h3>
-            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 24px;">
-              For pricing packages, custom questions, or studio queries, submit your message below.
-            </p>
-
-            <form id="generalInquiryForm">
-              
-              <div class="input-field">
-                <label for="hName">Your Name <span>*</span></label>
-                <input type="text" id="hName" name="name" class="custom-input" placeholder="Your name" required>
-              </div>
-
-              <div class="input-field">
-                <label for="hMobile">Mobile Number <span>*</span></label>
-                <input type="tel" id="hMobile" name="mobile" class="custom-input" placeholder="Your mobile number" required>
-              </div>
-
-              <div class="input-field">
-                <label for="hEmail">Email Address</label>
-                <input type="email" id="hEmail" name="email" class="custom-input" placeholder="Your email">
-              </div>
-
-              <div class="input-field">
-                <label for="hInquiryType">Inquiry Type</label>
-                <select id="hInquiryType" name="inquiryType" class="custom-input">
-                  <option>General Question</option>
-                  <option>Pricing & Packages</option>
-                  <option>Date Availability</option>
-                  <option>Photography / Videography</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div class="input-field">
-                <label for="hMessage">Message <span>*</span></label>
-                <textarea id="hMessage" name="message" class="custom-input" placeholder="How can we assist you?" required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-outline" style="width: 100%;">
-                SEND INQUIRY
-              </button>
-
-              <div id="helpAlertBox" class="feedback-alert"></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer>
-    <div class="container">
-      <img src="logo.png" alt="Shashi Photography Studio Logo" class="footer-logo-img" onerror="this.src='1000098538.png';">
-      <p>Agra, Uttar Pradesh, India • Luxury Visual Storytelling</p>
-      <p style="margin-top: 10px; opacity: 0.55;">&copy; <span id="copyrightYear"></span> Shashi Photography Studio. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- WhatsApp Floating Action -->
-  <a class="whatsapp-bubble" href="https://wa.me/919012084273" target="_blank" rel="noopener" aria-label="Chat with Studio on WhatsApp">
-    💬
-  </a>
-
-  <!-- Lightbox Popup -->
-  <div class="lightbox-viewer" id="lightboxModalViewer" onclick="dismissLightboxModal(event)">
-    <button class="lightbox-dismiss" onclick="dismissLightboxModal(event)">&times;</button>
-    <img src="" alt="Portfolio Expanded" class="lightbox-target-img" id="lightboxActivePhoto">
+<header>
+  <div class="navbar">
+    <a href="#home">
+      <img src="file_00000000df7081faa3dba0a19cc8946c.png" class="logo" alt="Shashi Photography Studio">
+    </a>
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking" class="book-btn">Book Event</a>
+    </nav>
   </div>
+</header>
 
-  <!-- ==========================================================================
-       JAVASCRIPT LOGIC & TELEGRAM DISPATCH
-       ========================================================================== -->
-  <script>
-    /* ==========================================================================
-       TELEGRAM WEBHOOK (GOOGLE APPS SCRIPT LINK)
-       ========================================================================== */
-    const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";[span_4](start_span)[span_4](end_span)
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="label">Shashi Photography Studio</div>
+      <h1>Your moments.<br><span>Beautifully</span> remembered.</h1>
+      <p>Wedding, candid, portrait and cinematic photography for moments that deserve to be remembered forever.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="primary-btn">Explore Portfolio</a>
+        <a href="#booking" class="secondary-btn">Book Your Event</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    async function dispatchPayloadToWebhook(dataObj) {
-      const formData = new FormData();
-      Object.keys(dataObj).forEach(key => {
-        formData.append(key, dataObj[key] !== undefined && dataObj[key] !== null ? dataObj[key] : "");
-      });
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head center">
+      <small>About Studio</small>
+      <h2>A simple approach to beautiful photography.</h2>
+      <p>Professional photography with a focus on quality, natural emotions and a comfortable experience.</p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-image">
+        <img src="6B1A6378 (8).jpg" alt="Shashi Photography">
+      </div>
+      <div class="about-text">
+        <p>Welcome to <strong>Shashi Photography Studio</strong>, based in Jaitpur Kalan, Bah, Agra, Uttar Pradesh.</p>
+        <p>With more than <strong>5 years of experience</strong>, we capture weddings, candid moments, portraits, pre-weddings and cinematic stories with a clean, creative and professional approach.</p>
+        <p>Our priority is simple — high-quality work, good communication, respectful behaviour and photographs that feel special even years later.</p>
+        <p>We provide services across nearby locations within approximately <strong>120 km</strong>.</p>
+        <div class="experience"><strong>5+</strong><span>Years of experience<br>in photography & visual storytelling</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      await fetch(GOOGLE_SCRIPT_WEBHOOK, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors"
-      });
-      return true;
-    }
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-head center">
+      <small>Selected Work</small>
+      <h2>Our <span class="gold">Portfolio</span></h2>
+      <p>Choose a category to explore the type of photography you are looking for.</p>
+    </div>
+    <div class="category-buttons">
+      <button class="category-btn active" onclick="filterPhotos('all',this)">All</button>
+      <button class="category-btn" onclick="filterPhotos('candid',this)">Candid</button>
+      <button class="category-btn" onclick="filterPhotos('portrait',this)">Portrait</button>
+      <button class="category-btn" onclick="filterPhotos('wedding',this)">Wedding</button>
+      <button class="category-btn" onclick="filterPhotos('prewedding',this)">Pre-Wedding</button>
+      <button class="category-btn" onclick="filterPhotos('cinematic',this)">Cinematic</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <div class="photo reveal" data-category="candid">
+        <img src="6B1A6378 (8).jpg" alt="Candid Photography">
+        <div class="photo-info"><h3>Candid Photography</h3><p>Natural emotions & real moments</p></div>
+      </div>
+      <div class="photo reveal" data-category="wedding">
+        <img src="6B1A6378 (6).jpg" alt="Wedding Photography">
+        <div class="photo-info"><h3>Wedding Photography</h3><p>Beautiful wedding memories</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Set Calendar min date to Today
-    const dateInputElem = document.getElementById('bDate');
-    if (dateInputElem) {
-      const todayDate = new Date();
-      const isoFormatted = new Date(todayDate.getTime() - todayDate.getTimezoneOffset() * 60000).toISOString().split("T")[0];
-      dateInputElem.min = isoFormatted;
-    }
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <small>What We Do</small>
+      <h2>Our <span class="gold">Services</span></h2>
+      <p>Photography and cinematic services for your important occasions.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service reveal"><span>01</span><h3>Wedding Photography</h3><p>Complete wedding photography covering emotions, rituals, family moments and celebrations.</p></div>
+      <div class="service reveal"><span>02</span><h3>Candid Photography</h3><p>Natural photographs that capture genuine emotions without making every moment feel posed.</p></div>
+      <div class="service reveal"><span>03</span><h3>Portrait Photography</h3><p>Clean and professional portraits designed around your personality and style.</p></div>
+      <div class="service reveal"><span>04</span><h3>Pre-Wedding</h3><p>Creative pre-wedding photography with locations, concepts and moments planned around your story.</p></div>
+      <div class="service reveal"><span>05</span><h3>Cinematic Photography</h3><p>Stylish photographs with a cinematic visual approach and professional editing.</p></div>
+      <div class="service reveal"><span>06</span><h3>Cinematic Videos & Reels</h3><p>Cinematic films and modern reels created to bring your special moments back to life.</p></div>
+      <div class="service reveal"><span>07</span><h3>Premium Albums</h3><p>High-quality albums designed according to your choice and requirements.</p></div>
+    </div>
+  </div>
+</section>
 
-    /* ==========================================================================
-       1. BOOK YOUR EVENT SUBMISSION
-       ========================================================================== */
-    const bookingFormElem = document.getElementById('eventBookingForm');
-    const bookingAlert = document.getElementById('bookingAlertBox');
+<section class="why">
+  <div class="container">
+    <div class="section-head center">
+      <small>Why Shashi Photography</small>
+      <h2>Quality that goes beyond the <span class="gold">camera.</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><h3>5+ Years Experience</h3><p>Experience that helps us understand moments, people and the details that matter.</p></div>
+      <div class="why-card reveal"><h3>High Quality Work</h3><p>Professional photography, editing, cinematic videos and premium albums.</p></div>
+      <div class="why-card reveal"><h3>Friendly Behaviour</h3><p>A comfortable and respectful experience throughout your shoot.</p></div>
+      <div class="why-card reveal"><h3>Customer's Choice</h3><p>We listen to your requirements and create the work according to your preferences.</p></div>
+      <div class="why-card reveal"><h3>Creative Approach</h3><p>A balance of natural moments and cinematic visual storytelling.</p></div>
+      <div class="why-card reveal"><h3>120 KM Service Area</h3><p>Based in Jaitpur Kalan, Bah, Agra and serving nearby locations within approximately 120 km.</p></div>
+    </div>
+  </div>
+</section>
 
-    bookingFormElem.addEventListener('submit', async function (e) {
-      e.preventDefault();
+<section class="book-cta">
+  <div class="container">
+    <h2>Planning your next event?</h2>
+    <p>Tell us your date and requirements. Let's discuss how we can capture your memories.</p>
+    <a href="#booking" class="primary-btn" style="background:#fff;color:#24221f">Book Your Event</a>
+  </div>
+</section>
 
-      const submitBtn = bookingFormElem.querySelector('button[type="submit"]');
-      const originalLabel = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'TRANSMITTING BOOKING...';
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="section-head center">
+      <small>Event Booking</small>
+      <h2>Reserve your <span class="gold">date.</span></h2>
+      <p>Send your event details directly to the studio. This form is only for booking requests.</p>
+    </div>
 
-      bookingAlert.className = 'feedback-alert';
-      bookingAlert.style.display = 'none';
+    <div class="form-box">
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Mobile <span>*</span></label>
+            <input name="phone" type="tel" inputmode="numeric" required placeholder="10-digit mobile number">
+          </div>
 
-      const fd = new FormData(bookingFormElem);
-      const bookingData = {
-        formType: "BOOKING",[span_5](start_span)[span_5](end_span)
-        type: "BOOKING",[span_6](start_span)[span_6](end_span)
-        name: fd.get("name"),[span_7](start_span)[span_7](end_span)
-        mobile: fd.get("mobile"),[span_8](start_span)[span_8](end_span)
-        phone: fd.get("mobile"),[span_9](start_span)[span_9](end_span)
-        email: fd.get("email") || "Not Provided",
-        eventType: fd.get("eventType"),[span_10](start_span)[span_10](end_span)
-        eventDate: fd.get("eventDate"),[span_11](start_span)[span_11](end_span)
-        guests: fd.get("guests") || "Not Specified",
-        eventLocation: fd.get("eventLocation") || "Agra / Not Specified",
-        location: fd.get("eventLocation") || "Agra / Not Specified",[span_12](start_span)[span_12](end_span)
-        service: fd.get("service") || "Photography",[span_13](start_span)[span_13](end_span)
-        preferredContact: fd.get("preferredContact") || "WhatsApp",[span_14](start_span)[span_14](end_span)
-        message: fd.get("message") || "None",[span_15](start_span)[span_15](end_span)
-        inquiryType: "Booking / Event Request[span_16](start_span)"[span_16](end_span)
-      };
+          <div class="form-group">
+            <label>Event Type <span>*</span></label>
+            <select name="eventType" required>
+              <option value="">Select event</option>
+              <option>Wedding</option>
+              <option>Engagement</option>
+              <option>Pre-Wedding</option>
+              <option>Birthday / Party</option>
+              <option>Portrait Shoot</option>
+              <option>Cinematic Video / Reel</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-      try {
-        await dispatchPayloadToWebhook(bookingData);
-        bookingAlert.className = 'feedback-alert success';
-        bookingAlert.textContent = 'Thank you! Your event booking request has been transmitted directly to our Telegram bot. We will confirm with you shortly.';
-        bookingFormElem.reset();
-      } catch (err) {
-        bookingAlert.className = 'feedback-alert error';
-        bookingAlert.textContent = 'Submission error. Please call us directly at 8/9119076 or 9012323224.';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      }
+          <div class="form-group">
+            <label>Event Date <span>*</span></label>
+            <input name="eventDate" type="date" required>
+          </div>
+
+          <div class="form-group">
+            <label>Event Location <span>*</span></label>
+            <input name="location" required placeholder="City / venue">
+          </div>
+
+          <div class="form-group">
+            <label>Approx. Guests</label>
+            <select name="guests">
+              <option value="">Select</option>
+              <option>1–50</option>
+              <option>51–100</option>
+              <option>101–250</option>
+              <option>251–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Services Required <span>*</span></label>
+            <select name="services" required>
+              <option value="">Select main requirement</option>
+              <option>Wedding Photography</option>
+              <option>Candid Photography</option>
+              <option>Photo + Video</option>
+              <option>Pre-Wedding</option>
+              <option>Cinematic Film / Reels</option>
+              <option>Premium Album</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Anything else?</label>
+            <textarea name="message" placeholder="Tell us about your event, timing, venue, package preference, etc."></textarea>
+          </div>
+        </div>
+
+        <p class="form-note">Submitting this form sends a booking request to the studio. It does not automatically confirm the booking.</p>
+        <div class="submit-row"><button class="primary-btn" type="submit" id="bookingSubmit">Send Booking Request</button></div>
+        <div class="form-status" id="bookingStatus"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <small>Get In Touch</small>
+      <h2>Let's talk about your <span class="gold">story.</span></h2>
+      <p>Call, WhatsApp or visit the studio. You can also follow the work on social media.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <small>WhatsApp / Phone</small>
+          <a href="https://wa.me/919012084273" target="_blank" rel="noopener">+91 90120 84273</a>
+        </div>
+        <div class="contact-item">
+          <small>Studio</small>
+          <p>Shop No 1, Bah Road, Ater-Jaitpur Rd, Kalan, Agra, Paharpura, Uttar Pradesh 283114</p>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Shashi%20HD%20Photo%20Studio%2C%20Shop%20No%201%2C%20Bah%20Road%2C%20Ater-Jaitpur%20Rd%2C%20Kalan%2C%20Agra%2C%20Paharpura%2C%20Uttar%20Pradesh%20283114" target="_blank" rel="noopener" aria-label="Open Shashi HD Photo Studio in Google Maps">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+  <span>Open Studio in Google Maps</span>
+</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-item">
+          <small>Service Area</small>
+          <p>Nearby locations within approximately 120 km of the studio.</p>
+        </div>
+
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/shashi_photography09?igsh=MWRqeXhiaW1icGpvOQ==" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg> Instagram
+          </a>
+          <a class="social" href="https://www.facebook.com/share/1DEXLzduyQ/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/></svg> Facebook
+          </a>
+          <a class="social" href="https://wa.me/919012084273" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3zM12.2 21.6h-.1c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.8 9.8 0 1 1 8.1 4.6zm5.4-7.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.4z"/></svg> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP / GENERAL INQUIRY: intentionally last -->
+<section class="help" id="help">
+  <div class="container">
+    <div class="help-box">
+      <div class="help-intro">
+        <h2>Need Help or Have an Inquiry?</h2>
+        <p>For questions, packages, availability or anything other than a booking request.</p>
+      </div>
+
+      <form id="inquiryForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Name <span>*</span></label>
+            <input name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Mobile / WhatsApp <span>*</span></label>
+            <input name="phone" type="tel" inputmode="numeric" required placeholder="10-digit mobile number">
+          </div>
+          <div class="form-group full">
+            <label>What can we help with? <span>*</span></label>
+            <select name="inquiryType" required>
+              <option value="">Select</option>
+              <option>Package / Price Inquiry</option>
+              <option>Availability Inquiry</option>
+              <option>Album Inquiry</option>
+              <option>Photo / Video Inquiry</option>
+              <option>General Question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <textarea name="message" required placeholder="Write your question here..."></textarea>
+          </div>
+        </div>
+        <div class="submit-row"><button class="primary-btn" type="submit" id="inquirySubmit">Send Help Inquiry</button></div>
+        <div class="form-status" id="inquiryStatus"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shashi Photography Studio. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/919012084273" target="_blank" rel="noopener" class="floating-contact" aria-label="Contact on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3zM12.2 21.6h-.1c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.8 9.8 0 1 1 8.1 4.6zm5.4-7.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";
+
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav a").forEach(link=>{
+  link.addEventListener("click",()=>document.getElementById("nav").classList.remove("show"));
+});
+
+function filterPhotos(category,button){
+  document.querySelectorAll(".category-btn").forEach(btn=>btn.classList.remove("active"));
+  button.classList.add("active");
+  document.querySelectorAll(".photo").forEach(photo=>{
+    photo.style.display=(category==="all" || photo.dataset.category===category) ? "block" : "none";
+  });
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+function showStatus(el,type,text){
+  el.className="form-status "+type;
+  el.textContent=text;
+}
+
+function showToast(text){
+  const toast=document.getElementById("toast");
+  toast.textContent=text;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),3500);
+}
+
+function todayForDateInput(){
+  const d=new Date();
+  const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);
+  return local.toISOString().split("T")[0];
+}
+const dateInput=document.querySelector('input[name="eventDate"]');
+if(dateInput) dateInput.min=todayForDateInput();
+
+async function submitToScript(form,type,statusEl,buttonEl){
+  const data=new FormData(form);
+  const fields={};
+  data.forEach((value,key)=>fields[key]=String(value).trim());
+
+  if(type==="booking"){
+    const date=new Date(fields.eventDate+"T00:00:00");
+    fields.eventDateDisplay=isNaN(date) ? fields.eventDate : date.toLocaleDateString("en-IN",{day:"2-digit",month:"long",year:"numeric"});
+  }
+
+  fields.formType=type;
+  fields.type=type;
+  fields.source="Shashi Photography Studio Website";
+  fields.timestamp=new Date().toISOString();
+
+  // A ready-to-read message is included so the existing Apps Script can
+  // forward one clean Telegram message even if it primarily reads "message".
+  if(type==="booking"){
+    fields.message =
+      "BOOKING REQUEST\n\n"+
+      "Name: "+(fields.name||"—")+"\n"+
+      "Mobile: "+(fields.phone||"—")+"\n"+
+      "Event: "+(fields.eventType||"—")+"\n"+
+      "Date: "+(fields.eventDateDisplay||fields.eventDate||"—")+"\n"+
+      "Location: "+(fields.location||"—")+"\n"+
+      "Guests: "+(fields.guests||"—")+"\n"+
+      "Services: "+(fields.services||"—")+"\n"+
+      "Note: "+(fields.message||"—");
+    fields.bookingMessage=fields.message;
+  }else{
+    fields.message =
+      "HELP / GENERAL INQUIRY\n\n"+
+      "Name: "+(fields.name||"—")+"\n"+
+      "Mobile: "+(fields.phone||"—")+"\n"+
+      "Inquiry: "+(fields.inquiryType||"—")+"\n"+
+      "Message: "+(fields.message||"—");
+    fields.inquiryMessage=fields.message;
+  }
+
+  buttonEl.disabled=true;
+  buttonEl.style.opacity=".65";
+  buttonEl.textContent="Sending...";
+
+  try{
+    // no-cors is intentional for a Google Apps Script web app.
+    // The browser cannot read the response, but the POST reaches the endpoint.
+    const body=new URLSearchParams();
+    Object.entries(fields).forEach(([key,value])=>body.append(key,value));
+
+    await fetch(SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      body
     });
 
-    /* ==========================================================================
-       2. GENERAL INQUIRY FORM SUBMISSION
-       ========================================================================== */
-    const inquiryFormElem = document.getElementById('generalInquiryForm');
-    const helpAlert = document.getElementById('helpAlertBox');
+    form.reset();
+    if(dateInput) dateInput.min=todayForDateInput();
+    showStatus(statusEl,"success",
+      type==="booking"
+      ? "Your booking request has been sent. The studio will contact you shortly."
+      : "Your inquiry has been sent. We will get back to you shortly."
+    );
+    showToast("Request sent successfully ✓");
+  }catch(error){
+    showStatus(statusEl,"error",
+      "Could not send right now. Please try WhatsApp or call +91 90120 84273."
+    );
+  }finally{
+    buttonEl.disabled=false;
+    buttonEl.style.opacity="1";
+    buttonEl.textContent=type==="booking" ? "Send Booking Request" : "Send Help Inquiry";
+  }
+}
 
-    inquiryFormElem.addEventListener('submit', async function (e) {
-      e.preventDefault();
+document.getElementById("bookingForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  submitToScript(
+    e.currentTarget,
+    "booking",
+    document.getElementById("bookingStatus"),
+    document.getElementById("bookingSubmit")
+  );
+});
 
-      const submitBtn = inquiryFormElem.querySelector('button[type="submit"]');
-      const originalLabel = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'SENDING...';
+document.getElementById("inquiryForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  submitToScript(
+    e.currentTarget,
+    "inquiry",
+    document.getElementById("inquiryStatus"),
+    document.getElementById("inquirySubmit")
+  );
+});
+</script>
 
-      helpAlert.className = 'feedback-alert';
-      helpAlert.style.display = 'none';
-
-      const fd = new FormData(inquiryFormElem);
-      const inquiryData = {
-        formType: "GENERAL_INQUIRY",[span_17](start_span)[span_17](end_span)
-        type: "GENERAL_INQUIRY",[span_18](start_span)[span_18](end_span)
-        name: fd.get("name"),[span_19](start_span)[span_19](end_span)
-        mobile: fd.get("mobile"),[span_20](start_span)[span_20](end_span)
-        phone: fd.get("mobile"),
-        email: fd.get("email") || "Not Provided",
-        inquiryType: fd.get("inquiryType"),[span_21](start_span)[span_21](end_span)
-        message: fd.get("message"),[span_22](start_span)[span_22](end_span)
-        eventType: "",[span_23](start_span)[span_23](end_span)
-        eventDate: "",[span_24](start_span)[span_24](end_span)
-        guests: "",[span_25](start_span)[span_25](end_span)
-        eventLocation: "",[span_26](start_span)[span_26](end_span)
-        service: "",[span_27](start_span)[span_27](end_span)
-        preferredContact: "[span_28](start_span)"[span_28](end_span)
-      };
-
-      try {
-        await dispatchPayloadToWebhook(inquiryData);
-        helpAlert.className = 'feedback-alert success';
-        helpAlert.textContent = 'Thank you! Your inquiry has been sent successfully.';
-        inquiryFormElem.reset();
-      } catch (err) {
-        helpAlert.className = 'feedback-alert error';
-        helpAlert.textContent = 'Could not send message. Please contact us via WhatsApp.';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      }
-    });
-
-    /* ==========================================================================
-       3. PORTFOLIO FILTERING
-       ========================================================================== */
-    const filterButtons = document.querySelectorAll('.filter-pill');
-    const galleryItems = document.querySelectorAll('.gallery-frame');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const activeCategory = btn.getAttribute('data-filter');
-
-        galleryItems.forEach(item => {
-          const itemCat = item.getAttribute('data-category');
-          if (activeCategory === 'all' || itemCat === activeCategory) {
-            item.classList.remove('is-hidden');
-          } else {
-            item.classList.add('is-hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================================
-       4. LIGHTBOX PREVIEW
-       ========================================================================== */
-    const modalViewer = document.getElementById('lightboxModalViewer');
-    const activePhoto = document.getElementById('lightboxActivePhoto');
-
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        if (img) {
-          activePhoto.src = img.src;
-          modalViewer.classList.add('is-active');
-        }
-      });
-    });
-
-    function dismissLightboxModal(e) {
-      if (e.target !== activePhoto) {
-        modalViewer.classList.remove('is-active');
-      }
-    }
-
-    /* ==========================================================================
-       5. MOBILE NAVIGATION TOGGLE
-       ========================================================================== */
-    const menuToggleBtn = document.getElementById('menuToggleBtn');
-    const navMenuList = document.getElementById('navMenuList');
-
-    menuToggleBtn.addEventListener('click', () => {
-      navMenuList.classList.toggle('is-active');
-    });
-
-    function hideNav() {
-      if (navMenuList.classList.contains('is-active')) {
-        navMenuList.classList.remove('is-active');
-      }
-    }
-
-    // Set Copyright Year
-    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
