@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shashi Photography Studio | Agra</title>
+<title>Shashi Photography Studio | Wedding & Cinematic Photography</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
@@ -17,10 +17,7 @@
     --muted:#77726a;
     --line:#ded7ca;
     --accent:#9a7b4f;
-    --success:#e8f6ea;
-    --success-text:#28733a;
-    --error:#fce9e9;
-    --error-text:#a12626;
+    --accent-light:#c8b28d;
 }
 
 *{
@@ -31,6 +28,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:90px;
 }
 
 body{
@@ -50,21 +48,21 @@ a{
     text-decoration:none;
 }
 
-button,
-input,
-textarea,
-select{
+button{
     font-family:inherit;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     position:sticky;
     top:0;
-    z-index:999;
-    background:rgba(247,243,235,.96);
-    backdrop-filter:blur(12px);
+    z-index:9999;
+    background:rgba(247,243,235,.94);
+    backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
 }
 
@@ -88,12 +86,13 @@ header{
 .nav{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:25px;
 }
 
 .nav a{
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
+    transition:.3s;
 }
 
 .nav a:hover{
@@ -107,16 +106,24 @@ header{
     border-radius:25px;
 }
 
+.book-btn:hover{
+    background:var(--accent);
+}
+
 .menu{
     display:none;
     border:1px solid var(--line);
     background:transparent;
     padding:7px 12px;
-    font-size:22px;
-    border-radius:6px;
+    font-size:21px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:calc(100vh - 82px);
@@ -124,13 +131,13 @@ header{
     display:flex;
     align-items:center;
 
-    padding:70px 20px;
+    padding:80px 20px;
 
     background:
     linear-gradient(
         90deg,
-        rgba(247,243,235,.96),
-        rgba(247,243,235,.82),
+        rgba(247,243,235,.97),
+        rgba(247,243,235,.84),
         rgba(247,243,235,.25)
     ),
     url("6B1A6378 (6).jpg") center/cover no-repeat;
@@ -143,12 +150,12 @@ header{
 }
 
 .hero-content{
-    max-width:700px;
+    max-width:680px;
     animation:fadeUp 1s ease both;
 }
 
 .label{
-    font-size:12px;
+    font-size:11px;
     letter-spacing:3px;
     text-transform:uppercase;
     color:var(--accent);
@@ -159,7 +166,7 @@ header{
 .hero h1{
     font-family:'Playfair Display',serif;
     font-size:clamp(48px,7vw,82px);
-    line-height:1.05;
+    line-height:1.04;
     font-weight:600;
     margin-bottom:25px;
 }
@@ -178,6 +185,7 @@ header{
 
 .hero-buttons{
     display:flex;
+    align-items:center;
     gap:12px;
     flex-wrap:wrap;
 }
@@ -191,8 +199,6 @@ header{
     font-size:13px;
     font-weight:700;
     transition:.3s;
-    border:0;
-    cursor:pointer;
 }
 
 .primary-btn:hover{
@@ -202,9 +208,8 @@ header{
 
 .secondary-btn{
     display:inline-block;
-    background:rgba(255,253,248,.8);
+    border:1px solid var(--black);
     color:var(--black);
-    border:1px solid var(--line);
     padding:13px 25px;
     border-radius:4px;
     font-size:13px;
@@ -213,11 +218,14 @@ header{
 }
 
 .secondary-btn:hover{
-    border-color:var(--accent);
-    color:var(--accent);
+    background:var(--black);
+    color:white;
 }
 
-/* ================= COMMON ================= */
+
+/* =====================================================
+   COMMON
+===================================================== */
 
 section{
     padding:95px 20px;
@@ -241,7 +249,7 @@ section{
     color:var(--accent);
     text-transform:uppercase;
     letter-spacing:3px;
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
 }
 
@@ -252,7 +260,7 @@ section{
     margin-top:10px;
 }
 
-.gold{
+.section-head h2 span{
     color:var(--accent);
 }
 
@@ -268,7 +276,83 @@ section{
     margin-right:auto;
 }
 
-/* ================= ABOUT ================= */
+
+/* =====================================================
+   PORTFOLIO
+===================================================== */
+
+.portfolio{
+    background:var(--cream);
+}
+
+.category-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.category-btn{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--black);
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:13px;
+    transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:var(--black);
+    color:white;
+    border-color:var(--black);
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.photo{
+    background:var(--white);
+    border:1px solid var(--line);
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    transition:.6s ease;
+}
+
+.photo:hover img{
+    transform:scale(1.035);
+}
+
+.photo-info{
+    padding:16px 18px;
+}
+
+.photo-info h3{
+    font-size:16px;
+    font-weight:600;
+}
+
+.photo-info p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
 
 .about{
     background:var(--white);
@@ -319,7 +403,7 @@ section{
 
 .experience strong{
     font-family:'Playfair Display',serif;
-    font-size:48px;
+    font-size:52px;
     color:var(--accent);
 }
 
@@ -328,81 +412,13 @@ section{
     color:var(--muted);
 }
 
-/* ================= PORTFOLIO ================= */
 
-.portfolio{
-    background:var(--cream);
-}
-
-.category-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:35px;
-}
-
-.category-btn{
-    border:1px solid var(--line);
-    background:transparent;
-    color:var(--black);
-    padding:10px 20px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:13px;
-    transition:.3s;
-}
-
-.category-btn:hover,
-.category-btn.active{
-    background:var(--black);
-    color:white;
-    border-color:var(--black);
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}
-
-.photo{
-    background:var(--white);
-    border:1px solid var(--line);
-    overflow:hidden;
-    animation:fadeUp .6s ease both;
-}
-
-.photo img{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    transition:.6s ease;
-}
-
-.photo:hover img{
-    transform:scale(1.035);
-}
-
-.photo-info{
-    padding:15px 18px;
-}
-
-.photo-info h3{
-    font-size:16px;
-    font-weight:600;
-}
-
-.photo-info p{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:4px;
-}
-
-/* ================= SERVICES ================= */
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services{
-    background:var(--white);
+    background:var(--cream);
 }
 
 .service-grid{
@@ -413,14 +429,15 @@ section{
 
 .service{
     padding:32px 25px;
-    background:var(--cream);
+    background:var(--white);
     border:1px solid var(--line);
-    transition:.3s;
+    transition:.35s;
 }
 
 .service:hover{
-    transform:translateY(-5px);
-    border-color:#c5b28f;
+    transform:translateY(-6px);
+    border-color:var(--accent-light);
+    box-shadow:0 15px 35px rgba(36,34,31,.07);
 }
 
 .service span{
@@ -441,7 +458,73 @@ section{
     font-size:14px;
 }
 
-/* ================= WHY ================= */
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.process{
+    background:var(--white);
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    position:relative;
+}
+
+.process-card{
+    position:relative;
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:30px 20px;
+    text-align:center;
+    transition:.35s;
+}
+
+.process-card:hover{
+    transform:translateY(-7px);
+    border-color:var(--accent-light);
+    box-shadow:0 15px 30px rgba(36,34,31,.07);
+}
+
+.process-number{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:var(--black);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    transition:.35s;
+}
+
+.process-card:hover .process-number{
+    background:var(--accent);
+    transform:rotate(8deg) scale(1.08);
+}
+
+.process-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.process-card p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   WHY
+===================================================== */
 
 .why{
     background:var(--cream-dark);
@@ -457,6 +540,11 @@ section{
     background:var(--white);
     padding:28px;
     border:1px solid var(--line);
+    transition:.3s;
+}
+
+.why-card:hover{
+    transform:translateY(-5px);
 }
 
 .why-card h3{
@@ -471,7 +559,10 @@ section{
     font-size:14px;
 }
 
-/* ================= BOOK CTA ================= */
+
+/* =====================================================
+   BOOK EVENT
+===================================================== */
 
 .book-event{
     background:var(--black);
@@ -491,122 +582,130 @@ section{
     line-height:1.7;
 }
 
-/* ================= BOOKING ================= */
-
-.booking{
-    background:var(--cream);
-}
-
-.form-box{
-    max-width:850px;
-    margin:auto;
-    background:var(--white);
-    padding:35px;
-    border:1px solid var(--line);
-    box-shadow:0 15px 45px rgba(36,34,31,.06);
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.form-group{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-}
-
-.form-group.full{
-    grid-column:1/-1;
-}
-
-.form-group label{
-    font-size:12px;
-    font-weight:700;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid var(--line);
-    background:var(--cream);
-    padding:14px 15px;
-    border-radius:5px;
-    font-size:14px;
+.book-event .primary-btn{
+    background:white;
     color:var(--black);
-    outline:none;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:var(--accent);
+.book-event .primary-btn:hover{
+    background:var(--accent);
+    color:white;
 }
 
-.form-group textarea{
-    min-height:130px;
-    resize:vertical;
-}
 
-.form-note{
-    color:var(--muted);
-    font-size:12px;
-    margin:0 0 20px;
-}
-
-.submit-row{
-    margin-top:22px;
-}
-
-.submit-row button{
-    width:100%;
-}
-
-.form-status{
-    display:none;
-    padding:13px 15px;
-    margin-top:16px;
-    border-radius:5px;
-    font-size:13px;
-    text-align:center;
-}
-
-.form-status.success{
-    display:block;
-    background:var(--success);
-    color:var(--success-text);
-}
-
-.form-status.error{
-    display:block;
-    background:var(--error);
-    color:var(--error-text);
-}
-
-/* ================= ENQUIRY ================= */
+/* =====================================================
+   ENQUIRY
+===================================================== */
 
 .enquiry{
     background:var(--white);
 }
 
-/* ================= CONTACT ================= */
+.enquiry-box{
+    max-width:800px;
+    margin:auto;
+}
+
+.form{
+    display:grid;
+    gap:16px;
+}
+
+.form input,
+.form textarea{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--cream);
+    padding:15px 16px;
+    border-radius:4px;
+    font-family:inherit;
+    font-size:14px;
+    color:var(--black);
+    outline:none;
+    transition:.3s;
+}
+
+.form input:focus,
+.form textarea:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(154,123,79,.08);
+}
+
+.form textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.form button{
+    border:0;
+    cursor:pointer;
+    width:max-content;
+}
+
+.form-status{
+    display:none;
+    padding:14px 16px;
+    background:#e8f6e8;
+    color:#34723c;
+    border-radius:6px;
+    font-size:14px;
+    text-align:center;
+}
+
+.form-status.show{
+    display:block;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact{
     background:var(--cream);
 }
 
-.contact-grid{
+.contact-layout{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1.15fr .85fr;
     gap:60px;
+    align-items:start;
+}
+
+.contact-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(45px,6vw,65px);
+    line-height:1.05;
+    margin:12px 0 18px;
+}
+
+.contact-title h2 span{
+    color:var(--accent);
+}
+
+.contact-title > p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:600px;
+}
+
+.contact-info{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:25px;
 }
 
 .contact-item{
     padding:20px 0;
     border-bottom:1px solid var(--line);
+}
+
+.contact-item:first-child{
+    padding-top:5px;
+}
+
+.contact-item:last-child{
+    border-bottom:0;
 }
 
 .contact-item small{
@@ -616,13 +715,14 @@ section{
     letter-spacing:2px;
     font-size:10px;
     font-weight:700;
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
 
 .contact-item a,
 .contact-item p{
     color:var(--black);
     font-size:15px;
+    line-height:1.7;
     word-break:break-word;
 }
 
@@ -630,64 +730,161 @@ section{
     color:var(--accent);
 }
 
-.socials{
+.contact-actions{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
     margin-top:25px;
 }
 
-.social{
+.contact-action{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 17px;
     border:1px solid var(--line);
-    padding:10px 16px;
     border-radius:25px;
     font-size:13px;
+    background:var(--white);
     transition:.3s;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
 }
 
-.social svg{
-    width:17px;
-    height:17px;
-}
-
-.social:hover{
+.contact-action:hover{
     background:var(--black);
     color:white;
+    transform:translateY(-2px);
 }
 
-.map-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:22px;
+
+/* =====================================================
+   SOCIAL MEDIA
+===================================================== */
+
+.social-section{
+    background:var(--white);
+    text-align:center;
 }
 
-/* ================= FOOTER ================= */
+.social-section h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(38px,5vw,55px);
+    margin-top:10px;
+}
+
+.social-section p{
+    color:var(--muted);
+    margin:14px auto 30px;
+    max-width:580px;
+    line-height:1.7;
+}
+
+.social-grid{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.social-card{
+    min-width:170px;
+    padding:18px 25px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    border-radius:8px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.social-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:3px;
+    background:var(--accent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s;
+}
+
+.social-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(36,34,31,.08);
+}
+
+.social-card:hover::before{
+    transform:scaleX(1);
+}
+
+.social-icon{
+    font-size:22px;
+    margin-bottom:7px;
+}
+
+.social-card strong{
+    display:block;
+    font-size:14px;
+}
+
+.social-card span{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     background:#1d1b19;
     color:#aaa;
     text-align:center;
-    padding:28px 20px;
+    padding:30px 20px;
     font-size:12px;
 }
 
-/* ================= FLOATING CONTACT ================= */
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
 
-.floating-contact{
+.footer-links a{
+    color:#ddd;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--accent-light);
+}
+
+
+/* =====================================================
+   FLOATING SOCIAL BAR
+===================================================== */
+
+.floating-socials{
     position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:900;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:8000;
 
-    width:55px;
-    height:55px;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
 
-    background:#25D366;
-    color:white;
+.float-social{
+    width:48px;
+    height:48px;
 
     border-radius:50%;
 
@@ -695,21 +892,75 @@ footer{
     align-items:center;
     justify-content:center;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
+    background:var(--black);
+    color:white;
 
-    transition:.3s;
+    font-size:17px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.16);
+
+    transition:.35s;
+
+    position:relative;
 }
 
-.floating-contact svg{
-    width:27px;
-    height:27px;
+.float-social:hover{
+    transform:scale(1.12) translateX(-3px);
+    background:var(--accent);
 }
 
-.floating-contact:hover{
-    transform:scale(1.08);
+.float-social::after{
+    content:attr(data-label);
+
+    position:absolute;
+    right:58px;
+    top:50%;
+    transform:translateY(-50%);
+
+    background:var(--black);
+    color:white;
+
+    padding:7px 11px;
+    border-radius:5px;
+
+    font-size:11px;
+    white-space:nowrap;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.25s;
 }
 
-/* ================= ANIMATIONS ================= */
+.float-social:hover::after{
+    opacity:1;
+}
+
+.float-social.instagram{
+    animation:floatPulse 3s infinite;
+}
+
+.float-social.whatsapp{
+    animation:floatPulse 3s .7s infinite;
+}
+
+.float-social.facebook{
+    animation:floatPulse 3s 1.4s infinite;
+}
+
+@keyframes floatPulse{
+    0%,100%{
+        box-shadow:0 8px 25px rgba(0,0,0,.16);
+    }
+    50%{
+        box-shadow:0 8px 30px rgba(154,123,79,.35);
+    }
+}
+
+
+/* =====================================================
+   SCROLL ANIMATIONS
+===================================================== */
 
 @keyframes fadeUp{
     from{
@@ -733,7 +984,26 @@ footer{
     transform:translateY(0);
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .process-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .process-card:last-child{
+        grid-column:2;
+    }
+
+    .contact-layout{
+        grid-template-columns:1fr;
+    }
+}
+
 
 @media(max-width:850px){
 
@@ -789,11 +1059,6 @@ footer{
         font-size:15px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
     .about-grid{
         grid-template-columns:1fr;
         gap:45px;
@@ -816,23 +1081,29 @@ footer{
         height:340px;
     }
 
-    .contact-grid{
-        grid-template-columns:1fr;
-        gap:35px;
-    }
-
-    .form-grid{
+    .process-grid{
         grid-template-columns:1fr;
     }
 
-    .form-group.full{
+    .process-card:last-child{
         grid-column:auto;
     }
 
-    .form-box{
-        padding:23px 18px;
+    .floating-socials{
+        right:10px;
+    }
+
+    .float-social{
+        width:43px;
+        height:43px;
+        font-size:15px;
+    }
+
+    .float-social::after{
+        display:none;
     }
 }
+
 
 @media(max-width:500px){
 
@@ -859,6 +1130,16 @@ footer{
         url("6B1A6378 (6).jpg") center/cover no-repeat;
     }
 
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        text-align:center;
+    }
+
     .about-image img{
         height:390px;
     }
@@ -878,19 +1159,41 @@ footer{
         flex:0 0 auto;
     }
 
-    .floating-contact{
-        right:15px;
-        bottom:15px;
-        width:50px;
-        height:50px;
+    .contact-info{
+        padding:18px;
+    }
+
+    .contact-actions{
+        flex-direction:column;
+    }
+
+    .contact-action{
+        justify-content:center;
+    }
+
+    .social-card{
+        width:100%;
+    }
+
+    .floating-socials{
+        right:8px;
+    }
+
+    .float-social{
+        width:40px;
+        height:40px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -903,18 +1206,26 @@ class="logo"
 alt="Shashi Photography Studio">
 </a>
 
-<button class="menu" onclick="toggleMenu()" aria-label="Open menu">
+<button
+class="menu"
+onclick="toggleMenu()"
+aria-label="Open menu">
 ☰
 </button>
 
 <nav class="nav" id="nav">
 
-<a href="#about">About</a>
 <a href="#portfolio">Portfolio</a>
+
+<a href="#about">About</a>
+
 <a href="#services">Services</a>
+
+<a href="#process">Process</a>
+
 <a href="#contact">Contact</a>
 
-<a href="#booking" class="book-btn">
+<a href="#book" class="book-btn">
 Book Event
 </a>
 
@@ -925,386 +1236,12 @@ Book Event
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
 <div class="hero-inner">
 
-<div class="hero-content">
-
-<div class="label">
-Shashi Photography Studio
-</div>
-
-<h1>
-Your moments.<br>
-<span>Beautifully</span> remembered.
-</h1>
-
-<p>
-Wedding, candid, portrait and cinematic photography
-for moments that deserve to be remembered forever.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#portfolio" class="primary-btn">
-Explore Portfolio
-</a>
-
-<a href="#booking" class="secondary-btn">
-Book Your Event
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="about" id="about">
-
-<div class="container">
-
-<div class="section-head center">
-
-<small>About Studio</small>
-
-<h2>
-A simple approach to
-beautiful photography.
-</h2>
-
-<p>
-Professional photography with a focus on quality,
-natural emotions and a comfortable experience.
-</p>
-
-</div>
-
-
-<div class="about-grid reveal">
-
-<div class="about-image">
-
-<img
-src="6B1A6378 (8).jpg"
-alt="Shashi Photography">
-
-</div>
-
-
-<div class="about-text">
-
-<p>
-Welcome to <strong>Shashi Photography Studio</strong>,
-based in Jaitpur Kalan, Bah, Agra, Uttar Pradesh.
-</p>
-
-<p>
-With more than <strong>5 years of experience</strong>,
-we capture weddings, candid moments, portraits,
-pre-weddings and cinematic stories with a clean,
-creative and professional approach.
-</p>
-
-<p>
-Our priority is simple — high-quality work,
-good communication, respectful behaviour and
-photographs that feel special even years later.
-</p>
-
-<p>
-We provide services across nearby locations
-within approximately <strong>120 km</strong>.
-</p>
-
-<div class="experience">
-
-<strong>5+</strong>
-
-<span>
-Years of experience<br>
-in photography & visual storytelling
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= PORTFOLIO ================= -->
-
-<section class="portfolio" id="portfolio">
-
-<div class="container">
-
-<div class="section-head center">
-
-<small>Selected Work</small>
-
-<h2>
-Our <span class="gold">Portfolio</span>
-</h2>
-
-<p>
-Choose a category to explore the type of photography
-you are looking for.
-</p>
-
-</div>
-
-
-<div class="category-buttons">
-
-<button class="category-btn active"
-onclick="filterPhotos('all',this)">
-All
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('candid',this)">
-Candid
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('portrait',this)">
-Portrait
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('wedding',this)">
-Wedding
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('prewedding',this)">
-Pre-Wedding
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('cinematic',this)">
-Cinematic
-</button>
-
-</div>
-
-
-<div class="gallery" id="gallery">
-
-
-<div class="photo reveal" data-category="candid">
-
-<img
-src="6B1A6378 (8).jpg"
-alt="Candid Photography">
-
-<div class="photo-info">
-
-<h3>Candid Photography</h3>
-
-<p>
-Natural emotions & real moments
-</p>
-
-</div>
-
-</div>
-
-
-<div class="photo reveal" data-category="wedding">
-
-<img
-src="6B1A6378 (6).jpg"
-alt="Wedding Photography">
-
-<div class="photo-info">
-
-<h3>Wedding Photography</h3>
-
-<p>
-Beautiful wedding memories
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section class="services" id="services">
-
-<div class="container">
-
-<div class="section-head center">
-
-<small>What We Do</small>
-
-<h2>
-Our <span class="gold">Services</span>
-</h2>
-
-<p>
-Photography and cinematic services for your important occasions.
-</p>
-
-</div>
-
-
-<div class="service-grid">
-
-<div class="service reveal">
-<span>01</span>
-<h3>Wedding Photography</h3>
-<p>
-Complete wedding photography covering emotions,
-rituals, family moments and celebrations.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>02</span>
-<h3>Candid Photography</h3>
-<p>
-Natural photographs that capture genuine emotions
-without making every moment feel posed.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>03</span>
-<h3>Portrait Photography</h3>
-<p>
-Clean and professional portraits designed around
-your personality and style.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>04</span>
-<h3>Pre-Wedding</h3>
-<p>
-Creative pre-wedding photography with locations,
-concepts and moments planned around your story.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>05</span>
-<h3>Cinematic Photography</h3>
-<p>
-Stylish photographs with a cinematic visual
-approach and professional editing.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>06</span>
-<h3>Cinematic Videos & Reels</h3>
-<p>
-Cinematic films and modern reels created to
-bring your special moments back to life.
-</p>
-</div>
-
-
-<div class="service reveal">
-<span>07</span>
-<h3>Premium Albums</h3>
-<p>
-High-quality albums designed according to
-your choice and requirements.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= WHY ================= -->
-
-<section class="why">
-
-<div class="container">
-
-<div class="section-head center">
-
-<small>Why Shashi Photography</small>
-
-<h2>
-Quality that goes beyond
-the <span class="gold">camera.</span>
-</h2>
-
-</div>
-
-
-<div class="why-grid">
-
-<div class="why-card reveal">
-<h3>5+ Years Experience</h3>
-<p>
-Experience that helps us understand moments,
-people and the details that matter.
-</p>
-</div>
-
-
-<div class="why-card reveal">
-<h3>High Quality Work</h3>
-<p>
-Professional photography, editing, cinematic
-videos and premium albums.
-</p>
-</div>
-
-
-<div class="why-card reveal">
-<h3>Friendly Behaviour</h3>
-<p>
-A comfortable and respectful experience
-throughout your shoot.
-</p>
-</div>
-
-
-<div class="why-card reveal">
-<h3>Customer's Choice</h3>
-<p>
-We listen to your requirements and create
-the work according to your preferences.
-</p>
-</div>
-
-
-<div class="why-card reveal">
-<h3>Creative Approach</h3>
-<p>
+<div class="her
