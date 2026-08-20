@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shashi Photography Studio — Wedding, candid, portrait, pre-wedding and cinematic photography in Agra.">
+<title>Shashi Photography Studio | Agra</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --cream:#f7f3eb;
+  --cream-dark:#eee8dc;
+  --white:#fffdf8;
+  --black:#24221f;
+  --muted:#77726a;
+  --line:#ded7ca;
+  --accent:#9a7b4f;
+  --accent-dark:#7e633d;
+  --green:#25d366;
+  --shadow:0 18px 55px rgba(36,34,31,.09);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);color:var(--black);
+  font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden;
+}
+body.modal-open{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(247,243,235,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.navbar{
+  width:92%;max-width:1250px;min-height:82px;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{width:180px;max-height:62px;object-fit:contain}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:13px;font-weight:700}
+.nav a:hover{color:var(--accent)}
+.nav .book-btn{padding:11px 20px;background:var(--black);color:#fff!important;border-radius:25px}
+.menu{
+  display:none;border:1px solid var(--line);background:transparent;
+  padding:7px 12px;font-size:22px;border-radius:7px
+}
+
+.hero{
+  min-height:calc(100vh - 82px);display:flex;align-items:center;
+  padding:70px 20px;
+  background:
+    linear-gradient(90deg,rgba(247,243,235,.96),rgba(247,243,235,.82),rgba(247,243,235,.23)),
+    url("6B1A6378 (6).jpg") center/cover no-repeat;
+}
+.hero-inner{width:92%;max-width:1250px;margin:auto}
+.hero-content{max-width:700px;animation:fadeUp 1s ease both}
+.label{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:18px
+}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,82px);
+  line-height:1.05;font-weight:600;margin-bottom:25px
+}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);font-size:17px;line-height:1.8;max-width:620px;margin-bottom:30px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.primary-btn,.secondary-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:13px 25px;border-radius:5px;
+  font-size:13px;font-weight:700;transition:.25s;border:1px solid transparent
+}
+.primary-btn{background:var(--black);color:#fff}
+.primary-btn:hover{background:#4a4742;transform:translateY(-2px)}
+.secondary-btn{background:rgba(255,253,248,.82);border-color:var(--line)}
+.secondary-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+section{padding:95px 20px}
+.container{width:92%;max-width:1150px;margin:auto}
+.section-head{margin-bottom:55px}
+.section-head.center{text-align:center}
+.section-head small{
+  color:var(--accent);text-transform:uppercase;letter-spacing:3px;
+  font-size:11px;font-weight:700
+}
+.section-head h2{
+  font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,55px);
+  line-height:1.1;margin-top:10px
+}
+.gold{color:var(--accent)}
+.section-head p{color:var(--muted);max-width:620px;line-height:1.7;margin:14px auto 0}
+
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-image{position:relative}
+.about-image::after{
+  content:"";position:absolute;left:18px;top:18px;width:100%;height:100%;
+  border:1px solid var(--line);z-index:0
+}
+.about-image img{position:relative;z-index:1;width:100%;height:560px;object-fit:cover}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:18px}
+.experience{display:flex;align-items:center;gap:15px;margin-top:28px}
+.experience strong{font-family:'Playfair Display',serif;font-size:48px;color:var(--accent)}
+.experience span{font-size:13px;color:var(--muted)}
+
+.portfolio{background:var(--cream)}
+.category-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:35px}
+.category-btn{
+  border:1px solid var(--line);background:transparent;color:var(--black);
+  padding:10px 20px;border-radius:25px;font-size:13px;transition:.25s
+}
+.category-btn:hover,.category-btn.active{background:var(--black);color:#fff;border-color:var(--black)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.photo{background:var(--white);border:1px solid var(--line);overflow:hidden}
+.photo img{width:100%;height:430px;object-fit:cover;transition:.6s}
+.photo:hover img{transform:scale(1.035)}
+.photo-info{padding:15px 18px}
+.photo-info h3{font-size:16px;font-weight:600}
+.photo-info p{font-size:12px;color:var(--muted);margin-top:4px}
+
+.services{background:var(--white)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{
+  padding:32px 25px;background:var(--cream);border:1px solid var(--line);transition:.3s
+}
+.service:hover{transform:translateY(-5px);border-color:#c5b28f}
+.service span{color:var(--accent);font-size:12px;font-weight:700}
+.service h3{font-family:'Playfair Display',serif;font-size:25px;margin:12px 0}
+.service p{color:var(--muted);line-height:1.7;font-size:14px}
+
+.why{background:var(--cream-dark)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:var(--white);padding:28px;border:1px solid var(--line)}
+.why-card h3{font-family:'Playfair Display',serif;font-size:23px;margin-bottom:10px}
+.why-card p{color:var(--muted);line-height:1.7;font-size:14px}
+
+.book-cta{background:var(--black);color:#fff;text-align:center}
+.book-cta h2{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,60px)}
+.book-cta p{color:#bbb;max-width:600px;margin:15px auto 28px;line-height:1.7}
+
+.booking{
+  background:var(--cream);
+  scroll-margin-top:90px;
+}
+.form-box{
+  max-width:900px;margin:auto;background:var(--white);padding:35px;
+  border:1px solid var(--line);box-shadow:var(--shadow);border-radius:10px
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:12px;font-weight:700}
+.form-group label span{color:var(--accent)}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;border:1px solid var(--line);background:var(--cream);
+  padding:14px 15px;border-radius:5px;font-size:14px;color:var(--black);outline:none
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-note{color:var(--muted);font-size:12px;margin:0 0 20px;line-height:1.6}
+.submit-row{margin-top:22px}
+.submit-row button{width:100%}
+.form-status{
+  display:none;padding:13px 15px;margin-top:16px;border-radius:5px;
+  font-size:13px;text-align:center;line-height:1.5
+}
+.form-status.success{display:block;background:#e8f6ea;color:#28733a}
+.form-status.error{display:block;background:#fce9e9;color:#a12626}
+
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-item{padding:20px 0;border-bottom:1px solid var(--line)}
+.contact-item small{
+  display:block;color:var(--accent);text-transform:uppercase;letter-spacing:2px;
+  font-size:10px;font-weight:700;margin-bottom:7px
+}
+.contact-item a,.contact-item p{color:var(--black);font-size:15px;word-break:break-word}
+.contact-item a:hover{color:var(--accent)}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.social{
+  border:1px solid var(--line);padding:10px 16px;border-radius:25px;
+  font-size:13px;transition:.3s;display:inline-flex;align-items:center;gap:8px
+}
+.social:hover{background:var(--black);color:#fff}
+.social svg{width:17px;height:17px;display:block}
+.map-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin-top:22px;
+  min-height:48px;
+  padding:13px 20px;
+  width:auto;
+  max-width:100%;
+  color:#fff !important;
+  background:var(--black) !important;
+  border:1px solid var(--black);
+  border-radius:6px;
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.2;
+  font-size:13px;
+  font-weight:700;
+}
+.map-btn svg{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  display:block;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.map-btn:hover{
+  background:var(--accent) !important;
+  border-color:var(--accent);
+  color:#fff !important;
+  transform:translateY(-2px);
+}
+
+.help{
+  background:var(--white);
+  padding:58px 20px 70px;
+  scroll-margin-top:90px
+}
+.help-box{
+  max-width:760px;margin:auto;border:1px solid var(--line);
+  background:var(--cream);padding:28px;border-radius:10px
+}
+.help-box .form-grid{gap:14px}
+.help-box textarea{min-height:95px}
+.help-intro{text-align:center;margin-bottom:25px}
+.help-intro h2{font-family:'Playfair Display',serif;font-size:34px}
+.help-intro p{color:var(--muted);font-size:13px;margin-top:8px}
+
+footer{background:#1d1b19;color:#aaa;text-align:center;padding:28px 20px;font-size:12px}
+
+.floating-contact{
+  position:fixed;right:20px;bottom:20px;z-index:900;width:56px;height:56px;
+  background:var(--green);color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.18);transition:.3s
+}
+.floating-contact:hover{transform:scale(1.08)}
+.floating-contact svg{width:28px;height:28px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);
+  background:var(--black);color:#fff;padding:13px 18px;border-radius:7px;
+  font-size:13px;z-index:3000;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:var(--shadow);text-align:center;max-width:90%
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:850px){
+  .navbar{min-height:72px}
+  .logo{width:155px}
+  .menu{display:block}
+  .nav{
+    display:none;position:absolute;top:72px;left:0;width:100%;
+    background:var(--cream);border-bottom:1px solid var(--line);
+    padding:18px 20px;flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav.show{display:flex}
+  .nav a{padding:12px;text-align:center}
+  .nav .book-btn{text-align:center}
+  .hero{min-height:78vh;padding:60px 15px}
+  .hero h1{font-size:46px}
+  .hero p{font-size:15px}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+  .about-grid{grid-template-columns:1fr;gap:45px}
+  .about-image img{height:450px}
+  .service-grid,.why-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .photo img{height:340px}
+  .contact-grid{grid-template-columns:1fr;gap:35px}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+  .form-box{padding:23px 18px}
+}
+@media(max-width:500px){
+  .map-btn{
+    width:100%;
+    max-width:350px;
+    min-height:50px;
+  }
+
+  section{padding:70px 15px}
+  .container,.navbar,.hero-inner{width:94%}
+  .hero h1{font-size:39px}
+  .hero{
+    background:
+      linear-gradient(rgba(247,243,235,.9),rgba(247,243,235,.75)),
+      url("6B1A6378 (6).jpg") center/cover no-repeat
+  }
+  .about-image img{height:390px}
+  .photo img{height:300px}
+  .category-buttons{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px}
+  .category-btn{flex:0 0 auto}
+  .floating-contact{right:15px;bottom:15px;width:50px;height:50px}
+  .help{padding-top:48px}
+  .help-box{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home">
+      <img src="file_00000000df7081faa3dba0a19cc8946c.png" class="logo" alt="Shashi Photography Studio">
+    </a>
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking" class="book-btn">Book Event</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="label">Shashi Photography Studio</div>
+      <h1>Your moments.<br><span>Beautifully</span> remembered.</h1>
+      <p>Wedding, candid, portrait and cinematic photography for moments that deserve to be remembered forever.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="primary-btn">Explore Portfolio</a>
+        <a href="#booking" class="secondary-btn">Book Your Event</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head center">
+      <small>About Studio</small>
+      <h2>A simple approach to beautiful photography.</h2>
+      <p>Professional photography with a focus on quality, natural emotions and a comfortable experience.</p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-image">
+        <img src="6B1A6378 (8).jpg" alt="Shashi Photography">
+      </div>
+      <div class="about-text">
+        <p>Welcome to <strong>Shashi Photography Studio</strong>, based in Jaitpur Kalan, Bah, Agra, Uttar Pradesh.</p>
+        <p>With more than <strong>5 years of experience</strong>, we capture weddings, candid moments, portraits, pre-weddings and cinematic stories with a clean, creative and professional approach.</p>
+        <p>Our priority is simple — high-quality work, good communication, respectful behaviour and photographs that feel special even years later.</p>
+        <p>We provide services across nearby locations within approximately <strong>120 km</strong>.</p>
+        <div class="experience"><strong>5+</strong><span>Years of experience<br>in photography & visual storytelling</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-head center">
+      <small>Selected Work</small>
+      <h2>Our <span class="gold">Portfolio</span></h2>
+      <p>Choose a category to explore the type of photography you are looking for.</p>
+    </div>
+    <div class="category-buttons">
+      <button class="category-btn active" onclick="filterPhotos('all',this)">All</button>
+      <button class="category-btn" onclick="filterPhotos('candid',this)">Candid</button>
+      <button class="category-btn" onclick="filterPhotos('portrait',this)">Portrait</button>
+      <button class="category-btn" onclick="filterPhotos('wedding',this)">Wedding</button>
+      <button class="category-btn" onclick="filterPhotos('prewedding',this)">Pre-Wedding</button>
+      <button class="category-btn" onclick="filterPhotos('cinematic',this)">Cinematic</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <div class="photo reveal" data-category="candid">
+        <img src="6B1A6378 (8).jpg" alt="Candid Photography">
+        <div class="photo-info"><h3>Candid Photography</h3><p>Natural emotions & real moments</p></div>
+      </div>
+      <div class="photo reveal" data-category="wedding">
+        <img src="6B1A6378 (6).jpg" alt="Wedding Photography">
+        <div class="photo-info"><h3>Wedding Photography</h3><p>Beautiful wedding memories</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <small>What We Do</small>
+      <h2>Our <span class="gold">Services</span></h2>
+      <p>Photography and cinematic services for your important occasions.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service reveal"><span>01</span><h3>Wedding Photography</h3><p>Complete wedding photography covering emotions, rituals, family moments and celebrations.</p></div>
+      <div class="service reveal"><span>02</span><h3>Candid Photography</h3><p>Natural photographs that capture genuine emotions without making every moment feel posed.</p></div>
+      <div class="service reveal"><span>03</span><h3>Portrait Photography</h3><p>Clean and professional portraits designed around your personality and style.</p></div>
+      <div class="service reveal"><span>04</span><h3>Pre-Wedding</h3><p>Creative pre-wedding photography with locations, concepts and moments planned around your story.</p></div>
+      <div class="service reveal"><span>05</span><h3>Cinematic Photography</h3><p>Stylish photographs with a cinematic visual approach and professional editing.</p></div>
+      <div class="service reveal"><span>06</span><h3>Cinematic Videos & Reels</h3><p>Cinematic films and modern reels created to bring your special moments back to life.</p></div>
+      <div class="service reveal"><span>07</span><h3>Premium Albums</h3><p>High-quality albums designed according to your choice and requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="section-head center">
+      <small>Why Shashi Photography</small>
+      <h2>Quality that goes beyond the <span class="gold">camera.</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><h3>5+ Years Experience</h3><p>Experience that helps us understand moments, people and the details that matter.</p></div>
+      <div class="why-card reveal"><h3>High Quality Work</h3><p>Professional photography, editing, cinematic videos and premium albums.</p></div>
+      <div class="why-card reveal"><h3>Friendly Behaviour</h3><p>A comfortable and respectful experience throughout your shoot.</p></div>
+      <div class="why-card reveal"><h3>Customer's Choice</h3><p>We listen to your requirements and create the work according to your preferences.</p></div>
+      <div class="why-card reveal"><h3>Creative Approach</h3><p>A balance of natural moments and cinematic visual storytelling.</p></div>
+      <div class="why-card reveal"><h3>120 KM Service Area</h3><p>Based in Jaitpur Kalan, Bah, Agra and serving nearby locations within approximately 120 km.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book-cta">
+  <div class="container">
+    <h2>Planning your next event?</h2>
+    <p>Tell us your date and requirements. Let's discuss how we can capture your memories.</p>
+    <a href="#booking" class="primary-btn" style="background:#fff;color:#24221f">Book Your Event</a>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="section-head center">
+      <small>Event Booking</small>
+      <h2>Reserve your <span class="gold">date.</span></h2>
+      <p>Send your event details directly to the studio. This form is only for booking requests.</p>
+    </div>
+
+    <div class="form-box">
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Mobile <span>*</span></label>
+            <input name="phone" type="tel" inputmode="numeric" required placeholder="10-digit mobile number">
+          </div>
+
+          <div class="form-group">
+            <label>Event Type <span>*</span></label>
+            <select name="eventType" required>
+              <option value="">Select event</option>
+              <option>Wedding</option>
+              <option>Engagement</option>
+              <option>Pre-Wedding</option>
+              <option>Birthday / Party</option>
+              <option>Portrait Shoot</option>
+              <option>Cinematic Video / Reel</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Event Date <span>*</span></label>
+            <input name="eventDate" type="date" required>
+          </div>
+
+          <div class="form-group">
+            <label>Event Location <span>*</span></label>
+            <input name="location" required placeholder="City / venue">
+          </div>
+
+          <div class="form-group">
+            <label>Approx. Guests</label>
+            <select name="guests">
+              <option value="">Select</option>
+              <option>1–50</option>
+              <option>51–100</option>
+              <option>101–250</option>
+              <option>251–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Services Required <span>*</span></label>
+            <select name="services" required>
+              <option value="">Select main requirement</option>
+              <option>Wedding Photography</option>
+              <option>Candid Photography</option>
+              <option>Photo + Video</option>
+              <option>Pre-Wedding</option>
+              <option>Cinematic Film / Reels</option>
+              <option>Premium Album</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Anything else?</label>
+            <textarea name="message" placeholder="Tell us about your event, timing, venue, package preference, etc."></textarea>
+          </div>
+        </div>
+
+        <p class="form-note">Submitting this form sends a booking request to the studio. It does not automatically confirm the booking.</p>
+        <div class="submit-row"><button class="primary-btn" type="submit" id="bookingSubmit">Send Booking Request</button></div>
+        <div class="form-status" id="bookingStatus"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <small>Get In Touch</small>
+      <h2>Let's talk about your <span class="gold">story.</span></h2>
+      <p>Call, WhatsApp or visit the studio. You can also follow the work on social media.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <small>WhatsApp / Phone</small>
+          <a href="https://wa.me/919012084273" target="_blank" rel="noopener">+91 90120 84273</a>
+        </div>
+        <div class="contact-item">
+          <small>Studio</small>
+          <p>Shop No 1, Bah Road, Ater-Jaitpur Rd, Kalan, Agra, Paharpura, Uttar Pradesh 283114</p>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Shashi%20HD%20Photo%20Studio%2C%20Shop%20No%201%2C%20Bah%20Road%2C%20Ater-Jaitpur%20Rd%2C%20Kalan%2C%20Agra%2C%20Paharpura%2C%20Uttar%20Pradesh%20283114" target="_blank" rel="noopener" aria-label="Open Shashi HD Photo Studio in Google Maps">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+  <span>Open Studio in Google Maps</span>
+</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-item">
+          <small>Service Area</small>
+          <p>Nearby locations within approximately 120 km of the studio.</p>
+        </div>
+
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/shashi_photography09?igsh=MWRqeXhiaW1icGpvOQ==" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg> Instagram
+          </a>
+          <a class="social" href="https://www.facebook.com/share/1DEXLzduyQ/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/></svg> Facebook
+          </a>
+          <a class="social" href="https://wa.me/919012084273" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3zM12.2 21.6h-.1c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.8 9.8 0 1 1 8.1 4.6zm5.4-7.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.4z"/></svg> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP / GENERAL INQUIRY: intentionally last -->
+<section class="help" id="help">
+  <div class="container">
+    <div class="help-box">
+      <div class="help-intro">
+        <h2>Need Help or Have an Inquiry?</h2>
+        <p>For questions, packages, availability or anything other than a booking request.</p>
+      </div>
+
+      <form id="inquiryForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Name <span>*</span></label>
+            <input name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Mobile / WhatsApp <span>*</span></label>
+            <input name="phone" type="tel" inputmode="numeric" required placeholder="10-digit mobile number">
+          </div>
+          <div class="form-group full">
+            <label>What can we help with? <span>*</span></label>
+            <select name="inquiryType" required>
+              <option value="">Select</option>
+              <option>Package / Price Inquiry</option>
+              <option>Availability Inquiry</option>
+              <option>Album Inquiry</option>
+              <option>Photo / Video Inquiry</option>
+              <option>General Question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <textarea name="message" required placeholder="Write your question here..."></textarea>
+          </div>
+        </div>
+        <div class="submit-row"><button class="primary-btn" type="submit" id="inquirySubmit">Send Help Inquiry</button></div>
+        <div class="form-status" id="inquiryStatus"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shashi Photography Studio. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/919012084273" target="_blank" rel="noopener" class="floating-contact" aria-label="Contact on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3zM12.2 21.6h-.1c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.8 9.8 0 1 1 8.1 4.6zm5.4-7.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";
+
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav a").forEach(link=>{
+  link.addEventListener("click",()=>document.getElementById("nav").classList.remove("show"));
+});
+
+function filterPhotos(category,button){
+  document.querySelectorAll(".category-btn").forEach(btn=>btn.classList.remove("active"));
+  button.classList.add("active");
+  document.querySelectorAll(".photo").forEach(photo=>{
+    photo.style.display=(category==="all" || photo.dataset.category===category) ? "block" : "none";
+  });
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+function showStatus(el,type,text){
+  el.className="form-status "+type;
+  el.textContent=text;
+}
+
+function showToast(text){
+  const toast=document.getElementById("toast");
+  toast.textContent=text;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),3500);
+}
+
+function todayForDateInput(){
+  const d=new Date();
+  const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);
+  return local.toISOString().split("T")[0];
+}
+const dateInput=document.querySelector('input[name="eventDate"]');
+if(dateInput) dateInput.min=todayForDateInput();
+
+async function submitToScript(form,type,statusEl,buttonEl){
+  const data=new FormData(form);
+  const fields={};
+  data.forEach((value,key)=>fields[key]=String(value).trim());
+
+  if(type==="booking"){
+    const date=new Date(fields.eventDate+"T00:00:00");
+    fields.eventDateDisplay=isNaN(date) ? fields.eventDate : date.toLocaleDateString("en-IN",{day:"2-digit",month:"long",year:"numeric"});
+  }
+
+  fields.formType=type;
+  fields.type=type;
+  fields.source="Shashi Photography Studio Website";
+  fields.timestamp=new Date().toISOString();
+
+  // A ready-to-read message is included so the existing Apps Script can
+  // forward one clean Telegram message even if it primarily reads "message".
+  if(type==="booking"){
+    fields.message =
+      "BOOKING REQUEST\n\n"+
+      "Name: "+(fields.name||"—")+"\n"+
+      "Mobile: "+(fields.phone||"—")+"\n"+
+      "Event: "+(fields.eventType||"—")+"\n"+
+      "Date: "+(fields.eventDateDisplay||fields.eventDate||"—")+"\n"+
+      "Location: "+(fields.location||"—")+"\n"+
+      "Guests: "+(fields.guests||"—")+"\n"+
+      "Services: "+(fields.services||"—")+"\n"+
+      "Note: "+(fields.message||"—");
+    fields.bookingMessage=fields.message;
+  }else{
+    fields.message =
+      "HELP / GENERAL INQUIRY\n\n"+
+      "Name: "+(fields.name||"—")+"\n"+
+      "Mobile: "+(fields.phone||"—")+"\n"+
+      "Inquiry: "+(fields.inquiryType||"—")+"\n"+
+      "Message: "+(fields.message||"—");
+    fields.inquiryMessage=fields.message;
+  }
+
+  buttonEl.disabled=true;
+  buttonEl.style.opacity=".65";
+  buttonEl.textContent="Sending...";
+
+  try{
+    // no-cors is intentional for a Google Apps Script web app.
+    // The browser cannot read the response, but the POST reaches the endpoint.
+    const body=new URLSearchParams();
+    Object.entries(fields).forEach(([key,value])=>body.append(key,value));
+
+    await fetch(SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      body
+    });
+
+    form.reset();
+    if(dateInput) dateInput.min=todayForDateInput();
+    showStatus(statusEl,"success",
+      type==="booking"
+      ? "Your booking request has been sent. The studio will contact you shortly."
+      : "Your inquiry has been sent. We will get back to you shortly."
+    );
+    showToast("Request sent successfully ✓");
+  }catch(error){
+    showStatus(statusEl,"error",
+      "Could not send right now. Please try WhatsApp or call +91 90120 84273."
+    );
+  }finally{
+    buttonEl.disabled=false;
+    buttonEl.style.opacity="1";
+    buttonEl.textContent=type==="booking" ? "Send Booking Request" : "Send Help Inquiry";
+  }
+}
+
+document.getElementById("bookingForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  submitToScript(
+    e.currentTarget,
+    "booking",
+    document.getElementById("bookingStatus"),
+    document.getElementById("bookingSubmit")
+  );
+});
+
+document.getElementById("inquiryForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  submitToScript(
+    e.currentTarget,
+    "inquiry",
+    document.getElementById("inquiryStatus"),
+    document.getElementById("inquirySubmit")
+  );
+});
+</script>
+
+</body>
+</html>
