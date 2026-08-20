@@ -3,65 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Shashi Photography Studio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#111;color:#fff}
-header{height:80px;background:#fff;color:#111;display:flex;align-items:center;justify-content:space-between;padding:10px 7%;position:sticky;top:0;z-index:10}
-.logo{font-family:Georgia,serif;font-size:30px;font-weight:bold}
-.logo span{display:block;font-family:Arial;font-size:10px;letter-spacing:4px;text-align:center}
-nav a{color:#111;text-decoration:none;margin-left:25px;font-weight:bold}
-.menu{display:none;font-size:30px;cursor:pointer}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-.hero{min-height:90vh;display:flex;align-items:center;padding:60px 8%;background:linear-gradient(#0009,#0009),url("portfolio1.jpg") center/cover}
-.hero-text{max-width:700px}
-.hero h1{font-family:Georgia,serif;font-size:clamp(45px,8vw,85px);line-height:1.05;margin-bottom:25px}
-.hero p{font-size:20px;line-height:1.7;color:#ddd}
-.btn{display:inline-block;margin-top:30px;padding:15px 28px;background:#d96b32;color:#fff;text-decoration:none;border-radius:30px;font-weight:bold}
+html{
+  scroll-behavior:smooth;
+}
 
-section{padding:80px 8%}
-.title{text-align:center;font-family:Georgia,serif;font-size:42px;margin-bottom:15px}
-.subtitle{text-align:center;color:#bbb;margin-bottom:45px}
+body{
+  font-family:Arial,sans-serif;
+  background:#111;
+  color:#fff;
+}
 
-.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about img{width:100%;max-width:450px;border-radius:20px;display:block;margin:auto}
-.about p{color:#ccc;font-size:18px;line-height:1.8}
+header{
+  height:80px;
+  background:#fff;
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 7%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-.portfolio{background:#1b1816}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.gallery img{width:100%;height:350px;object-fit:cover;border-radius:15px}
+.logo{
+  font-family:Georgia,serif;
+  font-size:30px;
+  font-weight:bold;
+}
 
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#1c1c1c;padding:35px 25px;border-radius:18px;text-align:center}
-.card h3{font-family:Georgia,serif;font-size:25px;margin-bottom:15px}
-.card p{color:#bbb;line-height:1.6}
+.logo span{
+  display:block;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  text-align:center;
+}
 
-.contact{background:#1b1816;text-align:center}
-.contact p{color:#ccc;font-size:18px;line-height:2}
-.contact a{color:#fff}
-.social{margin-top:25px}
-.social a{display:inline-block;margin:8px;padding:12px 20px;border:1px solid #777;border-radius:25px;text-decoration:none;color:#fff}
+nav a{
+  color:#111;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:bold;
+}
 
-footer{text-align:center;padding:30px;background:#0b0b0b;color:#999}
+.menu{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  padding:60px 8%;
+  background:
+    linear-gradient(#0009,#0009),
+    url("6B1A6378 (8).jpg") center/cover;
+}
+
+.hero-text{
+  max-width:700px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(45px,8vw,85px);
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:20px;
+  line-height:1.7;
+  color:#ddd;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 28px;
+  background:#d96b32;
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+section{
+  padding:80px 8%;
+}
+
+.title{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#bbb;
+  margin-bottom:45px;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  max-width:450px;
+  border-radius:20px;
+  display:block;
+  margin:auto;
+}
+
+.about p{
+  color:#ccc;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.portfolio{
+  background:#1b1816;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:#1c1c1c;
+  padding:35px 25px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.card h3{
+  font-family:Georgia,serif;
+  font-size:25px;
+  margin-bottom:15px;
+}
+
+.card p{
+  color:#bbb;
+  line-height:1.6;
+}
+
+.contact{
+  background:#1b1816;
+  text-align:center;
+}
+
+.contact p{
+  color:#ccc;
+  font-size:18px;
+  line-height:2;
+}
+
+.contact a{
+  color:#fff;
+}
+
+.social{
+  margin-top:25px;
+}
+
+.social a{
+  display:inline-block;
+  margin:8px;
+  padding:12px 20px;
+  border:1px solid #777;
+  border-radius:25px;
+  text-decoration:none;
+  color:#fff;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#0b0b0b;
+  color:#999;
+}
 
 @media(max-width:700px){
-header{padding:10px 5%}
-.logo{font-size:25px}
-nav{display:none;position:absolute;top:80px;left:0;width:100%;background:#fff;padding:20px;text-align:center}
-nav.open{display:block}
-nav a{display:block;margin:18px;color:#111}
-.menu{display:block}
-.hero{min-height:80vh;padding:50px 7%}
-.hero h1{font-size:50px}
-.hero p{font-size:17px}
-section{padding:60px 6%}
-.title{font-size:35px}
-.about{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr}
-.gallery img{height:300px}
-.services{grid-template-columns:1fr}
+
+  header{
+    padding:10px 5%;
+  }
+
+  .logo{
+    font-size:25px;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:20px;
+    text-align:center;
+  }
+
+  nav.open{
+    display:block;
+  }
+
+  nav a{
+    display:block;
+    margin:18px;
+    color:#111;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    min-height:80vh;
+    padding:50px 7%;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  section{
+    padding:60px 6%;
+  }
+
+  .title{
+    font-size:35px;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:300px;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -69,9 +294,16 @@ section{padding:60px 6%}
 <body>
 
 <header>
-<div class="logo">Shashi <span>PHOTOGRAPHY STUDIO</span></div>
 
-<div class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</div>
+<div class="logo">
+Shashi
+<span>PHOTOGRAPHY STUDIO</span>
+</div>
+
+<div class="menu"
+onclick="document.querySelector('nav').classList.toggle('open')">
+☰
+</div>
 
 <nav>
 <a href="#home">Home</a>
@@ -80,94 +312,197 @@ section{padding:60px 6%}
 <a href="#services">Services</a>
 <a href="#contact">Contact</a>
 </nav>
+
 </header>
 
+
 <section class="hero" id="home">
+
 <div class="hero-text">
-<h1>Capturing Moments,<br>Creating Memories</h1>
-<p>Professional photography for weddings, portraits, newborns, events and special moments.</p>
-<a class="btn" href="#portfolio">View Portfolio</a>
+
+<h1>
+Capturing Moments,<br>
+Creating Memories
+</h1>
+
+<p>
+Professional photography for weddings, portraits,
+newborns, events and special moments.
+</p>
+
+<a class="btn" href="#portfolio">
+View Portfolio
+</a>
+
 </div>
+
 </section>
+
 
 <section id="about">
+
 <h2 class="title">About Me</h2>
-<p class="subtitle">The person behind Shashi Photography Studio</p>
+
+<p class="subtitle">
+The person behind Shashi Photography Studio
+</p>
 
 <div class="about">
+
 <div>
-<img src="profile.jpg" alt="Shashi Photography">
+
+<img src="6B1A6378 (8).jpg" alt="Shashi Photography">
+
 </div>
 
 <div>
+
 <p>
-Welcome to Shashi Photography Studio. I believe every photograph should tell a story.
-My goal is to capture natural emotions, beautiful details and unforgettable moments
-that you can keep forever.
+Welcome to Shashi Photography Studio.
+I believe every photograph should tell a story.
+My goal is to capture natural emotions, beautiful
+details and unforgettable moments that you can
+keep forever.
 </p>
+
 <br>
+
 <p>
-From weddings and portraits to special events, every shoot is planned with creativity,
-care and attention to detail.
+From weddings and portraits to special events,
+every shoot is planned with creativity, care and
+attention to detail.
 </p>
+
 </div>
+
 </div>
+
 </section>
+
 
 <section class="portfolio" id="portfolio">
+
 <h2 class="title">My Portfolio</h2>
-<p class="subtitle">Some of my favourite photography work</p>
+
+<p class="subtitle">
+Some of my favourite photography work
+</p>
 
 <div class="gallery">
-<img src="6B1A6378 (8).jpg" alt="Photography Portfolio">
-<img src="portfolio2.jpg" alt="Photography Portfolio">
-<img src="portfolio3.jpg" alt="Photography Portfolio">
-<img src="portfolio4.jpg" alt="Photography Portfolio">
-<img src="portfolio5.jpg" alt="Photography Portfolio">
-<img src="portfolio6.jpg" alt="Photography Portfolio">
+
+<img src="6B1A6378 (8).jpg" alt="Wedding Photography">
+
+<img src="portfolio2.jpg" alt="Photography">
+
+<img src="portfolio3.jpg" alt="Photography">
+
+<img src="portfolio4.jpg" alt="Photography">
+
+<img src="portfolio5.jpg" alt="Photography">
+
+<img src="portfolio6.jpg" alt="Photography">
+
 </div>
+
 </section>
+
 
 <section id="services">
+
 <h2 class="title">Services</h2>
-<p class="subtitle">Photography for every special occasion</p>
+
+<p class="subtitle">
+Photography for every special occasion
+</p>
 
 <div class="services">
+
 <div class="card">
+
 <h3>Wedding</h3>
-<p>Beautiful wedding moments, rituals, emotions and memories captured naturally.</p>
+
+<p>
+Beautiful wedding moments, rituals,
+emotions and memories captured naturally.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>Portraits</h3>
-<p>Professional portraits and personal photoshoots designed around your personality.</p>
+
+<p>
+Professional portraits and personal
+photoshoots designed around your personality.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>Events</h3>
-<p>Birthdays, parties, celebrations and special events covered professionally.</p>
+
+<p>
+Birthdays, parties, celebrations and
+special events covered professionally.
+</p>
+
 </div>
+
 </div>
+
 </section>
+
 
 <section class="contact" id="contact">
-<h2 class="title">Let's Work Together</h2>
-<p class="subtitle">Have a photography requirement? Get in touch.</p>
 
-<p>📞 <a href="tel:+918139929859">+91 8139929859</a></p>
-<p>🌐 <a href="https://shashiphotography.com">shashiphotography.com</a></p>
+<h2 class="title">Let's Work Together</h2>
+
+<p class="subtitle">
+Have a photography requirement? Get in touch.
+</p>
+
+<p>
+📞 <a href="tel:+918139929859">
++91 8139929859
+</a>
+</p>
+
+<p>
+🌐 <a href="https://shashiphotography.com">
+shashiphotography.com
+</a>
+</p>
 
 <div class="social">
-<a href="https://instagram.com/" target="_blank">Instagram</a>
-<a href="https://facebook.com/" target="_blank">Facebook</a>
+
+<a href="https://instagram.com/" target="_blank">
+Instagram
+</a>
+
+<a href="https://facebook.com/" target="_blank">
+Facebook
+</a>
+
 </div>
 
-<a class="btn" href="tel:+918139929859">Call Now</a>
+<a class="btn" href="tel:+918139929859">
+Call Now
+</a>
+
 </section>
 
+
 <footer>
-© 2026 Shashi Photography Studio. All Rights Reserved.
+
+© 2026 Shashi Photography Studio.
+All Rights Reserved.
+
 </footer>
+
 
 </body>
 </html>
