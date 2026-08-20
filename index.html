@@ -6,7 +6,23 @@
 
 <title>Shashi Photography Studio | Wedding & Candid Photography</title>
 
+<meta name="description" content="Shashi Photography Studio - Wedding, Pre-Wedding, Candid Photography, Cinematic Photography, Cinematic Videos and Reels in Bah, Agra and nearby locations.">
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --gold:#d6a83a;
+    --gold-light:#f0cf70;
+    --black:#080808;
+    --dark:#111111;
+    --dark2:#171717;
+    --white:#ffffff;
+    --text:#eeeeee;
+    --muted:#aaaaaa;
+    --border:rgba(214,168,58,.35);
+}
+
 *{
     margin:0;
     padding:0;
@@ -18,279 +34,433 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#080808;
-    color:#fff;
-    line-height:1.6;
+    background:var(--black);
+    color:var(--text);
+    font-family:'Montserrat',sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
 }
 
-:root{
-    --gold:#d4af37;
-    --light-gold:#f3d77a;
-    --black:#080808;
-    --dark:#111;
-    --grey:#bdbdbd;
+a{
+    text-decoration:none;
+    color:inherit;
 }
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
 
 header{
-    position:sticky;
+    position:fixed;
     top:0;
+    left:0;
+    width:100%;
     z-index:1000;
-    height:90px;
-    background:#050505;
-    border-bottom:1px solid #2b2b2b;
+    background:rgba(5,5,5,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    height:82px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:10px 6%;
 }
 
-.logo-img{
-    width:220px;
-    max-height:70px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:170px;
+    height:auto;
     object-fit:contain;
 }
 
-nav{
+.nav-links{
     display:flex;
     align-items:center;
+    gap:32px;
 }
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:28px;
-    font-size:15px;
-    font-weight:bold;
+.nav-links a{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:#eeeeee;
     transition:.3s;
 }
 
-nav a:hover{
-    color:var(--gold);
+.nav-links a:hover{
+    color:var(--gold-light);
 }
 
-.menu{
+.menu-btn{
     display:none;
-    font-size:32px;
-    color:var(--gold);
+    width:45px;
+    height:40px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:white;
+    border-radius:5px;
+    font-size:25px;
     cursor:pointer;
 }
 
+/* ================= HERO ================= */
+
 .hero{
-    min-height:90vh;
+    min-height:100vh;
     display:flex;
     align-items:center;
-    padding:80px 8%;
+    position:relative;
+    overflow:hidden;
+    padding-top:82px;
     background:
-    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.78)),
-    url("6B1A6378 (8).jpg") center/cover no-repeat;
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.58),rgba(0,0,0,.7)),
+    url("6B1A6378 (6).jpg") center/cover no-repeat;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom,transparent 65%,#080808 100%);
 }
 
 .hero-content{
+    position:relative;
+    z-index:2;
     max-width:750px;
 }
 
 .small-title{
-    color:var(--gold);
+    color:var(--gold-light);
+    font-size:13px;
     letter-spacing:4px;
     text-transform:uppercase;
-    font-size:14px;
     margin-bottom:18px;
+    font-weight:600;
 }
 
 .hero h1{
-    font-family:Georgia,serif;
-    font-size:clamp(48px,7vw,82px);
-    line-height:1.05;
-    margin-bottom:25px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,8vw,105px);
+    line-height:.9;
+    font-weight:600;
+    margin-bottom:28px;
 }
 
 .hero h1 span{
-    color:var(--gold);
+    color:var(--gold-light);
 }
 
 .hero p{
-    color:#ddd;
-    font-size:19px;
     max-width:650px;
-    line-height:1.8;
+    color:#d0d0d0;
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 30px;
-    background:var(--gold);
-    color:#000;
-    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 27px;
     border-radius:30px;
-    font-weight:bold;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.4px;
     transition:.3s;
 }
 
-.btn:hover{
-    background:var(--light-gold);
+.btn-primary{
+    background:var(--gold);
+    color:#080808;
+}
+
+.btn-primary:hover{
+    background:var(--gold-light);
     transform:translateY(-2px);
 }
 
 .btn-outline{
-    margin-left:10px;
-    background:transparent;
-    color:#fff;
     border:1px solid var(--gold);
+    color:white;
 }
+
+.btn-outline:hover{
+    background:var(--gold);
+    color:#080808;
+}
+
+/* ================= COMMON ================= */
 
 section{
-    padding:90px 8%;
+    padding:105px 0;
 }
 
-.title{
+.section-heading{
     text-align:center;
-    font-family:Georgia,serif;
-    font-size:44px;
+    margin-bottom:55px;
+}
+
+.section-heading .eyebrow{
+    color:var(--gold-light);
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-weight:600;
     margin-bottom:12px;
 }
 
-.title span{
-    color:var(--gold);
+.section-heading h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,6vw,62px);
+    line-height:1;
+    color:white;
 }
 
-.subtitle{
-    text-align:center;
-    color:#aaa;
-    margin-bottom:55px;
-    font-size:17px;
+.section-heading h2 span{
+    color:var(--gold-light);
 }
+
+.section-heading p{
+    color:var(--muted);
+    max-width:650px;
+    margin:18px auto 0;
+}
+
+/* ================= ABOUT ================= */
 
 .about{
+    background:var(--dark);
+}
+
+.about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px;
+    gap:70px;
     align-items:center;
 }
 
 .about-image{
-    position:relative;
+    padding:15px;
+    border:1px solid var(--border);
+    background:#0a0a0a;
 }
 
 .about-image img{
     width:100%;
-    max-width:500px;
-    display:block;
-    margin:auto;
-    border-radius:18px;
-    border:1px solid #333;
-    box-shadow:0 0 35px rgba(212,175,55,.15);
+    max-height:620px;
+    object-fit:cover;
+}
+
+.about-text .eyebrow{
+    color:var(--gold-light);
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.about-text h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:55px;
+    line-height:1;
+    margin:12px 0 25px;
+}
+
+.about-text h2 span{
+    color:var(--gold-light);
 }
 
 .about-text p{
-    color:#ccc;
-    font-size:18px;
-    line-height:1.9;
-    margin-bottom:20px;
+    color:#bdbdbd;
+    margin-bottom:18px;
 }
 
-.highlight{
-    color:var(--gold);
-    font-weight:bold;
-}
-
-.info-box{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+.experience{
+    display:flex;
+    align-items:center;
+    gap:18px;
     margin-top:30px;
 }
 
-.info{
-    border:1px solid #333;
-    padding:20px;
-    text-align:center;
-    border-radius:12px;
-    background:#0d0d0d;
+.experience strong{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;
+    color:var(--gold-light);
+    line-height:1;
 }
 
-.info strong{
-    display:block;
-    color:var(--gold);
-    font-size:27px;
-    margin-bottom:5px;
-}
-
-.info span{
-    color:#aaa;
+.experience span{
+    color:#bbb;
     font-size:13px;
 }
 
+/* ================= SERVICES ================= */
+
+.services{
+    background:#090909;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service-card{
+    padding:35px 28px;
+    background:linear-gradient(145deg,#151515,#0d0d0d);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.35s;
+    position:relative;
+}
+
+.service-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:3px;
+    height:0;
+    background:var(--gold);
+    transition:.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-7px);
+    border-color:var(--border);
+}
+
+.service-card:hover::before{
+    height:100%;
+}
+
+.service-number{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.service-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#999;
+    font-size:14px;
+}
+
+/* ================= PORTFOLIO ================= */
+
 .portfolio{
-    background:#0e0e0e;
+    background:var(--dark);
 }
 
 .gallery{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:25px;
+    gap:20px;
 }
 
 .gallery-item{
+    position:relative;
     overflow:hidden;
-    border-radius:16px;
-    border:1px solid #292929;
     background:#111;
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.gallery img{
+.gallery-item img{
     width:100%;
     height:430px;
     object-fit:cover;
-    display:block;
-    transition:.5s;
+    transition:.6s;
 }
 
 .gallery-item:hover img{
-    transform:scale(1.04);
+    transform:scale(1.06);
 }
 
-.services{
+.gallery-overlay{
+    position:absolute;
+    inset:auto 0 0 0;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.gallery-overlay h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+}
+
+/* ================= PROCESS ================= */
+
+.process{
+    background:#080808;
+}
+
+.process-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:18px;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
 }
 
-.card{
-    background:#101010;
-    border:1px solid #292929;
-    padding:35px 20px;
-    border-radius:16px;
+.process-card{
     text-align:center;
-    transition:.3s;
+    padding:25px 15px;
 }
 
-.card:hover{
-    border-color:var(--gold);
-    transform:translateY(-5px);
+.process-number{
+    width:58px;
+    height:58px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold-light);
+    margin:0 auto 20px;
+    font-weight:600;
 }
 
-.card-icon{
-    font-size:38px;
-    margin-bottom:15px;
+.process-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;
+    margin-bottom:8px;
 }
 
-.card h3{
-    font-family:Georgia,serif;
-    font-size:22px;
-    color:var(--gold);
-    margin-bottom:12px;
+.process-card p{
+    color:#929292;
+    font-size:13px;
 }
 
-.card p{
-    color:#aaa;
-    font-size:14px;
-    line-height:1.7;
-}
+/* ================= WHY US ================= */
 
 .why{
-    background:#0e0e0e;
+    background:var(--dark);
 }
 
 .why-grid{
@@ -300,209 +470,221 @@ section{
 }
 
 .why-card{
-    padding:30px;
-    border-left:2px solid var(--gold);
-    background:#111;
+    padding:35px 28px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .why-card h3{
-    color:var(--gold);
-    margin-bottom:10px;
-    font-family:Georgia,serif;
+    color:var(--gold-light);
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    margin-bottom:12px;
 }
 
 .why-card p{
-    color:#bbb;
-}
-
-.process{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.step{
-    text-align:center;
-    padding:25px;
-}
-
-.step-number{
-    width:55px;
-    height:55px;
-    margin:0 auto 15px;
-    border:1px solid var(--gold);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--gold);
-    font-weight:bold;
-}
-
-.step h3{
-    margin-bottom:8px;
-}
-
-.step p{
-    color:#aaa;
+    color:#999;
     font-size:14px;
 }
 
+/* ================= CONTACT ================= */
+
 .contact{
+    position:relative;
     background:
-    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
-    url("6B1A6378 (8).jpg") center/cover fixed;
-    text-align:center;
+    linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.93)),
+    url("6B1A6378 (8).jpg") center/cover no-repeat;
 }
 
 .contact-box{
-    max-width:800px;
+    max-width:900px;
     margin:auto;
+    text-align:center;
+}
+
+.contact-box h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(45px,7vw,72px);
+    line-height:1;
+}
+
+.contact-box h2 span{
+    color:var(--gold-light);
 }
 
 .contact-box > p{
-    color:#ccc;
-    font-size:18px;
-    margin:10px 0;
+    color:#aaa;
+    margin:18px auto 35px;
+    max-width:650px;
 }
 
-.contact-links{
+.contact-details{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    max-width:700px;
+    margin:0 auto 30px;
+}
+
+.contact-item{
+    padding:18px;
+    border:1px solid rgba(214,168,58,.25);
+    background:rgba(10,10,10,.6);
+}
+
+.contact-item small{
+    display:block;
+    color:var(--gold-light);
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+
+.contact-item a,
+.contact-item div{
+    color:#eee;
+    font-size:15px;
+    word-break:break-word;
+    transition:.3s;
+}
+
+.contact-item a:hover{
+    color:var(--gold-light);
+}
+
+.socials{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
     gap:12px;
-    margin-top:30px;
+    margin-top:25px;
 }
 
-.contact-links a{
-    color:#fff;
-    text-decoration:none;
-    border:1px solid #555;
-    padding:12px 20px;
-    border-radius:25px;
+.social{
+    border:1px solid rgba(214,168,58,.5);
+    padding:11px 22px;
+    border-radius:30px;
+    color:#eee;
+    font-size:13px;
     transition:.3s;
 }
 
-.contact-links a:hover{
-    border-color:var(--gold);
-    color:var(--gold);
+.social:hover{
+    background:var(--gold);
+    color:#080808;
 }
+
+/* ================= LOCATION ================= */
 
 .location{
-    margin-top:35px;
-    padding:25px;
-    border:1px solid #333;
-    border-radius:15px;
-    background:rgba(10,10,10,.7);
+    margin-top:45px;
+    padding:30px;
+    border:1px solid rgba(214,168,58,.3);
+    background:rgba(0,0,0,.5);
 }
 
-.location strong{
-    color:var(--gold);
-    display:block;
+.location h3{
+    color:var(--gold-light);
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
     margin-bottom:8px;
 }
 
-footer{
-    text-align:center;
-    padding:30px 15px;
-    background:#050505;
-    color:#888;
+.location p{
+    color:#aaa;
     font-size:14px;
 }
 
-footer span{
-    color:var(--gold);
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 0;
+    background:#050505;
+    border-top:1px solid rgba(255,255,255,.06);
+    text-align:center;
 }
 
-@media(max-width:1000px){
-
-    .services{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .process{
-        grid-template-columns:repeat(2,1fr);
-    }
+footer img{
+    width:190px;
+    margin:0 auto 15px;
 }
 
-@media(max-width:700px){
+footer p{
+    color:#666;
+    font-size:12px;
+}
 
-    header{
-        height:78px;
-        padding:8px 5%;
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .navbar{
+        height:70px;
     }
 
-    .logo-img{
-        width:185px;
-        max-height:60px;
+    .logo img{
+        width:145px;
     }
 
-    .menu{
+    .menu-btn{
         display:block;
     }
 
-    nav{
-        display:none;
+    .nav-links{
         position:absolute;
-        top:78px;
+        top:70px;
         left:0;
         width:100%;
-        background:#080808;
-        padding:15px 0 25px;
-        border-bottom:1px solid #333;
+        background:#090909;
+        border-bottom:1px solid rgba(214,168,58,.25);
+        display:none;
         flex-direction:column;
+        gap:0;
+        padding:10px 0;
     }
 
-    nav.open{
+    .nav-links.active{
         display:flex;
     }
 
-    nav a{
-        margin:12px 0;
-        font-size:16px;
+    .nav-links a{
+        width:100%;
+        text-align:center;
+        padding:14px;
     }
 
     .hero{
-        min-height:88vh;
-        padding:55px 7%;
+        min-height:92vh;
+        padding-top:70px;
         background-position:center;
     }
 
+    .hero-content{
+        padding:45px 0;
+    }
+
     .hero h1{
-        font-size:48px;
+        font-size:58px;
     }
 
     .hero p{
-        font-size:17px;
-    }
-
-    .btn{
-        padding:14px 24px;
-    }
-
-    .btn-outline{
-        margin-left:0;
-        margin-top:12px;
+        font-size:15px;
     }
 
     section{
-        padding:65px 6%;
+        padding:75px 0;
     }
 
-    .title{
-        font-size:36px;
-    }
-
-    .about{
+    .about-grid{
         grid-template-columns:1fr;
-        gap:35px;
+        gap:40px;
     }
 
-    .about-text p{
-        font-size:16px;
+    .about-text h2{
+        font-size:48px;
     }
 
-    .info-box{
+    .service-grid{
         grid-template-columns:1fr;
     }
 
@@ -510,24 +692,69 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    .gallery img{
-        height:380px;
+    .gallery-item img{
+        height:390px;
     }
 
-    .services{
-        grid-template-columns:1fr;
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .why-grid{
         grid-template-columns:1fr;
     }
 
-    .process{
+    .contact-details{
         grid-template-columns:1fr;
     }
+}
 
-    .contact{
-        background-attachment:scroll;
+@media(max-width:500px){
+
+    .container{
+        width:90%;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .section-heading h2{
+        font-size:43px;
+    }
+
+    .about-text h2{
+        font-size:43px;
+    }
+
+    .gallery-item img{
+        height:330px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+        gap:5px;
+    }
+
+    .process-card{
+        padding:20px 5px;
+    }
+
+    .location{
+        padding:22px 15px;
     }
 }
 </style>
@@ -535,403 +762,235 @@ footer span{
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+    <div class="container navbar">
 
-<a href="#home">
-<img class="logo-img"
-src="file_00000000df7081faa3dba0a19cc8946c.png"
-alt="Shashi Photography Studio Logo">
-</a>
+        <a href="#home" class="logo">
+            <img src="file_00000000df7081faa3dba0a19cc8946c.png" alt="Shashi Photography Studio Logo">
+        </a>
 
-<div class="menu" onclick="document.querySelector('nav').classList.toggle('open')">
-☰
-</div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" onclick="closeMenu()">Home</a>
+            <a href="#about" onclick="closeMenu()">About</a>
+            <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+            <a href="#services" onclick="closeMenu()">Services</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+        </nav>
 
+    </div>
 </header>
 
 
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
 
-<div class="hero-content">
+            <div class="small-title">Shashi Photography Studio</div>
 
-<div class="small-title">Shashi Photography Studio</div>
+            <h1>
+                Capturing<br>
+                <span>Moments.</span><br>
+                Creating Memories.
+            </h1>
 
-<h1>
-Capturing <span>Moments</span>,<br>
-Creating Memories
-</h1>
+            <p>
+                Professional wedding, pre-wedding and candid photography
+                with cinematic photography, cinematic videos and beautiful
+                reels — created to turn your special moments into timeless memories.
+            </p>
 
-<p>
-Professional wedding, candid and portrait photography with
-cinematic photography, cinematic videos, cinematic reels
-and high-quality albums — created around your vision.
-</p>
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">Check Your Date</a>
+                <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+            </div>
 
-<a class="btn" href="https://wa.me/919012084273?text=Hello%20Shashi%20Photography%20Studio%2C%20I%20want%20to%20check%20the%20availability%20for%20my%20event.">
-Check Your Date
-</a>
-
-<a class="btn btn-outline" href="#portfolio">
-View Portfolio
-</a>
-
-</div>
-
+        </div>
+    </div>
 </section>
 
 
-<section id="about">
+<!-- ================= ABOUT ================= -->
 
-<h2 class="title">About <span>Us</span></h2>
+<section class="about" id="about">
+    <div class="container">
 
-<p class="subtitle">
-5+ years of experience in capturing moments that matter
-</p>
+        <div class="section-heading">
+            <div class="eyebrow">About Studio</div>
+            <h2>The Story Behind <span>Shashi</span></h2>
+            <p>
+                Photography is not just about taking pictures.
+                It is about preserving emotions, people and memories.
+            </p>
+        </div>
 
-<div class="about">
+        <div class="about-grid">
 
-<div class="about-image">
-<img src="6B1A6378 (6).jpg" alt="Shashi Photography Wedding Photography">
-</div>
+            <div class="about-image">
+                <img src="6B1A6378 (8).jpg" alt="Shashi Photography Wedding Photography">
+            </div>
 
-<div class="about-text">
+            <div class="about-text">
 
-<p>
-Welcome to <span class="highlight">Shashi Photography Studio</span>,
-a professional photography studio based in Jaitpur Kalan, Bah, Agra,
-Uttar Pradesh.
-</p>
+                <div class="eyebrow">About Shashi Photography Studio</div>
 
-<p>
-With more than <span class="highlight">5 years of experience</span>,
-we specialise in capturing genuine emotions, beautiful details and
-unforgettable moments through creative and cinematic photography.
-</p>
+                <h2>
+                    Your moments.<br>
+                    Our <span>vision.</span>
+                </h2>
 
-<p>
-From weddings and candid moments to portraits, cinematic films,
-reels and drone photography, every project is created with
-attention to quality and according to what the customer wants.
-</p>
+                <p>
+                    Welcome to Shashi Photography Studio, a photography studio
+                    based in Jaitpur Kalan, Bah, Agra, Uttar Pradesh.
+                </p>
 
-<p>
-For us, great photography is not only about the final picture.
-We believe that <span class="highlight">good behaviour, comfortable
-communication and customer satisfaction</span> are equally important.
-</p>
+                <p>
+                    With around 5 years of experience, we focus on capturing
+                    genuine emotions and meaningful moments in a natural,
+                    elegant and cinematic style.
+                </p>
 
-<div class="info-box">
+                <p>
+                    From wedding and pre-wedding celebrations to candid
+                    photography, cinematic photographs, cinematic videos,
+                    reels and high-quality albums, our aim is to create
+                    photographs and films that you will love for years to come.
+                </p>
 
-<div class="info">
-<strong>5+</strong>
-<span>Years Experience</span>
-</div>
+                <p>
+                    For us, good photography is only one part of the experience.
+                    Comfortable communication, respectful behaviour and
+                    understanding what the customer actually wants are equally
+                    important.
+                </p>
 
-<div class="info">
-<strong>120 KM</strong>
-<span>Service Area</span>
-</div>
+                <div class="experience">
+                    <strong>5+</strong>
+                    <span>
+                        Years of experience<br>
+                        in photography & visual storytelling
+                    </span>
+                </div>
 
-<div class="info">
-<strong>100%</strong>
-<span>Customer Focus</span>
-</div>
+            </div>
 
-</div>
-
-</div>
-
-</div>
-
+        </div>
+    </div>
 </section>
 
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="services">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">What We Do</div>
+            <h2>Our <span>Services</span></h2>
+            <p>
+                Professional photography and cinematic services designed
+                around your special moments.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-number">01 —</div>
+                <h3>Wedding Photography</h3>
+                <p>
+                    Beautifully capturing every important emotion,
+                    ritual, family moment and celebration of your wedding day.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">02 —</div>
+                <h3>Pre-Wedding Shoots</h3>
+                <p>
+                    Creative and romantic pre-wedding photography
+                    planned according to your personality and story.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">03 —</div>
+                <h3>Candid Photography</h3>
+                <p>
+                    Natural photographs that capture real smiles,
+                    emotions and unforgettable moments without forcing them.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">04 —</div>
+                <h3>Cinematic Photography</h3>
+                <p>
+                    Stylish, dramatic and beautifully composed photographs
+                    with a cinematic visual approach.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">05 —</div>
+                <h3>Cinematic Videos</h3>
+                <p>
+                    Emotional cinematic wedding films and videos
+                    created to bring your memories back to life.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">06 —</div>
+                <h3>Cinematic Reels</h3>
+                <p>
+                    Modern and engaging reels created from your special
+                    moments, perfect for sharing your memories online.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">07 —</div>
+                <h3>Premium Albums</h3>
+                <p>
+                    High-quality albums designed according to your choice,
+                    with photographs selected and presented beautifully.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">08 —</div>
+                <h3>High Quality Photos</h3>
+                <p>
+                    Carefully edited, detailed and high-quality photographs
+                    prepared with attention to colour, composition and detail.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">09 —</div>
+                <h3>Customer-Focused Service</h3>
+                <p>
+                    Your requirements, comfort and preferences remain
+                    an important part of how we plan and deliver every shoot.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PORTFOLIO ================= -->
 
 <section class="portfolio" id="portfolio">
-
-<h2 class="title">Our <span>Portfolio</span></h2>
-
-<p class="subtitle">
-A glimpse of our photography work
-</p>
-
-<div class="gallery">
-
-<div class="gallery-item">
-<img src="6B1A6378 (8).jpg" alt="Wedding Photography">
-</div>
-
-<div class="gallery-item">
-<img src="6B1A6378 (6).jpg" alt="Candid Photography">
-</div>
-
-</div>
-
-</section>
-
-
-<section id="services">
-
-<h2 class="title">Our <span>Services</span></h2>
-
-<p class="subtitle">
-Professional photography and cinematic services for your special moments
-</p>
-
-<div class="services">
-
-<div class="card">
-<div class="card-icon">💍</div>
-<h3>Wedding</h3>
-<p>
-Beautiful wedding moments, rituals, emotions and memories
-captured naturally and professionally.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">📸</div>
-<h3>Candid</h3>
-<p>
-Natural expressions and real emotions captured creatively
-without forcing the moment.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">👤</div>
-<h3>Portraits</h3>
-<p>
-Professional portraits designed around your personality,
-style and vision.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Videography</h3>
-<p>
-Cinematic videos, wedding films and cinematic reels
-created to preserve your memories.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🚁</div>
-<h3>Drone</h3>
-<p>
-Cinematic aerial shots that give your wedding and event
-films a premium perspective.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="why">
-
-<h2 class="title">Why <span>Choose Us?</span></h2>
-
-<p class="subtitle">
-More than photography — we create an experience
-</p>
-
-<div class="why-grid">
-
-<div class="why-card">
-<h3>High Quality</h3>
-<p>
-We focus on high-quality photographs, professional editing
-and beautiful final results.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Cinematic Style</h3>
-<p>
-From cinematic photos to cinematic videos and reels,
-we give your memories a modern visual style.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Made For You</h3>
-<p>
-Albums, photos and videos can be customised according
-to your requirements and preferences.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Friendly Behaviour</h3>
-<p>
-We believe comfortable communication and respectful
-behaviour are an important part of every shoot.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Complete Delivery</h3>
-<p>
-Edited photos, HD/4K videos, cinematic films, reels,
-albums and online delivery options are available.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Local & Nearby Service</h3>
-<p>
-Based in Jaitpur Kalan, Bah, Agra, we provide services
-across nearby locations within approximately 120 km.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2 class="title">Our <span>Process</span></h2>
-
-<p class="subtitle">
-Simple, comfortable and professional
-</p>
-
-<div class="process">
-
-<div class="step">
-<div class="step-number">01</div>
-<h3>Enquiry</h3>
-<p>
-Tell us your event date, location and photography requirements.
-</p>
-</div>
-
-<div class="step">
-<div class="step-number">02</div>
-<h3>Planning</h3>
-<p>
-We discuss your requirements and plan the shoot accordingly.
-</p>
-</div>
-
-<div class="step">
-<div class="step-number">03</div>
-<h3>Shoot</h3>
-<p>
-Our team captures your real emotions, details and special moments.
-</p>
-</div>
-
-<div class="step">
-<div class="step-number">04</div>
-<h3>Delivery</h3>
-<p>
-Your edited photos, videos, reels and albums are delivered
-according to the selected requirements.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="contact" id="contact">
-
-<div class="contact-box">
-
-<h2 class="title">Let's Create <span>Memories</span></h2>
-
-<p class="subtitle">
-Have an upcoming wedding, event or photoshoot?
-Let's talk about your requirements.
-</p>
-
-<p>📞 <a href="tel:+919012084273">+91 9012084273</a></p>
-
-<p>📞 <a href="tel:+919012323224">+91 9012323224</a></p>
-
-<p>
-✉️
-<a href="mailto:rishavkushwah47@gmail.com">
-rishavkushwah47@gmail.com
-</a>
-</p>
-
-<div class="contact-links">
-
-<a href="https://wa.me/919012084273?text=Hello%20Shashi%20Photography%20Studio%2C%20I%20want%20to%20check%20the%20availability%20for%20my%20event.">
-WhatsApp
-</a>
-
-<a href="https://www.instagram.com/shashi_photography09?igsh=MWRqeXhiaW1icGpvOQ==" target="_blank">
-Instagram
-</a>
-
-<a href="https://www.facebook.com/share/1BhmyA3EXi/" target="_blank">
-Facebook
-</a>
-
-</div>
-
-<a class="btn"
-href="https://wa.me/919012084273?text=Hello%20Shashi%20Photography%20Studio%2C%20I%20want%20to%20check%20the%20availability%20for%20my%20event.">
-Check Your Date
-</a>
-
-<div class="location">
-
-<strong>📍 Studio Location</strong>
-
-Jaitpur Kalan, Bah Road, Bah, Agra, Uttar Pradesh
-
-<br><br>
-
-<strong>📍 Service Area</strong>
-
-Photography services available across nearby locations
-within approximately 120 km.
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-
-© 2026 <span>Shashi Photography Studio</span>.
-All Rights Reserved.
-
-</footer>
-
-
-<script>
-
-document.querySelectorAll("nav a").forEach(function(link){
-
-link.addEventListener("click",function(){
-
-document.querySelector("nav").classList.remove("open");
-
-});
-
-});
-
-</script>
-
-</body>
-</html>
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">Selected Work</div>
+            <h2>Our <sp
