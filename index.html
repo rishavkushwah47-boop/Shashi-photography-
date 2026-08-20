@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shashi Photography Studio</title>
+<title>Shashi Photography Studio | Wedding & Cinematic Photography</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root{
     --cream:#f7f3eb;
@@ -17,6 +17,7 @@
     --muted:#77726a;
     --line:#ded7ca;
     --accent:#9a7b4f;
+    --accent-light:#c8b28d;
 }
 
 *{
@@ -27,6 +28,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:90px;
 }
 
 body{
@@ -46,14 +48,21 @@ a{
     text-decoration:none;
 }
 
-/* ================= HEADER ================= */
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     position:sticky;
     top:0;
-    z-index:999;
-    background:rgba(247,243,235,.96);
-    backdrop-filter:blur(12px);
+    z-index:9999;
+    background:rgba(247,243,235,.94);
+    backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
 }
 
@@ -77,13 +86,13 @@ header{
 .nav{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:25px;
 }
 
 .nav a{
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
-    color:var(--black);
+    transition:.3s;
 }
 
 .nav a:hover{
@@ -97,16 +106,24 @@ header{
     border-radius:25px;
 }
 
+.book-btn:hover{
+    background:var(--accent);
+}
+
 .menu{
     display:none;
     border:1px solid var(--line);
     background:transparent;
     padding:7px 12px;
-    font-size:22px;
-    border-radius:6px;
+    font-size:21px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:calc(100vh - 82px);
@@ -114,13 +131,13 @@ header{
     display:flex;
     align-items:center;
 
-    padding:70px 20px;
+    padding:80px 20px;
 
     background:
     linear-gradient(
         90deg,
-        rgba(247,243,235,.96),
-        rgba(247,243,235,.82),
+        rgba(247,243,235,.97),
+        rgba(247,243,235,.84),
         rgba(247,243,235,.25)
     ),
     url("6B1A6378 (6).jpg") center/cover no-repeat;
@@ -138,7 +155,7 @@ header{
 }
 
 .label{
-    font-size:12px;
+    font-size:11px;
     letter-spacing:3px;
     text-transform:uppercase;
     color:var(--accent);
@@ -149,7 +166,7 @@ header{
 .hero h1{
     font-family:'Playfair Display',serif;
     font-size:clamp(48px,7vw,82px);
-    line-height:1.05;
+    line-height:1.04;
     font-weight:600;
     margin-bottom:25px;
 }
@@ -164,6 +181,13 @@ header{
     line-height:1.8;
     max-width:620px;
     margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
 .primary-btn{
@@ -182,7 +206,26 @@ header{
     transform:translateY(-2px);
 }
 
-/* ================= COMMON ================= */
+.secondary-btn{
+    display:inline-block;
+    border:1px solid var(--black);
+    color:var(--black);
+    padding:13px 25px;
+    border-radius:4px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    background:var(--black);
+    color:white;
+}
+
+
+/* =====================================================
+   COMMON
+===================================================== */
 
 section{
     padding:95px 20px;
@@ -206,7 +249,7 @@ section{
     color:var(--accent);
     text-transform:uppercase;
     letter-spacing:3px;
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
 }
 
@@ -215,6 +258,10 @@ section{
     font-size:clamp(38px,5vw,55px);
     line-height:1.1;
     margin-top:10px;
+}
+
+.section-head h2 span{
+    color:var(--accent);
 }
 
 .section-head p{
@@ -229,7 +276,83 @@ section{
     margin-right:auto;
 }
 
-/* ================= ABOUT ================= */
+
+/* =====================================================
+   PORTFOLIO
+===================================================== */
+
+.portfolio{
+    background:var(--cream);
+}
+
+.category-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.category-btn{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--black);
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:13px;
+    transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:var(--black);
+    color:white;
+    border-color:var(--black);
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.photo{
+    background:var(--white);
+    border:1px solid var(--line);
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    transition:.6s ease;
+}
+
+.photo:hover img{
+    transform:scale(1.035);
+}
+
+.photo-info{
+    padding:16px 18px;
+}
+
+.photo-info h3{
+    font-size:16px;
+    font-weight:600;
+}
+
+.photo-info p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
 
 .about{
     background:var(--white);
@@ -280,7 +403,7 @@ section{
 
 .experience strong{
     font-family:'Playfair Display',serif;
-    font-size:48px;
+    font-size:52px;
     color:var(--accent);
 }
 
@@ -289,82 +412,13 @@ section{
     color:var(--muted);
 }
 
-/* ================= PORTFOLIO ================= */
 
-.portfolio{
-    background:var(--cream);
-}
-
-.category-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:35px;
-}
-
-.category-btn{
-    border:1px solid var(--line);
-    background:transparent;
-    color:var(--black);
-    padding:10px 20px;
-    border-radius:25px;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:13px;
-    transition:.3s;
-}
-
-.category-btn:hover,
-.category-btn.active{
-    background:var(--black);
-    color:white;
-    border-color:var(--black);
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}
-
-.photo{
-    background:var(--white);
-    border:1px solid var(--line);
-    overflow:hidden;
-    animation:fadeUp .6s ease both;
-}
-
-.photo img{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    transition:.6s ease;
-}
-
-.photo:hover img{
-    transform:scale(1.035);
-}
-
-.photo-info{
-    padding:15px 18px;
-}
-
-.photo-info h3{
-    font-size:16px;
-    font-weight:600;
-}
-
-.photo-info p{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:4px;
-}
-
-/* ================= SERVICES ================= */
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services{
-    background:var(--white);
+    background:var(--cream);
 }
 
 .service-grid{
@@ -375,14 +429,15 @@ section{
 
 .service{
     padding:32px 25px;
-    background:var(--cream);
+    background:var(--white);
     border:1px solid var(--line);
-    transition:.3s;
+    transition:.35s;
 }
 
 .service:hover{
-    transform:translateY(-5px);
-    border-color:#c5b28f;
+    transform:translateY(-6px);
+    border-color:var(--accent-light);
+    box-shadow:0 15px 35px rgba(36,34,31,.07);
 }
 
 .service span{
@@ -403,7 +458,73 @@ section{
     font-size:14px;
 }
 
-/* ================= WHY ================= */
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.process{
+    background:var(--white);
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    position:relative;
+}
+
+.process-card{
+    position:relative;
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:30px 20px;
+    text-align:center;
+    transition:.35s;
+}
+
+.process-card:hover{
+    transform:translateY(-7px);
+    border-color:var(--accent-light);
+    box-shadow:0 15px 30px rgba(36,34,31,.07);
+}
+
+.process-number{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:var(--black);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    transition:.35s;
+}
+
+.process-card:hover .process-number{
+    background:var(--accent);
+    transform:rotate(8deg) scale(1.08);
+}
+
+.process-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.process-card p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   WHY
+===================================================== */
 
 .why{
     background:var(--cream-dark);
@@ -419,6 +540,11 @@ section{
     background:var(--white);
     padding:28px;
     border:1px solid var(--line);
+    transition:.3s;
+}
+
+.why-card:hover{
+    transform:translateY(-5px);
 }
 
 .why-card h3{
@@ -433,7 +559,10 @@ section{
     font-size:14px;
 }
 
-/* ================= BOOK EVENT ================= */
+
+/* =====================================================
+   BOOK EVENT
+===================================================== */
 
 .book-event{
     background:var(--black);
@@ -458,7 +587,15 @@ section{
     color:var(--black);
 }
 
-/* ================= ENQUIRY ================= */
+.book-event .primary-btn:hover{
+    background:var(--accent);
+    color:white;
+}
+
+
+/* =====================================================
+   ENQUIRY
+===================================================== */
 
 .enquiry{
     background:var(--white);
@@ -485,11 +622,13 @@ section{
     font-size:14px;
     color:var(--black);
     outline:none;
+    transition:.3s;
 }
 
 .form input:focus,
 .form textarea:focus{
     border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(154,123,79,.08);
 }
 
 .form textarea{
@@ -503,21 +642,70 @@ section{
     width:max-content;
 }
 
-/* ================= CONTACT ================= */
+.form-status{
+    display:none;
+    padding:14px 16px;
+    background:#e8f6e8;
+    color:#34723c;
+    border-radius:6px;
+    font-size:14px;
+    text-align:center;
+}
+
+.form-status.show{
+    display:block;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact{
     background:var(--cream);
 }
 
-.contact-grid{
+.contact-layout{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
+    grid-template-columns:1.15fr .85fr;
+    gap:60px;
+    align-items:start;
+}
+
+.contact-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(45px,6vw,65px);
+    line-height:1.05;
+    margin:12px 0 18px;
+}
+
+.contact-title h2 span{
+    color:var(--accent);
+}
+
+.contact-title > p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:600px;
+}
+
+.contact-info{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:25px;
 }
 
 .contact-item{
     padding:20px 0;
     border-bottom:1px solid var(--line);
+}
+
+.contact-item:first-child{
+    padding-top:5px;
+}
+
+.contact-item:last-child{
+    border-bottom:0;
 }
 
 .contact-item small{
@@ -527,13 +715,14 @@ section{
     letter-spacing:2px;
     font-size:10px;
     font-weight:700;
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
 
 .contact-item a,
 .contact-item p{
     color:var(--black);
     font-size:15px;
+    line-height:1.7;
     word-break:break-word;
 }
 
@@ -541,49 +730,161 @@ section{
     color:var(--accent);
 }
 
-.socials{
+.contact-actions{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
     margin-top:25px;
 }
 
-.social{
+.contact-action{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 17px;
     border:1px solid var(--line);
-    padding:10px 17px;
     border-radius:25px;
     font-size:13px;
+    background:var(--white);
     transition:.3s;
 }
 
-.social:hover{
+.contact-action:hover{
     background:var(--black);
     color:white;
+    transform:translateY(-2px);
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+   SOCIAL MEDIA
+===================================================== */
+
+.social-section{
+    background:var(--white);
+    text-align:center;
+}
+
+.social-section h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(38px,5vw,55px);
+    margin-top:10px;
+}
+
+.social-section p{
+    color:var(--muted);
+    margin:14px auto 30px;
+    max-width:580px;
+    line-height:1.7;
+}
+
+.social-grid{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.social-card{
+    min-width:170px;
+    padding:18px 25px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    border-radius:8px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.social-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:3px;
+    background:var(--accent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s;
+}
+
+.social-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(36,34,31,.08);
+}
+
+.social-card:hover::before{
+    transform:scaleX(1);
+}
+
+.social-icon{
+    font-size:22px;
+    margin-bottom:7px;
+}
+
+.social-card strong{
+    display:block;
+    font-size:14px;
+}
+
+.social-card span{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     background:#1d1b19;
     color:#aaa;
     text-align:center;
-    padding:28px 20px;
+    padding:30px 20px;
     font-size:12px;
 }
 
-/* ================= FLOATING CONTACT ================= */
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
 
-.floating-contact{
+.footer-links a{
+    color:#ddd;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--accent-light);
+}
+
+
+/* =====================================================
+   FLOATING SOCIAL BAR
+===================================================== */
+
+.floating-socials{
     position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:900;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:8000;
 
-    width:55px;
-    height:55px;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
 
-    background:var(--black);
-    color:white;
+.float-social{
+    width:48px;
+    height:48px;
 
     border-radius:50%;
 
@@ -591,18 +892,75 @@ footer{
     align-items:center;
     justify-content:center;
 
-    font-size:22px;
+    background:var(--black);
+    color:white;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
+    font-size:17px;
 
-    animation:floatIn 1s 1s both;
+    box-shadow:0 8px 25px rgba(0,0,0,.16);
+
+    transition:.35s;
+
+    position:relative;
 }
 
-.floating-contact:hover{
+.float-social:hover{
+    transform:scale(1.12) translateX(-3px);
     background:var(--accent);
 }
 
-/* ================= ANIMATIONS ================= */
+.float-social::after{
+    content:attr(data-label);
+
+    position:absolute;
+    right:58px;
+    top:50%;
+    transform:translateY(-50%);
+
+    background:var(--black);
+    color:white;
+
+    padding:7px 11px;
+    border-radius:5px;
+
+    font-size:11px;
+    white-space:nowrap;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.25s;
+}
+
+.float-social:hover::after{
+    opacity:1;
+}
+
+.float-social.instagram{
+    animation:floatPulse 3s infinite;
+}
+
+.float-social.whatsapp{
+    animation:floatPulse 3s .7s infinite;
+}
+
+.float-social.facebook{
+    animation:floatPulse 3s 1.4s infinite;
+}
+
+@keyframes floatPulse{
+    0%,100%{
+        box-shadow:0 8px 25px rgba(0,0,0,.16);
+    }
+    50%{
+        box-shadow:0 8px 30px rgba(154,123,79,.35);
+    }
+}
+
+
+/* =====================================================
+   SCROLL ANIMATIONS
+===================================================== */
 
 @keyframes fadeUp{
     from{
@@ -612,17 +970,6 @@ footer{
     to{
         opacity:1;
         transform:translateY(0);
-    }
-}
-
-@keyframes floatIn{
-    from{
-        opacity:0;
-        transform:translateX(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
     }
 }
 
@@ -637,7 +984,26 @@ footer{
     transform:translateY(0);
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .process-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .process-card:last-child{
+        grid-column:2;
+    }
+
+    .contact-layout{
+        grid-template-columns:1fr;
+    }
+}
+
 
 @media(max-width:850px){
 
@@ -715,11 +1081,29 @@ footer{
         height:340px;
     }
 
-    .contact-grid{
+    .process-grid{
         grid-template-columns:1fr;
-        gap:35px;
+    }
+
+    .process-card:last-child{
+        grid-column:auto;
+    }
+
+    .floating-socials{
+        right:10px;
+    }
+
+    .float-social{
+        width:43px;
+        height:43px;
+        font-size:15px;
+    }
+
+    .float-social::after{
+        display:none;
     }
 }
+
 
 @media(max-width:500px){
 
@@ -746,6 +1130,16 @@ footer{
         url("6B1A6378 (6).jpg") center/cover no-repeat;
     }
 
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        text-align:center;
+    }
+
     .about-image img{
         height:390px;
     }
@@ -765,19 +1159,41 @@ footer{
         flex:0 0 auto;
     }
 
-    .floating-contact{
-        right:15px;
-        bottom:15px;
-        width:50px;
-        height:50px;
+    .contact-info{
+        padding:18px;
+    }
+
+    .contact-actions{
+        flex-direction:column;
+    }
+
+    .contact-action{
+        justify-content:center;
+    }
+
+    .social-card{
+        width:100%;
+    }
+
+    .floating-socials{
+        right:8px;
+    }
+
+    .float-social{
+        width:40px;
+        height:40px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -790,13 +1206,23 @@ class="logo"
 alt="Shashi Photography Studio">
 </a>
 
-<button class="menu" onclick="toggleMenu()">☰</button>
+<button
+class="menu"
+onclick="toggleMenu()"
+aria-label="Open menu">
+☰
+</button>
 
 <nav class="nav" id="nav">
 
-<a href="#about">About</a>
 <a href="#portfolio">Portfolio</a>
+
+<a href="#about">About</a>
+
 <a href="#services">Services</a>
+
+<a href="#process">Process</a>
+
 <a href="#contact">Contact</a>
 
 <a href="#book" class="book-btn">
@@ -810,7 +1236,9 @@ Book Event
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
@@ -832,9 +1260,17 @@ Wedding, candid, portrait and cinematic photography
 for moments that deserve to be remembered forever.
 </p>
 
-<a href="#book" class="primary-btn">
+<div class="hero-buttons">
+
+<a href="#portfolio" class="primary-btn">
+Explore Portfolio
+</a>
+
+<a href="#book" class="secondary-btn">
 Book Your Event
 </a>
+
+</div>
 
 </div>
 
@@ -843,7 +1279,112 @@ Book Your Event
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =====================================================
+     PORTFOLIO — NOW BEFORE ABOUT
+===================================================== -->
+
+<section class="portfolio" id="portfolio">
+
+<div class="container">
+
+<div class="section-head center">
+
+<small>Selected Work</small>
+
+<h2>
+Our <span>Portfolio</span>
+</h2>
+
+<p>
+Explore our photography work and discover the style
+that feels right for your special occasion.
+</p>
+
+</div>
+
+
+<div class="category-buttons">
+
+<button
+class="category-btn active"
+onclick="filterPhotos('all',this)">
+All
+</button>
+
+<button
+class="category-btn"
+onclick="filterPhotos('candid',this)">
+Candid
+</button>
+
+<button
+class="category-btn"
+onclick="filterPhotos('portrait',this)">
+Portrait
+</button>
+
+<button
+class="category-btn"
+onclick="filterPhotos('wedding',this)">
+Wedding
+</button>
+
+<button
+class="category-btn"
+onclick="filterPhotos('prewedding',this)">
+Pre-Wedding
+</button>
+
+<button
+class="category-btn"
+onclick="filterPhotos('cinematic',this)">
+Cinematic
+</button>
+
+</div>
+
+
+<div class="gallery" id="gallery">
+
+
+<div class="photo reveal" data-category="candid">
+
+<img
+src="6B1A6378 (8).jpg"
+alt="Candid Photography">
+
+<div class="photo-info">
+<h3>Candid Photography</h3>
+<p>Natural emotions & real moments</p>
+</div>
+
+</div>
+
+
+<div class="photo reveal" data-category="wedding">
+
+<img
+src="6B1A6378 (6).jpg"
+alt="Wedding Photography">
+
+<div class="photo-info">
+<h3>Wedding Photography</h3>
+<p>Beautiful wedding memories</p>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <section class="about" id="about">
 
@@ -854,7 +1395,7 @@ Book Your Event
 <small>About Studio</small>
 
 <h2>
-A simple approach to
+A simple approach to<br>
 beautiful photography.
 </h2>
 
@@ -872,7 +1413,7 @@ natural emotions and a comfortable experience.
 
 <img
 src="6B1A6378 (8).jpg"
-alt="Shashi Photography">
+alt="Shashi Photography Studio">
 
 </div>
 
@@ -923,133 +1464,9 @@ in photography & visual storytelling
 </section>
 
 
-<!-- ================= PORTFOLIO ================= -->
-
-<section class="portfolio" id="portfolio">
-
-<div class="container">
-
-<div class="section-head center">
-
-<small>Selected Work</small>
-
-<h2>
-Our <span class="gold">Portfolio</span>
-</h2>
-
-<p>
-Choose a category to explore the type of photography
-you are looking for.
-</p>
-
-</div>
-
-
-<div class="category-buttons">
-
-<button class="category-btn active"
-onclick="filterPhotos('all',this)">
-All
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('candid',this)">
-Candid
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('portrait',this)">
-Portrait
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('wedding',this)">
-Wedding
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('prewedding',this)">
-Pre-Wedding
-</button>
-
-<button class="category-btn"
-onclick="filterPhotos('cinematic',this)">
-Cinematic
-</button>
-
-</div>
-
-
-<div class="gallery" id="gallery">
-
-<!-- CANDID -->
-
-<div class="photo reveal" data-category="candid">
-
-<img
-src="6B1A6378 (8).jpg"
-alt="Candid Photography">
-
-<div class="photo-info">
-<h3>Candid Photography</h3>
-<p>Natural emotions & real moments</p>
-</div>
-
-</div>
-
-
-<!-- WEDDING -->
-
-<div class="photo reveal" data-category="wedding">
-
-<img
-src="6B1A6378 (6).jpg"
-alt="Wedding Photography">
-
-<div class="photo-info">
-<h3>Wedding Photography</h3>
-<p>Beautiful wedding memories</p>
-</div>
-
-</div>
-
-
-<!--
-==================================================
-FUTURE IMAGE SLOTS
-
-Later, upload your images and add them like this:
-
-<div class="photo" data-category="candid">
-<img src="candid-01.jpg" alt="Candid Photography">
-<div class="photo-info">
-<h3>Candid Photography</h3>
-<p>Natural moments</p>
-</div>
-</div>
-
-Change ONLY the image name.
-
-Categories available:
-
-candid
-portrait
-wedding
-prewedding
-cinematic
-
-You can add unlimited photos by copying the block above.
-==================================================
--->
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SERVICES ================= -->
+<!-- =====================================================
+     SERVICES
+===================================================== -->
 
 <section class="services" id="services">
 
@@ -1060,7 +1477,7 @@ You can add unlimited photos by copying the block above.
 <small>What We Do</small>
 
 <h2>
-Our <span class="gold">Services</span>
+Our <span>Services</span>
 </h2>
 
 <p>
@@ -1071,6 +1488,7 @@ Photography and cinematic services for your important occasions.
 
 
 <div class="service-grid">
+
 
 <div class="service reveal">
 <span>01</span>
@@ -1141,6 +1559,7 @@ your choice and requirements.
 </p>
 </div>
 
+
 </div>
 
 </div>
@@ -1148,7 +1567,123 @@ your choice and requirements.
 </section>
 
 
-<!-- ================= WHY ================= -->
+<!-- =====================================================
+     OUR PROCESS
+===================================================== -->
+
+<section class="process" id="process">
+
+<div class="container">
+
+<div class="section-head center">
+
+<small>How It Works</small>
+
+<h2>
+Our <span>Process</span>
+</h2>
+
+<p>
+From the first enquiry to receiving your final memories,
+we keep the experience simple and comfortable.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+01
+</div>
+
+<h3>Enquiry</h3>
+
+<p>
+Tell us your event date, location,
+requirements and photography needs.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+02
+</div>
+
+<h3>Discussion</h3>
+
+<p>
+We discuss your event, ideas, expectations
+and the services that suit you.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+03
+</div>
+
+<h3>Planning</h3>
+
+<p>
+We plan the shoot, coverage, locations,
+timing and important moments.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+04
+</div>
+
+<h3>Shoot</h3>
+
+<p>
+We capture natural emotions, important
+details and beautiful cinematic moments.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+05
+</div>
+
+<h3>Delivery</h3>
+
+<p>
+Your photographs, videos and albums are
+professionally edited and delivered.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
 
 <section class="why">
 
@@ -1159,14 +1694,15 @@ your choice and requirements.
 <small>Why Shashi Photography</small>
 
 <h2>
-Quality that goes beyond
-the <span class="gold">camera.</span>
+Quality that goes beyond<br>
+the <span>camera.</span>
 </h2>
 
 </div>
 
 
 <div class="why-grid">
+
 
 <div class="why-card reveal">
 <h3>5+ Years Experience</h3>
@@ -1180,8 +1716,8 @@ people and the details that matter.
 <div class="why-card reveal">
 <h3>High Quality Work</h3>
 <p>
-Professional photography, editing, cinematic
-videos and premium albums.
+Professional photography, editing,
+cinematic videos and premium albums.
 </p>
 </div>
 
@@ -1221,6 +1757,7 @@ nearby locations within approximately 120 km.
 </p>
 </div>
 
+
 </div>
 
 </div>
@@ -1228,7 +1765,9 @@ nearby locations within approximately 120 km.
 </section>
 
 
-<!-- ================= BOOK EVENT ================= -->
+<!-- =====================================================
+     BOOK EVENT
+===================================================== -->
 
 <section class="book-event" id="book">
 
@@ -1243,9 +1782,7 @@ Tell us your date and requirements.
 Let's discuss how we can capture your memories.
 </p>
 
-<a
-href="#enquiry"
-class="primary-btn">
+<a href="#enquiry" class="primary-btn">
 Book Your Event
 </a>
 
@@ -1254,7 +1791,9 @@ Book Your Event
 </section>
 
 
-<!-- ================= ENQUIRY ================= -->
+<!-- =====================================================
+     ENQUIRY FORM
+===================================================== -->
 
 <section class="enquiry" id="enquiry">
 
@@ -1265,11 +1804,12 @@ Book Your Event
 <small>Event Enquiry</small>
 
 <h2>
-Tell us about your <span class="gold">event.</span>
+Tell us about your <span>event.</span>
 </h2>
 
 <p>
 Fill in your details and your requirements.
+We'll get back to you as soon as possible.
 </p>
 
 </div>
@@ -1279,9 +1819,9 @@ Fill in your details and your requirements.
 
 <form
 class="form"
-action="mailto:rishavkushwah47@gmail.com"
-method="post"
-enctype="text/plain">
+id="enquiryForm"
+onsubmit="submitEnquiry(event)">
+
 
 <input
 type="text"
@@ -1289,27 +1829,40 @@ name="Name"
 placeholder="Your Name"
 required>
 
+
 <input
 type="tel"
 name="Mobile"
 placeholder="Mobile Number"
 required>
 
+
 <input
 type="email"
 name="Email"
 placeholder="Email Address">
 
+
 <textarea
 name="Message"
-placeholder="Tell us what you are looking for — wedding, candid, portrait, pre-wedding, cinematic video, reels, album etc."
+placeholder="Tell us what you are looking for — wedding, candid, pre-wedding, cinematic..."
 required></textarea>
+
 
 <button
 type="submit"
-class="primary-btn">
+class="primary-btn"
+id="submitBtn">
 Send Enquiry
 </button>
+
+
+<div
+class="form-status"
+id="formStatus">
+Thank you! Your enquiry has been sent successfully.
+</div>
+
 
 </form>
 
@@ -1320,32 +1873,63 @@ Send Enquiry
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section class="contact" id="contact">
 
 <div class="container">
 
-<div class="section-head">
+<div class="contact-layout">
 
-<small>Contact</small>
+
+<div class="contact-title reveal">
+
+<small class="label">
+CONTACT
+</small>
 
 <h2>
-Let's talk about your
-<span class="gold">event.</span>
+Let's talk about<br>
+<span>your event.</span>
 </h2>
 
 <p>
-For bookings, availability and enquiries, contact us directly.
+For bookings, availability and enquiries,
+contact us directly. We're happy to discuss
+your requirements and help you plan your shoot.
 </p>
+
+
+<div class="contact-actions">
+
+<a
+class="contact-action"
+href="tel:+919012084273">
+📞 Call Us
+</a>
+
+<a
+class="contact-action"
+href="https://wa.me/919012084273"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a
+class="contact-action"
+href="mailto:rishavkushwah47@gmail.com">
+✉️ Email Us
+</a>
+
+</div>
 
 </div>
 
 
-<div class="contact-grid">
+<div class="contact-info reveal">
 
-
-<div>
 
 <div class="contact-item">
 
@@ -1380,8 +1964,8 @@ rishavkushwah47@gmail.com
 <small>Studio</small>
 
 <p>
-Jaitpur Kalan, Bah Road, Bah, Agra,
-Uttar Pradesh
+Jaitpur Kalan, Bah Road, Bah,
+Agra, Uttar Pradesh
 </p>
 
 </div>
@@ -1398,55 +1982,100 @@ Nearby locations within approximately 120 km
 </div>
 
 
-<div class="socials">
-
 <a
-class="social"
-href="https://wa.me/919012084273"
-target="_blank">
-WhatsApp
+href="https://www.google.com/maps/search/?api=1&query=Jaitpur+Kalan+Bah+Agra+Uttar+Pradesh"
+target="_blank"
+class="primary-btn">
+📍 Get Directions
 </a>
 
-<a
-class="social"
-href="https://www.instagram.com/shashi_photography09/"
-target="_blank">
-Instagram
-</a>
-
-<a
-class="social"
-href="https://www.facebook.com/share/1BhmyA3EXi/"
-target="_blank">
-Facebook
-</a>
 
 </div>
 
 </div>
 
+</div>
 
-<div>
+</section>
 
-<div class="contact-item">
 
-<small>Book Event</small>
+<!-- =====================================================
+     SOCIAL MEDIA
+===================================================== -->
+
+<section class="social-section">
+
+<div class="container">
+
+<small class="label">
+STAY CONNECTED
+</small>
+
+<h2>
+Follow Our <span>Work.</span>
+</h2>
 
 <p>
-Ready to discuss your photography requirements?
+See our latest photography, wedding stories,
+behind-the-scenes moments and creative work.
 </p>
 
-<br>
+
+<div class="social-grid">
+
 
 <a
-href="#enquiry"
-class="primary-btn">
-Send Your Enquiry
+href="https://www.instagram.com/shashi_photography09/"
+target="_blank"
+class="social-card reveal">
+
+<div class="social-icon">
+📷
+</div>
+
+<strong>Instagram</strong>
+
+<span>
+@shashi_photography09
+</span>
+
 </a>
 
+
+<a
+href="https://www.facebook.com/share/1BhmyA3EXi/"
+target="_blank"
+class="social-card reveal">
+
+<div class="social-icon">
+f
 </div>
 
+<strong>Facebook</strong>
+
+<span>
+Follow our latest work
+</span>
+
+</a>
+
+
+<a
+href="https://wa.me/919012084273"
+target="_blank"
+class="social-card reveal">
+
+<div class="social-icon">
+💬
 </div>
+
+<strong>WhatsApp</strong>
+
+<span>
+Talk to us directly
+</span>
+
+</a>
 
 
 </div>
@@ -1456,31 +2085,81 @@ Send Your Enquiry
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
+<div class="footer-links">
+
+<a href="#home">Home</a>
+
+<a href="#portfolio">Portfolio</a>
+
+<a href="#about">About</a>
+
+<a href="#services">Services</a>
+
+<a href="#process">Process</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
 <p>
-© 2026 Shashi Photography Studio. All Rights Reserved.
+© 2026 Shashi Photography Studio.
+All Rights Reserved.
 </p>
 
 </footer>
 
 
-<!-- ================= FLOATING CONTACT ================= -->
+<!-- =====================================================
+     FLOATING SOCIAL BUTTONS
+===================================================== -->
+
+<div class="floating-socials">
+
+
+<a
+href="https://www.instagram.com/shashi_photography09/"
+target="_blank"
+class="float-social instagram"
+data-label="Instagram"
+aria-label="Instagram">
+📷
+</a>
+
 
 <a
 href="https://wa.me/919012084273"
 target="_blank"
-class="floating-contact"
-aria-label="Contact on WhatsApp">
+class="float-social whatsapp"
+data-label="WhatsApp"
+aria-label="WhatsApp">
 💬
 </a>
 
 
+<a
+href="https://www.facebook.com/share/1BhmyA3EXi/"
+target="_blank"
+class="float-social facebook"
+data-label="Facebook"
+aria-label="Facebook">
+f
+</a>
+
+
+</div>
+
+
 <script>
 
-/* MOBILE MENU */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 function toggleMenu(){
 
@@ -1492,7 +2171,9 @@ function toggleMenu(){
 }
 
 
-/* PORTFOLIO FILTER */
+/* =====================================================
+   PORTFOLIO FILTER
+===================================================== */
 
 function filterPhotos(category,button){
 
@@ -1511,8 +2192,10 @@ function filterPhotos(category,button){
     .querySelectorAll(".photo")
     .forEach(function(photo){
 
-        if(category === "all" ||
-           photo.dataset.category === category){
+        if(
+            category === "all" ||
+            photo.dataset.category === category
+        ){
 
             photo.style.display = "block";
 
@@ -1527,7 +2210,88 @@ function filterPhotos(category,button){
 }
 
 
-/* SCROLL ANIMATION */
+/* =====================================================
+   TELEGRAM ENQUIRY
+   Compatible with existing Code.gs doPost()
+===================================================== */
+
+function submitEnquiry(event){
+
+    event.preventDefault();
+
+    const form =
+    document.getElementById("enquiryForm");
+
+    const button =
+    document.getElementById("submitBtn");
+
+    const status =
+    document.getElementById("formStatus");
+
+    const formData =
+    new FormData(form);
+
+    button.disabled = true;
+    button.style.opacity = ".6";
+    button.innerText = "Sending...";
+
+
+    fetch(window.location.href, {
+
+        method:"POST",
+
+        body:new URLSearchParams(formData)
+
+    })
+
+    .then(function(response){
+
+        if(!response.ok){
+
+            throw new Error("Request failed");
+
+        }
+
+        return response.text();
+
+    })
+
+    .then(function(){
+
+        status.classList.add("show");
+
+        button.disabled = false;
+        button.style.opacity = "1";
+        button.innerText = "Send Enquiry";
+
+        form.reset();
+
+        setTimeout(function(){
+
+            status.classList.remove("show");
+
+        },7000);
+
+    })
+
+    .catch(function(){
+
+        button.disabled = false;
+        button.style.opacity = "1";
+        button.innerText = "Send Enquiry";
+
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 const observer =
 new IntersectionObserver(
@@ -1560,24 +2324,30 @@ document
 });
 
 
-/* CLOSE MOBILE MENU */
+/* =====================================================
+   CLOSE MOBILE MENU
+===================================================== */
 
 document
 .querySelectorAll(".nav a")
 .forEach(function(link){
 
-    link.addEventListener("click",function(){
+    link.addEventListener(
+        "click",
+        function(){
 
-        document
-        .getElementById("nav")
-        .classList
-        .remove("show");
+            document
+            .getElementById("nav")
+            .classList
+            .remove("show");
 
-    });
+        }
+    );
 
 });
 
 </script>
+
 
 </body>
 </html>
