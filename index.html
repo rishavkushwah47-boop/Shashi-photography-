@@ -3,190 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Shashi Photography</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  font-family:Arial, sans-serif;
-  background:#0b0b0b;
-  color:white;
+font-family:Arial,sans-serif;
+background:#0a0a0a;
+color:#fff;
 }
-
-header{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px;
-  background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
-    url("https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=1600&q=80")
-    center/cover;
+.hero{
+min-height:100vh;
+display:flex;
+align-items:flex-end;
+padding:50px 7%;
+background:
+linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.2)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=90") center/cover;
 }
-
-.hero h1{
-  font-size:55px;
-  letter-spacing:3px;
-  margin-bottom:15px;
+.hero-content{max-width:750px}
+.small{
+color:#d8bd88;
+letter-spacing:4px;
+font-size:12px;
+text-transform:uppercase;
 }
-
+h1{
+font-family:Georgia,serif;
+font-size:clamp(48px,8vw,90px);
+font-weight:400;
+line-height:1;
+margin:18px 0;
+}
 .hero p{
-  font-size:20px;
-  color:#ddd;
-  margin-bottom:30px;
+font-size:18px;
+color:#ddd;
+max-width:600px;
 }
-
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:28px;
+}
 .btn{
-  display:inline-block;
-  padding:14px 28px;
-  background:#fff;
-  color:#111;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:bold;
+display:inline-block;
+padding:13px 25px;
+border:1px solid #d8bd88;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
 }
-
+.btn:hover{
+background:#d8bd88;
+color:#111;
+}
 section{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
+padding:85px 7%;
 }
-
 .title{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:40px;
+text-align:center;
+margin-bottom:45px;
 }
-
+.title span{
+color:#d8bd88;
+letter-spacing:4px;
+font-size:11px;
+text-transform:uppercase;
+}
+.title h2{
+font-family:Georgia,serif;
+font-size:42px;
+font-weight:400;
+margin-top:8px;
+}
 .about{
-  text-align:center;
-  max-width:750px;
-  margin:auto;
-  color:#ccc;
-  line-height:1.8;
-  font-size:17px;
+max-width:750px;
+margin:auto;
+text-align:center;
+color:#aaa;
+font-size:17px;
+line-height:1.8;
 }
-
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+max-width:1100px;
+margin:auto;
 }
-
 .gallery img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  border-radius:12px;
-  transition:.3s;
+width:100%;
+height:500px;
+object-fit:cover;
+border-radius:4px;
 }
-
-.gallery img:hover{
-  transform:scale(1.03);
+.services{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+max-width:1100px;
+margin:auto;
 }
-
+.card{
+background:#121212;
+border:1px solid #242424;
+padding:35px 20px;
+text-align:center;
+}
+.card h3{
+font-family:Georgia,serif;
+font-size:24px;
+font-weight:400;
+margin-bottom:10px;
+}
+.card p{
+color:#888;
+font-size:14px;
+}
 .contact{
-  text-align:center;
-  background:#151515;
-  border-radius:20px;
+background:#121212;
+text-align:center;
 }
-
 .contact p{
-  margin:15px 0;
-  color:#ccc;
+color:#aaa;
+margin:8px 0;
 }
-
+.contact-buttons{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
 footer{
-  text-align:center;
-  padding:30px;
-  color:#888;
-  border-top:1px solid #222;
+text-align:center;
+padding:30px;
+color:#666;
+border-top:1px solid #222;
+font-size:13px;
 }
-
-@media(max-width:600px){
-  .hero h1{
-    font-size:38px;
-  }
-
-  .hero p{
-    font-size:17px;
-  }
-
-  .title{
-    font-size:30px;
-  }
+@media(max-width:800px){
+.gallery{grid-template-columns:1fr}
+.gallery img{height:450px}
+.services{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+.hero{padding:35px 5%}
+.services{grid-template-columns:1fr}
+.title h2{font-size:34px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-    <h1>Shashi Photography</h1>
-    <p>Capturing Moments • Creating Memories</p>
-    <a href="#gallery" class="btn">View My Work</a>
-  </div>
+<header class="hero">
+<div class="hero-content">
+<div class="small">Wedding • Pre-Wedding • Candid • Cinematic</div>
+<h1>Shashi Photography</h1>
+<p>Capturing genuine emotions, beautiful moments and timeless wedding stories.</p>
+
+<div class="buttons">
+<a class="btn" href="tel:9012323224">Call Now</a>
+<a class="btn" href="https://wa.me/919012323224" target="_blank">WhatsApp</a>
+</div>
+</div>
 </header>
 
-<section id="about">
-  <h2 class="title">About Me</h2>
+<section>
+<div class="title">
+<span>About Us</span>
+<h2>Your Story, Beautifully Captured</h2>
+</div>
 
-  <div class="about">
-    <p>
-      Welcome to Shashi Photography.
-      I capture beautiful moments, emotions and memories
-      through my camera. Explore my work and enjoy the journey
-      through photography.
-    </p>
-  </div>
-</section>
-
-<section id="gallery">
-  <h2 class="title">My Gallery</h2>
-
-  <div class="gallery">
-
-    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Photography">
-
-  </div>
+<div class="about">
+Shashi Photography captures weddings and special moments with a natural,
+emotional and cinematic style. Every photograph is created to preserve
+the feeling of your special day for years to come.
+</div>
 </section>
 
 <section>
-  <div class="contact">
-    <h2 class="title">Let's Connect</h2>
+<div class="title">
+<span>Portfolio</span>
+<h2>Wedding Stories</h2>
+</div>
 
-    <p>Interested in photography?</p>
-    <p>Contact Shashi Photography for collaborations and bookings.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=90" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1200&q=90" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=90" alt="Wedding">
+</div>
+</section>
 
-    <a href="mailto:your-email@example.com" class="btn">
-      Contact Me
-    </a>
-  </div>
+<section>
+<div class="title">
+<span>Services</span>
+<h2>What We Capture</h2>
+</div>
+
+<div class="services">
+
+<div class="card">
+<h3>Wedding</h3>
+<p>Complete wedding photography and memorable moments.</p>
+</div>
+
+<div class="card">
+<h3>Pre-Wedding</h3>
+<p>Romantic portraits and beautiful couple stories.</p>
+</div>
+
+<div class="card">
+<h3>Candid</h3>
+<p>Natural emotions captured as they happen.</p>
+</div>
+
+<div class="card">
+<h3>Cinematic</h3>
+<p>Beautiful wedding films made to relive your story.</p>
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+
+<div class="title">
+<span>Let's Create Memories</span>
+<h2>Book Your Date</h2>
+</div>
+
+<p>📞 9012323224</p>
+<p>✉️ rishavkushwah47@gmail.com</p>
+
+<div class="contact-buttons">
+<a class="btn" href="tel:9012323224">Call</a>
+<a class="btn" href="https://wa.me/919012323224" target="_blank">WhatsApp</a>
+<a class="btn" href="https://www.instagram.com/shashi_photography09/" target="_blank">Instagram</a>
+<a class="btn" href="mailto:rishavkushwah47@gmail.com">Email</a>
+</div>
+
 </section>
 
 <footer>
-  © 2026 Shashi Photography • All Rights Reserved
+Shashi Photography © 2026
 </footer>
 
 </body>
-  </html>
+</html>
