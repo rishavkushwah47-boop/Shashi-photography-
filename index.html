@@ -2015,7 +2015,13 @@
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
-
+/* Chatbase ya external widget ke extra top header ko gayab karne ke liye */
+iframe#chatbase-bubble-window + div, 
+.chatbase-window-header,
+div[class*="chat-header"]:first-child {
+  display: none !important;
+  }
+  
   
 </style>
 
