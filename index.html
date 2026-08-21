@@ -836,7 +836,43 @@
       object-fit: contain;
       filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.3));
     }
+.footer-social-strip {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
 
+.social-link {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.social-link:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+.social-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #d4af37;
+    transition: width 0.4s ease;
+}
+
+.social-link:hover::after {
+    width: 100%;
+                                        }
+  
     .toast-msg {
       position: fixed;
       bottom: 30px;
@@ -1728,48 +1764,46 @@
 
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-  <!-- LUXURY PLATINUM/SILVER AI ICON -->
-<a href="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" target="_blank" class="luxury-platinum-icon">
-  <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-  </svg>
+  <!-- MODERN CINEMATIC AI BUTTON -->
+<a href="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" target="_blank" class="cinematic-ai-btn">
+  <span class="sparkle">✨</span> Shashi AI Assistant
 </a>
 
 <style>
-.luxury-platinum-icon {
+.cinematic-ai-btn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 55px;
-  height: 55px;
-  background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
-  border: 1.5px solid #e5e5e5;
-  border-radius: 50%;
+  z-index: 99999;
+  padding: 12px 25px;
+  /* Royal Purple Gradient */
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.4);
+  transition: all 0.4s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-  z-index: 999999;
-  cursor: pointer;
-  animation: pulse-platinum 2.5s infinite;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.luxury-platinum-icon:hover {
-  transform: scale(1.12);
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+.cinematic-ai-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(108, 92, 231, 0.6);
 }
 
-@keyframes pulse-platinum {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
-  70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+.sparkle { animation: twinkle 1.5s infinite; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
 }
-</style>
+  </style>
   
 </body>
 </html>
