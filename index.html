@@ -1729,7 +1729,16 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="V3E3b1kDoYvt7w_77Lsal";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-  </script>
+  window.chatbaseConfig = {
+    chatbotId: "V3E3b1kDoYvt7w_77Lsal",
+  }
+</script>
+<script
+  src="https://www.chatbase.co/embed.min.js"
+  chatbotId="V3E3b1kDoYvt7w_77Lsal"
+  domain="www.chatbase.co"
+  defer>
+</script>
+
 </body>
 </html>
