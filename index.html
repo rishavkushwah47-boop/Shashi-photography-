@@ -1913,26 +1913,169 @@
 </style>
 
 <script>
+<!-- ULTRA-MODERN COMPACT SHASHI AI -->
+<button id="shashi-ai-trigger" class="shashi-capsule-btn">
+  <span class="pulse-wave"></span>
+  <span class="btn-text">Shashi AI</span>
+</button>
+
+<!-- Compact Floating Chat Box (No Background Blur) -->
+<div id="shashi-ai-modal" class="ai-clean-modal">
+  <div class="ai-modal-header">
+    <span class="ai-title">Shashi AI Assistant</span>
+    <button id="ai-modal-close" class="ai-close-btn">&times;</button>
+  </div>
+  <div class="ai-iframe-container">
+    <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
+<style>
+/* 1. Chhota Capsule Button with Wave/Sparkle Animation */
+.shashi-capsule-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 99999;
+  background: #0a0a0a;
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.shashi-capsule-btn:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.shashi-capsule-btn:hover .btn-text {
+  color: #000;
+}
+
+.btn-text {
+  color: #d4af37;
+  letter-spacing: 0.5px;
+}
+
+/* 2. Tarange / Waves Animation (Custom Sparkle Effect) */
+.pulse-wave {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+}
+
+.pulse-wave::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  animation: wave-effect 1.5s infinite ease-out;
+}
+
+@keyframes wave-effect {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* 3. Clean Modal - NO BACKGROUND BLUR/DARKNESS */
+.ai-clean-modal {
+  display: none; /* Shuru mein band rahega */
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+  width: 350px;
+  max-width: 90vw;
+  height: 480px;
+  background: #0a0a0a;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  z-index: 999999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  display: none; /* Default hidden */
+  flex-direction: column;
+}
+
+.ai-modal-header {
+  background: #141414;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.ai-title {
+  color: #d4af37;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.ai-close-btn {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.ai-close-btn:hover {
+  color: #fff;
+}
+
+.ai-iframe-container {
+  flex: 1;
+  width: 100%;
+  background: #000;
+}
+</style>
+
+<script>
   const triggerBtn = document.getElementById('shashi-ai-trigger');
-  const modalOverlay = document.getElementById('shashi-ai-modal');
+  const chatModal = document.getElementById('shashi-ai-modal');
   const closeBtn = document.getElementById('ai-modal-close');
 
-  triggerBtn.addEventListener('click', function() {
-    modalOverlay.style.display = 'flex'; // Click karte hi popup khulega
+  triggerBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (chatModal.style.display === 'flex') {
+      chatModal.style.display = 'none';
+    } else {
+      chatModal.style.display = 'flex';
+    }
   });
 
   closeBtn.addEventListener('click', function() {
-    modalOverlay.style.display = 'none'; // Close button dabane par band hoga
+    chatModal.style.display = 'none';
   });
 
-  // Bahar click karne par bhi band ho jayega
+  // Bahar click karne par modal band ho jaye lekin website blur na ho
   window.addEventListener('click', function(e) {
-    if (e.target === modalOverlay) {
-      modalOverlay.style.display = 'none';
+    if (!chatModal.contains(e.target) && e.target !== triggerBtn) {
+      chatModal.style.display = 'none';
     }
   });
 </script>
-
   
+
 </body>
 </html>
