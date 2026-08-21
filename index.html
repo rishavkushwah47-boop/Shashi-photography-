@@ -12,6 +12,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 1. ROYAL WEDDING THEME SYSTEM */
+:root {
+    --bg-dark: #070709;
+    --bg-surface: #0e0e13;
+    --bg-card: #15151d;
+    --bg-card-hover: #1c1c27;
+    --bg-glass: rgba(14, 14, 19, 0.88);
+    --gold-primary: #d4af37;
+    --gold-light: #f5e7a9;
+    --gold-deep: #aa820a;
+    --gold-glow: rgba(212, 175, 55, 0.25);
+    --text-main: #ffffff;
+    --text-muted: #a3a3b2;
+    --border-subtle: #242433;
+    --border-gold: rgba(212, 175, 55, 0.4);
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+    
     /* 1. ROYAL WEDDING THEME SYSTEM */
     :root {
       --bg-dark: #070709;
@@ -889,25 +915,30 @@
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
-    
-.premium-book-btn {
-    padding: 12px 25px;
+    .premium-book-btn {
+    padding: 8px 20px;
     background: #000;
-    color: #fff;
+    color: #d4af37;
     border: 1px solid #d4af37;
-    border-radius: 6px;
+    border-radius: 50px; /* Capsule Shape */
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    transition: all 0.3s ease; /* Smooth transition */
-    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+
 .premium-book-btn:hover {
     background: #d4af37;
     color: #000;
-    transform: translateY(-2px); /* Button halka sa jump karega */
-      }
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+    
   
     .toast-msg.show {
       transform: translateX(-50%) translateY(0);
@@ -1783,14 +1814,16 @@
 
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-  <!-- AESTHETIC SHASHI AI BUTTON -->
+<!-- WORKING SHASHI AI BUTTON -->
 <button onclick="window.chatbase('show')" class="shashi-ai-aesthetic-btn">
   <span class="sparkles">✨</span> Shashi AI
 </button>
 
-<!-- Chatbase official trigger (Ye popup control karega) -->
+<!-- Chatbase Script Integration -->
 <script>
-  window.chatbaseConfig = { chatbotId: "V3E3b1kDoYvt7w_77Lsal" }
+  window.chatbaseConfig = {
+    chatbotId: "V3E3b1kDoYvt7w_77Lsal"
+  }
 </script>
 <script src="https://www.chatbase.co/embed.min.js" chatbotId="V3E3b1kDoYvt7w_77Lsal" defer></script>
 
@@ -1800,39 +1833,36 @@
   bottom: 25px;
   right: 25px;
   z-index: 999999;
-  background: linear-gradient(135deg, #4834d4, #686de0);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  padding: 8px 18px; /* Chhota aur compact */
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 10px 20px;
   border-radius: 50px;
-  font-family: sans-serif;
+  font-family: inherit;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(72, 52, 212, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 6px;
-  /* Glow effect */
-  animation: glowEffect 2s infinite;
 }
 
 .shashi-ai-aesthetic-btn:hover {
+  background: #d4af37;
+  color: #000;
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(72, 52, 212, 0.6);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-.sparkles { animation: pulse 1.5s infinite; }
+.sparkles {
+  animation: pulse 1.5s infinite;
+}
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(1.2); }
-}
-
-@keyframes glowEffect {
-  0%, 100% { box-shadow: 0 0 5px rgba(104, 109, 224, 0.3); }
-  50% { box-shadow: 0 0 15px rgba(104, 109, 224, 0.6); }
+  50% { opacity: 0.4; transform: scale(1.2); }
 }
 </style>
   
