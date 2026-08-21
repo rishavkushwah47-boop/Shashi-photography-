@@ -1977,19 +1977,25 @@
   left: 0 !important;
   width: 100vw !important;
   height: 100dvh !important;
-  min-height: -webkit-fill-available !important;
-  overflow: hidden !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  bottom: auto !important;
-  right: auto !important;
-  border-radius: 0 !important;
-  border: none !important;
-  z-index: 99999999 !important;
   display: flex !important;
   flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.popup-header {
+  position: relative !important;
+  top: 0 !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
+  background: #111 !important;
+}
+
+.popup-body {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  min-height: 0 !important;
   }
-        
+       
                             
   .popup-header {
   position: sticky !important;
