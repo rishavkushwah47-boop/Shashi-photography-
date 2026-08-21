@@ -1814,18 +1814,23 @@
 
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-<!-- WORKING SHASHI AI BUTTON -->
-<button onclick="window.chatbase('show')" class="shashi-ai-aesthetic-btn">
-  <span class="sparkles">✨</span> Shashi AI
+<!-- 200CR% WORKING MAHA-BRAHMASTRA SHASHI AI -->
+<button id="ai-btn" class="shashi-ai-aesthetic-btn">
+  <span class="sparkle-container"></span> Shashi AI
 </button>
 
-<!-- Chatbase Script Integration -->
 <script>
-  window.chatbaseConfig = {
-    chatbotId: "V3E3b1kDoYvt7w_77Lsal"
-  }
+  window.chatbaseConfig = { chatbotId: "V3E3b1kDoYvt7w_77Lsal" }
+  const script = document.createElement('script');
+  script.src = "https://www.chatbase.co/embed.min.js";
+  script.chatbotId = "V3E3b1kDoYvt7w_77Lsal";
+  script.defer = true;
+  document.body.appendChild(script);
+
+  document.getElementById('ai-btn').addEventListener('click', function() {
+    if (window.chatbase) { window.chatbase('show'); }
+  });
 </script>
-<script src="https://www.chatbase.co/embed.min.js" chatbotId="V3E3b1kDoYvt7w_77Lsal" defer></script>
 
 <style>
 .shashi-ai-aesthetic-btn {
@@ -1833,38 +1838,48 @@
   bottom: 25px;
   right: 25px;
   z-index: 999999;
-  background: linear-gradient(135deg, #1a1a1a, #000000);
+  background: rgba(0, 0, 0, 0.85);
   border: 1px solid #d4af37;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 50px;
-  font-family: inherit;
-  font-size: 13px;
+  font-family: sans-serif;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s ease;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
 .shashi-ai-aesthetic-btn:hover {
   background: #d4af37;
   color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
 
-.sparkles {
-  animation: pulse 1.5s infinite;
+/* Premium Sparkle Animation */
+.sparkle-container {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #d4af37;
+  animation: spark 1.5s infinite ease-in-out;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.2); }
+@keyframes spark {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2); opacity: 0; box-shadow: 0 0 20px #d4af37; }
+  100% { transform: scale(1); opacity: 1; }
 }
 </style>
+  
   
 </body>
 </html>
