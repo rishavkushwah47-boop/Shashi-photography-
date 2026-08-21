@@ -18,12 +18,11 @@
       --bg-surface: #0e0e13;
       --bg-card: #15151d;
       --bg-card-hover: #1c1c27;
-      --bg-glass: rgba(14, 14, 19, 0.82);
+      --bg-glass: rgba(14, 14, 19, 0.88);
       --gold-primary: #d4af37;
       --gold-light: #f5e7a9;
       --gold-deep: #aa820a;
       --gold-glow: rgba(212, 175, 55, 0.25);
-      --wedding-rose: #2a151b;
       --text-main: #ffffff;
       --text-muted: #a3a3b2;
       --border-subtle: #242433;
@@ -72,7 +71,7 @@
     }
 
     .section-wrap {
-      padding: 100px 0;
+      padding: 90px 0;
       position: relative;
     }
 
@@ -84,7 +83,6 @@
       color: var(--gold-primary);
       font-weight: 700;
       margin-bottom: 12px;
-      position: relative;
     }
 
     .section-title {
@@ -139,7 +137,7 @@
     .btn-outline {
       background: rgba(255, 255, 255, 0.03);
       color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(8px);
     }
 
@@ -185,12 +183,6 @@
       max-width: 250px;
       object-fit: contain;
       filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.35));
-      transition: var(--transition);
-    }
-
-    .logo-anchor img:hover {
-      filter: drop-shadow(0 0 24px rgba(212, 175, 55, 0.6));
-      transform: scale(1.02);
     }
 
     .nav-links {
@@ -230,7 +222,7 @@
       cursor: pointer;
     }
 
-    /* 3. FLOATING SOCIAL ICONS BAR */
+    /* 3. SIDE FLOATING SOCIAL BAR */
     .side-social-bar {
       position: fixed;
       right: 22px;
@@ -240,12 +232,6 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      animation: fadeInSide 1.4s ease forwards;
-    }
-
-    @keyframes fadeInSide {
-      from { opacity: 0; transform: translate(15px, -50%); }
-      to { opacity: 1; transform: translate(0, -50%); }
     }
 
     .side-social-btn {
@@ -273,10 +259,9 @@
       background: var(--gold-primary);
       color: #000000;
       transform: translateX(-5px) scale(1.1);
-      box-shadow: 0 0 20px var(--gold-glow);
     }
 
-    /* 4. FULL-WIDTH HERO BANNER */
+    /* 4. HERO BANNER */
     .hero-banner {
       min-height: 85vh;
       display: flex;
@@ -293,16 +278,10 @@
     .hero-glass-card {
       max-width: 860px;
       padding: 40px 24px;
-      background: rgba(14, 14, 19, 0.45);
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: rgba(14, 14, 19, 0.55);
+      border: 1px solid rgba(212, 175, 55, 0.25);
       border-radius: 8px;
-      backdrop-filter: blur(8px);
-      animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes heroFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      backdrop-filter: blur(10px);
     }
 
     .hero-title {
@@ -332,8 +311,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-
-    /* 5. MASONRY GALLERY STYLES */
+    /* 5. MASONRY GALLERY */
     .portfolio-section {
       background-color: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
@@ -407,7 +385,8 @@
     .masonry-item:hover img {
       transform: scale(1.04);
     }
-        .masonry-overlay {
+
+    .masonry-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(7, 7, 9, 0.95) 0%, rgba(7, 7, 9, 0.2) 60%, transparent 100%);
@@ -444,7 +423,7 @@
       position: fixed;
       inset: 0;
       background: rgba(5, 5, 7, 0.96);
-      z-index: 2000;
+      z-index: 99999;
       display: none;
       align-items: center;
       justify-content: center;
@@ -461,7 +440,6 @@
       max-height: 86vh;
       object-fit: contain;
       border-radius: 4px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.8);
       border: 1px solid var(--border-gold);
     }
 
@@ -490,7 +468,7 @@
     .lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
     .lightbox-close { top: 24px; right: 24px; font-size: 1.8rem; }
 
-    /* Video Section Styles */
+    /* Video & Reviews */
     .video-section {
       background-color: var(--bg-dark);
       border-bottom: 1px solid var(--border-subtle);
@@ -509,7 +487,6 @@
       border-radius: 6px;
       overflow: hidden;
       aspect-ratio: 16 / 9;
-      position: relative;
     }
 
     .video-card iframe {
@@ -537,10 +514,8 @@
       height: 44px;
       fill: var(--gold-primary);
       margin-bottom: 10px;
-      opacity: 0.8;
     }
 
-    /* Process & Reviews Styles */
     .process-section {
       background-color: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
@@ -558,7 +533,6 @@
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
       padding: 36px 28px;
-      position: relative;
       transition: var(--transition);
     }
 
@@ -606,11 +580,6 @@
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
       padding: 30px;
-      transition: var(--transition);
-    }
-
-    .review-card:hover {
-      border-color: var(--border-gold);
     }
 
     .star-rating {
@@ -642,37 +611,31 @@
       letter-spacing: 1px;
     }
 
-    /* Dedicated Booking Page & Forms */
+    /* Dedicated Booking Window */
     .booking-overlay-page {
       position: fixed;
       inset: 0;
-      z-index: 2500;
-      background: rgba(7, 7, 9, 0.97);
-      backdrop-filter: blur(18px);
+      z-index: 99999;
+      background: rgba(7, 7, 9, 0.98);
+      backdrop-filter: blur(20px);
       overflow-y: auto;
       display: none;
       padding: 40px 16px;
     }
 
     .booking-overlay-page.open {
-      display: block;
+      display: block !important;
     }
 
     .booking-card-container {
       max-width: 820px;
-      margin: 30px auto;
+      margin: 20px auto;
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
       border-radius: 8px;
       padding: 45px 36px;
       position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-      animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes modalSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
     }
 
     .booking-close-btn {
@@ -739,11 +702,6 @@
       outline: none;
       border-color: var(--gold-primary);
       background: #1b1b24;
-      box-shadow: 0 0 12px var(--gold-glow);
-    }
-
-    select.form-ctrl {
-      cursor: pointer;
     }
 
     textarea.form-ctrl {
@@ -751,30 +709,37 @@
       resize: vertical;
     }
 
+    /* Success / Error Animation Feedback */
     .feedback-box {
       display: none;
       margin-top: 18px;
-      padding: 14px;
+      padding: 16px;
       border-radius: 4px;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       text-align: center;
+      font-weight: 600;
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .feedback-box.success {
-      display: block;
-      background: rgba(37, 211, 102, 0.12);
+      display: block !important;
+      background: rgba(37, 211, 102, 0.15);
       border: 1px solid #25d366;
-      color: #5ef599;
+      color: #4ef08c;
     }
 
     .feedback-box.error {
-      display: block;
-      background: rgba(231, 76, 60, 0.12);
+      display: block !important;
+      background: rgba(231, 76, 60, 0.15);
       border: 1px solid #e74c3c;
       color: #ff7d70;
     }
 
-    /* Contact Section Styles */
     .contact-section {
       background-color: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
@@ -828,7 +793,6 @@
       border-radius: 6px;
     }
 
-    /* Floating WhatsApp & Footer Styles */
     .whatsapp-bubble {
       position: fixed;
       left: 24px;
@@ -854,7 +818,6 @@
 
     .whatsapp-bubble:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
     }
 
     footer {
@@ -886,8 +849,7 @@
       border-radius: 40px;
       font-size: 0.78rem;
       letter-spacing: 1px;
-      z-index: 3000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      z-index: 999999;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
@@ -896,7 +858,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Responsive Breakpoints */
     @media (max-width: 960px) {
       .masonry-grid { column-count: 2; }
       .contact-grid-wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -962,8 +923,8 @@
       </ul>
 
       <div class="nav-right">
-        <button class="btn btn-gold" onclick="openBookingPage()">Book Your Event</button>
-        <button class="mobile-menu-trigger" id="mobileMenuBtn" aria-label="Toggle Menu">&#9776;</button>
+        <button class="btn btn-gold" type="button" onclick="openBookingPage()">Book Your Event</button>
+        <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
     </div>
   </header>
@@ -980,14 +941,13 @@
         </p>
         <div class="hero-actions">
           <a href="#portfolio" class="btn btn-gold">Explore Portfolio</a>
-          <button class="btn btn-outline" onclick="openBookingPage()">Book Your Event</button>
+          <button class="btn btn-outline" type="button" onclick="openBookingPage()">Book Your Event</button>
         </div>
       </div>
     </section>
-        <!-- PORTFOLIO SECTION -->
+      <!-- PORTFOLIO SECTION -->
     <section class="section-wrap portfolio-section" id="portfolio">
       <div class="container">
-        
         <div style="text-align: center;">
           <span class="gold-eyebrow">Visual Archive</span>
           <h2 class="section-title">The Master Portfolio</h2>
@@ -1009,7 +969,6 @@
         </div>
 
         <div class="masonry-grid" id="masonryGallery">
-
           <!-- PORTRAIT -->
           <div class="masonry-item" data-category="portrait" onclick="openLightbox(0)">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85" alt="Fine Art Studio Portrait" loading="lazy">
@@ -1093,15 +1052,12 @@
               <h3 class="item-caption">Grand Celebration</h3>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
-    <!-- CINEMATIC FILMS & REELS -->
+        <!-- CINEMATIC FILMS -->
     <section class="section-wrap video-section" id="films">
       <div class="container">
-        
         <div style="text-align: center;">
           <span class="gold-eyebrow">Motion Visuals</span>
           <h2 class="section-title">Cinematic Films & Reels</h2>
@@ -1121,13 +1077,12 @@
             <p style="font-size: 0.78rem;">Uploading new 4K wedding trailer soon</p>
           </div>
         </div>
-
       </div>
     </section>
-        <!-- HOW WE WORK -->
+
+    <!-- HOW WE WORK -->
     <section class="section-wrap process-section" id="process">
       <div class="container">
-        
         <div style="text-align: center;">
           <span class="gold-eyebrow">Our Methodology</span>
           <h2 class="section-title">How We Work</h2>
@@ -1155,14 +1110,12 @@
             <p>Every photograph and cinematic cut is meticulously color-graded with timeless tones and delivered securely within promised timelines.</p>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="section-wrap reviews-section" id="reviews">
       <div class="container">
-        
         <div style="text-align: center;">
           <span class="gold-eyebrow">Client Love</span>
           <h2 class="section-title">Words From Our Couples</h2>
@@ -1193,16 +1146,13 @@
             <div class="client-event">Fine Art Portrait</div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- CONTACT & QUICK ENQUIRY -->
+    <!-- CONTACT & ENQUIRY -->
     <section class="section-wrap contact-section" id="contact">
       <div class="container">
-        
         <div class="contact-grid-wrap">
-          
           <div>
             <span class="gold-eyebrow">Studio Location</span>
             <h2 class="section-title">Get In Touch</h2>
@@ -1211,34 +1161,32 @@
             </p>
 
             <div class="studio-info-card">
-              
               <div class="info-tile">
                 <span class="info-tag">Phone & WhatsApp</span>
                 <div class="info-text">
                   <a href="tel:+919012084273">+91 90120 84273</a> &nbsp;•&nbsp; 
-                  <a href="tel:+919012323224">+91 90123 23224</a>[span_0](start_span)[span_0](end_span)
+                  <a href="tel:+919012323224">+91 90123 23224</a>
                 </div>
               </div>
 
               <div class="info-tile">
                 <span class="info-tag">Official Email</span>
                 <div class="info-text">
-                  <a href="mailto:rishavkushwah47@gmail.com">rishavkushwah47@gmail.com</a>[span_1](start_span)[span_1](end_span)
+                  <a href="mailto:rishavkushwah47@gmail.com">rishavkushwah47@gmail.com</a>
                 </div>
               </div>
 
               <div class="info-tile">
                 <span class="info-tag">Studio Address</span>
                 <div class="info-text" style="font-size: 0.92rem; line-height: 1.6;">
-                  Shop No 1, Bah Road, Ater-Jaitpur Rd, Kalan, Agra, Paharpura, Uttar Pradesh 283114[span_2](start_span)[span_2](end_span)
+                  Shop No 1, Bah Road, Ater-Jaitpur Rd, Kalan, Agra, Paharpura, Uttar Pradesh 283114
                 </div>
                 <div style="margin-top: 12px;">
                   <a class="btn btn-outline" style="padding: 8px 16px; font-size: 0.72rem;" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shashi+Photography+Studio,+Shop+No+1,+Bah+Road,+Ater-Jaitpur+Rd,+Kalan,+Agra,+Paharpura,+Uttar+Pradesh+283114">
-                    📍 Open Directly On Google Maps[span_3](start_span)[span_3](end_span)
+                    📍 Open Directly On Google Maps
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -1288,17 +1236,14 @@
               <div id="enquiryAlertBox" class="feedback-box"></div>
             </form>
           </div>
-
         </div>
-
       </div>
     </section>
-
   </main>
-    <!-- FULLSCREEN DEDICATED BOOKING MODAL -->
+  <!-- DEDICATED BOOKING MODAL -->
   <div class="booking-overlay-page" id="bookingOverlayPage">
     <div class="booking-card-container">
-      <button class="booking-close-btn" onclick="closeBookingPage()" aria-label="Close Booking Form">&times;</button>
+      <button class="booking-close-btn" type="button" onclick="closeBookingPage()" aria-label="Close Booking Form">&times;</button>
       
       <div style="text-align: center; margin-bottom: 28px;">
         <span class="gold-eyebrow">Official Reservation</span>
@@ -1309,7 +1254,6 @@
       </div>
 
       <form id="dedicatedBookingForm">
-        
         <div class="form-grid-2">
           <div class="field-group">
             <label for="bkName">Full Name <span>*</span></label>
@@ -1398,10 +1342,10 @@
 
   <!-- LIGHTBOX VIEWER -->
   <div class="lightbox-modal" id="lightboxModal" onclick="closeLightboxOverlay(event)">
-    <button class="lightbox-btn lightbox-close" onclick="closeLightboxOverlay(event)">&times;</button>
-    <button class="lightbox-btn lightbox-prev" onclick="prevLightbox(event)">&#10094;</button>
+    <button class="lightbox-btn lightbox-close" type="button" onclick="closeLightboxOverlay(event)">&times;</button>
+    <button class="lightbox-btn lightbox-prev" type="button" onclick="prevLightbox(event)">&#10094;</button>
     <img src="" alt="Expanded View" class="lightbox-img" id="lightboxActiveImg">
-    <button class="lightbox-btn lightbox-next" onclick="nextLightbox(event)">&#10095;</button>
+    <button class="lightbox-btn lightbox-next" type="button" onclick="nextLightbox(event)">&#10095;</button>
   </div>
 
   <!-- WHATSAPP FLOATING BUTTON -->
@@ -1418,9 +1362,9 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- CLEAN JAVASCRIPT LOGIC -->
   <script>
-    const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";[span_4](start_span)[span_4](end_span)
+    const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";
 
     async function sendDataToTelegramWebhook(dataObj) {
       await fetch(GOOGLE_SCRIPT_WEBHOOK, {
@@ -1442,105 +1386,113 @@
     const bookingOverlay = document.getElementById('bookingOverlayPage');
 
     function openBookingPage() {
-      bookingOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      if (bookingOverlay) {
+        bookingOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
     function closeBookingPage() {
-      bookingOverlay.classList.remove('open');
-      document.body.style.overflow = 'auto';
+      if (bookingOverlay) {
+        bookingOverlay.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
     }
 
     const bookingForm = document.getElementById('dedicatedBookingForm');
     const bookingAlert = document.getElementById('bookingAlertBox');
 
-    bookingForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      const btn = bookingForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'TRANSMITTING BOOKING...';
-      bookingAlert.className = 'feedback-box';
-      bookingAlert.style.display = 'none';
+        const btn = bookingForm.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'TRANSMITTING BOOKING...';
+        bookingAlert.className = 'feedback-box';
+        bookingAlert.style.display = 'none';
 
-      const fd = new FormData(bookingForm);
-      const payload = {
-        formType: "BOOKING",[span_5](start_span)[span_5](end_span)
-        type: "BOOKING",[span_6](start_span)[span_6](end_span)
-        name: fd.get("name"),[span_7](start_span)[span_7](end_span)
-        mobile: fd.get("mobile"),[span_8](start_span)[span_8](end_span)
-        phone: fd.get("mobile"),[span_9](start_span)[span_9](end_span)
-        email: fd.get("email") || "Not Provided",
-        eventType: fd.get("eventType"),[span_10](start_span)[span_10](end_span)
-        eventDate: fd.get("eventDate"),[span_11](start_span)[span_11](end_span)
-        guests: fd.get("guests") || "Not Specified",
-        eventLocation: fd.get("eventLocation"),[span_12](start_span)[span_12](end_span)
-        location: fd.get("eventLocation"),[span_13](start_span)[span_13](end_span)
-        service: fd.get("service") || "Photography",[span_14](start_span)[span_14](end_span)
-        preferredContact: fd.get("preferredContact") || "WhatsApp",[span_15](start_span)[span_15](end_span)
-        message: fd.get("message") || "None",[span_16](start_span)[span_16](end_span)
-        inquiryType: "Booking / Event Request[span_17](start_span)"[span_17](end_span)
-      };
+        const fd = new FormData(bookingForm);
+        const payload = {
+          formType: "BOOKING",
+          type: "BOOKING",
+          name: fd.get("name"),
+          mobile: fd.get("mobile"),
+          phone: fd.get("mobile"),
+          email: fd.get("email") || "Not Provided",
+          eventType: fd.get("eventType"),
+          eventDate: fd.get("eventDate"),
+          guests: fd.get("guests") || "Not Specified",
+          eventLocation: fd.get("eventLocation"),
+          location: fd.get("eventLocation"),
+          service: fd.get("service") || "Photography",
+          preferredContact: fd.get("preferredContact") || "WhatsApp",
+          message: fd.get("message") || "None",
+          inquiryType: "Booking / Event Request"
+        };
 
-      try {
-        await sendDataToTelegramWebhook(payload);
-        bookingAlert.className = 'feedback-box success';
-        bookingAlert.textContent = 'Thank you! Your event booking details have been transmitted directly to our studio Telegram bot. We will contact you shortly.';
-        bookingForm.reset();
-      } catch (err) {
-        bookingAlert.className = 'feedback-box error';
-        bookingAlert.textContent = 'Submission error. Please contact us directly at 9012084273 or 9012323224.';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-    });
+        try {
+          await sendDataToTelegramWebhook(payload);
+          bookingAlert.className = 'feedback-box success';
+          bookingAlert.innerHTML = '✔ <b>Booking Request Sent Successfully!</b><br>Our team will contact you shortly on WhatsApp / Phone.';
+          bookingForm.reset();
+        } catch (err) {
+          bookingAlert.className = 'feedback-box error';
+          bookingAlert.innerHTML = '✖ Submission error. Please contact us directly at 9012084273 or 9012323224.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+    }
 
     const enquiryForm = document.getElementById('generalEnquiryForm');
     const enquiryAlert = document.getElementById('enquiryAlertBox');
 
-    enquiryForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
+    if (enquiryForm) {
+      enquiryForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      const btn = enquiryForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'SENDING...';
-      enquiryAlert.className = 'feedback-box';
-      enquiryAlert.style.display = 'none';
+        const btn = enquiryForm.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'SENDING ENQUIRY...';
+        enquiryAlert.className = 'feedback-box';
+        enquiryAlert.style.display = 'none';
 
-      const fd = new FormData(enquiryForm);
-      const payload = {
-        formType: "GENERAL_INQUIRY",[span_18](start_span)[span_18](end_span)
-        type: "GENERAL_INQUIRY",[span_19](start_span)[span_19](end_span)
-        name: fd.get("name"),[span_20](start_span)[span_20](end_span)
-        mobile: fd.get("mobile"),[span_21](start_span)[span_21](end_span)
-        phone: fd.get("mobile"),
-        email: fd.get("email") || "Not Provided",
-        inquiryType: fd.get("inquiryType"),[span_22](start_span)[span_22](end_span)
-        message: fd.get("message"),[span_23](start_span)[span_23](end_span)
-        eventType: "",[span_24](start_span)[span_24](end_span)
-        eventDate: "",[span_25](start_span)[span_25](end_span)
-        guests: "",[span_26](start_span)[span_26](end_span)
-        eventLocation: "",[span_27](start_span)[span_27](end_span)
-        service: "",[span_28](start_span)[span_28](end_span)
-        preferredContact: "[span_29](start_span)"[span_29](end_span)
-      };
+        const fd = new FormData(enquiryForm);
+        const payload = {
+          formType: "GENERAL_INQUIRY",
+          type: "GENERAL_INQUIRY",
+          name: fd.get("name"),
+          mobile: fd.get("mobile"),
+          phone: fd.get("mobile"),
+          email: fd.get("email") || "Not Provided",
+          inquiryType: fd.get("inquiryType"),
+          message: fd.get("message"),
+          eventType: "",
+          eventDate: "",
+          guests: "",
+          eventLocation: "",
+          service: "",
+          preferredContact: ""
+        };
 
-      try {
-        await sendDataToTelegramWebhook(payload);
-        enquiryAlert.className = 'feedback-box success';
-        enquiryAlert.textContent = 'Thank you! Your enquiry has been sent to our Telegram bot.';
-        enquiryForm.reset();
-      } catch (err) {
-        enquiryAlert.className = 'feedback-box error';
-        enquiryAlert.textContent = 'Could not send. Please message us on WhatsApp.';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-    });
+        try {
+          await sendDataToTelegramWebhook(payload);
+          enquiryAlert.className = 'feedback-box success';
+          enquiryAlert.innerHTML = '✔ <b>Enquiry Sent Successfully!</b><br>Thank you! Your message has been sent to our Telegram bot.';
+          enquiryForm.reset();
+        } catch (err) {
+          enquiryAlert.className = 'feedback-box error';
+          enquiryAlert.innerHTML = '✖ Could not send. Please message us directly on WhatsApp.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+    }
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const masonryCards = document.querySelectorAll('.masonry-item');
@@ -1569,10 +1521,12 @@
     let currentImgIdx = 0;
 
     function openLightbox(index) {
-      currentImgIdx = index;
-      lightboxImg.src = allImageElements[currentImgIdx].src;
-      lightboxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      if (allImageElements[index]) {
+        currentImgIdx = index;
+        lightboxImg.src = allImageElements[currentImgIdx].src;
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
     function closeLightboxOverlay(e) {
@@ -1595,18 +1549,20 @@
     }
 
     let touchStartX = 0;
-    lightboxModal.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+    if (lightboxModal) {
+      lightboxModal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
 
-    lightboxModal.addEventListener('touchend', (e) => {
-      let touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) nextLightbox();
-      if (touchEndX - touchStartX > 50) prevLightbox();
-    }, { passive: true });
+      lightboxModal.addEventListener('touchend', (e) => {
+        let touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) nextLightbox();
+        if (touchEndX - touchStartX > 50) prevLightbox();
+      }, { passive: true });
+    }
 
     document.addEventListener('keydown', (e) => {
-      if (lightboxModal.classList.contains('active')) {
+      if (lightboxModal && lightboxModal.classList.contains('active')) {
         if (e.key === 'ArrowRight') nextLightbox();
         if (e.key === 'ArrowLeft') prevLightbox();
         if (e.key === 'Escape') {
@@ -1619,19 +1575,23 @@
     const toast = document.getElementById('copyrightToast');
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, 2200);
+      if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2200);
+      }
     });
 
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
 
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
 
     function toggleMobileNav() {
-      if (navLinks.classList.contains('active')) {
+      if (navLinks && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
       }
     }
