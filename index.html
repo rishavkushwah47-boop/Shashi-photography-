@@ -1815,27 +1815,37 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   
-<!-- PREMIUM TEXTURED AI BUTTON -->
-<a href="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" target="_blank" class="luxury-ai-button">
-  <span class="btn-text">Shashi AI Assistant</span>
-</a>
+<!-- LUXURY SHASHI AI BUTTON -->
+<button id="shashi-ai-trigger" class="luxury-ai-button">
+  <span class="btn-text">✨ Shashi AI Assistant</span>
+</button>
+
+<!-- Hidden Modal Overlay Container -->
+<div id="shashi-ai-modal" class="ai-modal-overlay">
+  <div class="ai-modal-content">
+    <button id="ai-modal-close" class="ai-close-btn">&times;</button>
+    <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
 
 <style>
+/* Luxury Button Styling */
 .luxury-ai-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 99999;
-  padding: 12px 20px;
+  padding: 12px 22px;
   background: #0a0a0a;
-  /* Texture effect: Slight subtle grain */
   background-image: radial-gradient(circle at 2px 2px, #222 1px, transparent 0);
   background-size: 8px 8px;
   border: 1px solid #d4af37;
-  border-radius: 8px; /* Mude hue kone */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-  transition: all 0.4s ease;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
 }
 
 .btn-text {
@@ -1848,15 +1858,81 @@
 }
 
 .luxury-ai-button:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
   background: #d4af37;
   border-color: #fff;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
 }
 
 .luxury-ai-button:hover .btn-text {
   color: #000;
 }
+
+/* Modal Overlay Styling (Website background mein rahegi, yeh upar khulega) */
+.ai-modal-overlay {
+  display: none; /* Shuru mein chup rahega */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 999999;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  height: 600px;
+  background: #0a0a0a;
+  border: 1px solid #d4af37;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.ai-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.ai-close-btn:hover {
+  color: #fff;
+}
 </style>
+
+<script>
+  const triggerBtn = document.getElementById('shashi-ai-trigger');
+  const modalOverlay = document.getElementById('shashi-ai-modal');
+  const closeBtn = document.getElementById('ai-modal-close');
+
+  triggerBtn.addEventListener('click', function() {
+    modalOverlay.style.display = 'flex'; // Click karte hi popup khulega
+  });
+
+  closeBtn.addEventListener('click', function() {
+    modalOverlay.style.display = 'none'; // Close button dabane par band hoga
+  });
+
+  // Bahar click karne par bhi band ho jayega
+  window.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+      modalOverlay.style.display = 'none';
+    }
+  });
+</script>
+
   
 </body>
 </html>
