@@ -1977,44 +1977,45 @@
   left: 0 !important;
   width: 100vw !important;
   height: 100dvh !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
   overflow: hidden !important;
 }
 
 .popup-header {
-  position: relative !important;
+  position: sticky !important;
   top: 0 !important;
-  flex-shrink: 0 !important;
-  z-index: 10 !important;
+  z-index: 100 !important;
   background: #111 !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .popup-body {
   flex: 1 !important;
   overflow-y: auto !important;
   min-height: 0 !important;
-  }
-       
-                            
-  .popup-header {
-  position: sticky !important;
-  top: 0;
-  z-index: 10;
-  background: #111;
 }
 
 .live-dot {
-  color: #00ff00;
-  font-size: 10px;
-  animation: blink 1.5s infinite;
+  color: #00ff00 !important;
+  font-size: 10px !important;
+  animation: blink 1.5s infinite !important;
+  margin-left: 6px !important;
 }
 
 @keyframes blink {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
-  }
+}
+
   
 </style>
 
