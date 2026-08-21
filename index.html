@@ -1814,21 +1814,29 @@
 
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-<!-- 200CR% WORKING MAHA-BRAHMASTRA SHASHI AI -->
+  
+<!-- MAHA-BRAHMASTRA SHASHI AI BUTTON -->
 <button id="ai-btn" class="shashi-ai-aesthetic-btn">
-  <span class="sparkle-container"></span> Shashi AI
+  <span class="sparkles">✨</span> Shashi AI
 </button>
 
 <script>
   window.chatbaseConfig = { chatbotId: "V3E3b1kDoYvt7w_77Lsal" }
+  
+  // Script load hone ke baad listener lagao
   const script = document.createElement('script');
   script.src = "https://www.chatbase.co/embed.min.js";
   script.chatbotId = "V3E3b1kDoYvt7w_77Lsal";
   script.defer = true;
   document.body.appendChild(script);
 
+  // Button click trigger (Super Reliable)
   document.getElementById('ai-btn').addEventListener('click', function() {
-    if (window.chatbase) { window.chatbase('show'); }
+    if (window.chatbase) {
+      window.chatbase('show');
+    } else {
+      console.log('Chatbase loading, please wait...');
+    }
   });
 </script>
 
@@ -1838,48 +1846,30 @@
   bottom: 25px;
   right: 25px;
   z-index: 999999;
-  background: rgba(0, 0, 0, 0.85);
+  background: linear-gradient(135deg, #1a1a1a, #000000);
   border: 1px solid #d4af37;
   color: #fff;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 50px;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-  transition: all 0.4s ease;
-  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  gap: 6px;
 }
-
 .shashi-ai-aesthetic-btn:hover {
   background: #d4af37;
   color: #000;
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
-
-/* Premium Sparkle Animation */
-.sparkle-container {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  margin-right: 8px;
-  background: #d4af37;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #d4af37;
-  animation: spark 1.5s infinite ease-in-out;
-}
-
-@keyframes spark {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(2); opacity: 0; box-shadow: 0 0 20px #d4af37; }
-  100% { transform: scale(1); opacity: 1; }
-}
+.sparkles { animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 </style>
-  
   
 </body>
 </html>
