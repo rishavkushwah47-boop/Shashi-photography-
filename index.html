@@ -1826,6 +1826,7 @@
 <div id="shashi-ai-modal" class="shashi-chat-popup">
   <div class="popup-header">
     <span class="popup-title">Shashi AI Assistant</span>
+    <button id="shashi-ai-expand" class="popup-expand" title="Full Screen">⛶</button>
     <button id="shashi-ai-close" class="popup-close">&times;</button>
   </div>
   <div class="popup-body">
@@ -1956,6 +1957,29 @@
   width: 100%;
   background: #000;
 }
+  .popup-expand {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: transform 0.2s;
+}
+.popup-expand:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.shashi-chat-popup.fullscreen-mode {
+  width: 100vw !important;
+  height: 100vh !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  }
+  
 </style>
 
 <script>
@@ -1983,6 +2007,16 @@
       chatPopup.style.display = 'none';
     }
   });
+  const expandBtn = document.getElementById('shashi-ai-expand');
+expandBtn.addEventListener('click', function() {
+  chatPopup.classList.toggle('fullscreen-mode');
+  if (chatPopup.classList.contains('fullscreen-mode')) {
+    expandBtn.innerHTML = '🗗';
+  } else {
+    expandBtn.innerHTML = '⛶';
+  }
+});
+                           
 </script>
   
   
