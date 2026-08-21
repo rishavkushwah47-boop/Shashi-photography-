@@ -1815,136 +1815,172 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   
-<!-- 1. CHATBASE OFFICIAL INVISIBLE ENGINE -->
-<script>
-  window.chatbaseConfig = {
-    chatbotId: "V3E3b1kDoYvt7w_77Lsal"
-  }
-  (function(){
-    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-      window.chatbase = (...args) => {
-        if(!window.chatbase.q){ window.chatbase.q = []; }
-        window.chatbase.q.push(args);
-      };
-      window.chatbase.loaded = true;
-      const script = document.createElement("script");
-      script.async = true;
-      script.type = "text/javascript";
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.chatbotId = "V3E3b1kDoYvt7w_77Lsal";
-      document.head.appendChild(script);
-    }
-  })();
-</script>
-
-<!-- 2. CUSTOM MAGICAL GLOWING CAPSULE BUTTON -->
-<button id="magical-ai-btn" class="shashi-magic-capsule">
-  <span class="magic-glow"></span>
+<!-- SHASHI AI - 100% BULLETPROOF MAGICAL CAPSULE -->
+<button id="shashi-ai-trigger" class="shashi-tiny-capsule">
+  <span class="magic-pulse"></span>
   <span class="sparkle-icon">✨</span>
   <span class="btn-text">Shashi AI</span>
 </button>
 
+<!-- Clean Floating Chat Window (No Background Blur) -->
+<div id="shashi-ai-modal" class="shashi-chat-popup">
+  <div class="popup-header">
+    <span class="popup-title">Shashi AI Assistant</span>
+    <button id="shashi-ai-close" class="popup-close">&times;</button>
+  </div>
+  <div class="popup-body">
+    <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
 <style>
-/* Capsule Button Design */
-.shashi-magic-capsule {
+/* 1. Aur bhi chhota, sleek aur magical capsule button */
+.shashi-tiny-capsule {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 20px;
+  right: 20px;
   z-index: 999999;
   background: #050505;
-  border: 1.5px solid #d4af37;
+  border: 1px solid #d4af37;
   color: #fff;
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: 50px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  gap: 5px;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
   transition: all 0.3s ease;
-  overflow: visible;
 }
 
-/* AI Shakti / Magical Glowing Energy Wave Animation */
-.magic-glow {
+/* Shakti / Glowing Energy Wave Animation */
+.magic-pulse {
   position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
   border-radius: 50px;
-  border: 2px solid #d4af37;
+  border: 1.5px solid #d4af37;
   opacity: 0.8;
-  animation: shakti-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  animation: power-wave 1.8s infinite ease-out;
   pointer-events: none;
 }
 
-@keyframes shakti-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5), inset 0 0 5px rgba(212, 175, 55, 0.5);
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.2;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.9), inset 0 0 10px rgba(212, 175, 55, 0.9);
-  }
-  100% {
-    transform: scale(1.15);
-    opacity: 0;
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0);
-  }
+@keyframes power-wave {
+  0% { transform: scale(1); opacity: 1; box-shadow: 0 0 4px rgba(212, 175, 55, 0.6); }
+  50% { transform: scale(1.12); opacity: 0.3; box-shadow: 0 0 15px rgba(212, 175, 55, 0.9); }
+  100% { transform: scale(1.22); opacity: 0; box-shadow: 0 0 2px rgba(212, 175, 55, 0); }
 }
 
 .sparkle-icon {
-  font-size: 13px;
-  animation: spin-sparkle 3s infinite linear;
+  font-size: 11px;
+  animation: sparkle-spin 3s infinite linear;
 }
 
-@keyframes spin-sparkle {
+@keyframes sparkle-spin {
   0% { transform: rotate(0deg); }
-  50% { transform: scale(1.2) rotate(180deg); }
   100% { transform: rotate(360deg); }
 }
 
 .btn-text {
   color: #d4af37;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  font-size: 11px;
 }
 
-.shashi-magic-capsule:hover {
+.shashi-tiny-capsule:hover {
   background: #d4af37;
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
-  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  transform: scale(1.05);
 }
 
-.shashi-magic-capsule:hover .btn-text,
-.shashi-magic-capsule:hover .sparkle-icon {
+.shashi-tiny-capsule:hover .btn-text,
+.shashi-tiny-capsule:hover .sparkle-icon {
   color: #000;
 }
 
-/* Chatbase ke default wale bade button ko chupane ke liye */
-#chatbase-bubble-button {
-  display: none !important;
+/* 2. Clean Pop-up Window (Background Absolutely Clear) */
+.shashi-chat-popup {
+  display: none; /* Shuru mein band rahega */
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 320px;
+  max-width: 85vw;
+  height: 450px;
+  background: #0a0a0a;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  z-index: 9999999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.popup-header {
+  background: #111;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.popup-title {
+  color: #d4af37;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.popup-close:hover {
+  color: #fff;
+}
+
+.popup-body {
+  flex: 1;
+  width: 100%;
+  background: #000;
 }
 </style>
 
 <script>
-  // Hamare magical button par click hote hi Chatbase ka hidden engine chat window khol dega
-  document.addEventListener("DOMContentLoaded", function() {
-    const magicBtn = document.getElementById("magical-ai-btn");
-    if(magicBtn) {
-      magicBtn.addEventListener("click", function() {
-        if(window.chatbase) {
-          window.chatbase("open");
-        }
-      });
+  // 100% Guaranteed Click Event Logic
+  const triggerBtn = document.getElementById('shashi-ai-trigger');
+  const chatPopup = document.getElementById('shashi-ai-modal');
+  const closeBtn = document.getElementById('shashi-ai-close');
+
+  triggerBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (chatPopup.style.display === 'flex') {
+      chatPopup.style.display = 'none';
+    } else {
+      chatPopup.style.display = 'flex';
+    }
+  });
+
+  closeBtn.addEventListener('click', function() {
+    chatPopup.style.display = 'none';
+  });
+
+  // Bahar click karne par window band ho jaye par background safe rahe
+  window.addEventListener('click', function(e) {
+    if (!chatPopup.contains(e.target) && e.target !== triggerBtn) {
+      chatPopup.style.display = 'none';
     }
   });
 </script>
