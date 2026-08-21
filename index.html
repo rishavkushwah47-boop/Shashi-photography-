@@ -1815,29 +1815,13 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   
-<!-- MAHA-BRAHMASTRA SHASHI AI BUTTON -->
-<button id="ai-btn" class="shashi-ai-aesthetic-btn">
-  <span class="sparkles">✨</span> Shashi AI
+<!-- ABSOLUTE FINAL CHATBASE FIX -->
+<button id="ai-btn" class="shashi-ai-aesthetic-btn" onclick="window.chatbase && window.chatbase('open')">
+  <span class="sparkle-container"></span> Shashi AI
 </button>
 
 <script>
-  window.chatbaseConfig = { chatbotId: "V3E3b1kDoYvt7w_77Lsal" }
-  
-  // Script load hone ke baad listener lagao
-  const script = document.createElement('script');
-  script.src = "https://www.chatbase.co/embed.min.js";
-  script.chatbotId = "V3E3b1kDoYvt7w_77Lsal";
-  script.defer = true;
-  document.body.appendChild(script);
-
-  // Button click trigger (Super Reliable)
-  document.getElementById('ai-btn').addEventListener('click', function() {
-    if (window.chatbase) {
-      window.chatbase('show');
-    } else {
-      console.log('Chatbase loading, please wait...');
-    }
-  });
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase.loaded=true;const script=document.createElement("script");script.async=true;script.type="text/javascript";script.src="https://www.chatbase.co/embed.min.js";script.chatbotId="V3E3b1kDoYvt7w_77Lsal";document.head.appendChild(script);}})();
 </script>
 
 <style>
@@ -1846,29 +1830,43 @@
   bottom: 25px;
   right: 25px;
   z-index: 999999;
-  background: linear-gradient(135deg, #1a1a1a, #000000);
+  background: rgba(0, 0, 0, 0.9);
   border: 1px solid #d4af37;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 50px;
   font-family: sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s ease;
   display: flex;
   align-items: center;
-  gap: 6px;
 }
+
 .shashi-ai-aesthetic-btn:hover {
   background: #d4af37;
   color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
-.sparkles { animation: pulse 1.5s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+.sparkle-container {
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #d4af37;
+  animation: spark 1.5s infinite ease-in-out;
+}
+
+@keyframes spark {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 1; }
+}
 </style>
   
 </body>
