@@ -1815,63 +1815,48 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   
-<!-- ABSOLUTE FINAL CHATBASE FIX -->
-<button id="ai-btn" class="shashi-ai-aesthetic-btn" onclick="window.chatbase && window.chatbase('open')">
-  <span class="sparkle-container"></span> Shashi AI
-</button>
-
-<script>
-  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase.loaded=true;const script=document.createElement("script");script.async=true;script.type="text/javascript";script.src="https://www.chatbase.co/embed.min.js";script.chatbotId="V3E3b1kDoYvt7w_77Lsal";document.head.appendChild(script);}})();
-</script>
+<!-- PREMIUM TEXTURED AI BUTTON -->
+<a href="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" target="_blank" class="luxury-ai-button">
+  <span class="btn-text">Shashi AI Assistant</span>
+</a>
 
 <style>
-.shashi-ai-aesthetic-btn {
+.luxury-ai-button {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 999999;
-  background: rgba(0, 0, 0, 0.9);
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  padding: 12px 20px;
+  background: #0a0a0a;
+  /* Texture effect: Slight subtle grain */
+  background-image: radial-gradient(circle at 2px 2px, #222 1px, transparent 0);
+  background-size: 8px 8px;
   border: 1px solid #d4af37;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  border-radius: 8px; /* Mude hue kone */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
   transition: all 0.4s ease;
-  display: flex;
-  align-items: center;
 }
 
-.shashi-ai-aesthetic-btn:hover {
-  background: #d4af37;
-  color: #000;
+.btn-text {
+  color: #d4af37;
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.luxury-ai-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
-}
-
-.sparkle-container {
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
   background: #d4af37;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #d4af37;
-  animation: spark 1.5s infinite ease-in-out;
+  border-color: #fff;
 }
 
-@keyframes spark {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(2); opacity: 0.3; }
-  100% { transform: scale(1); opacity: 1; }
+.luxury-ai-button:hover .btn-text {
+  color: #000;
 }
 </style>
-
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="V3E3b1kDoYvt7w_77Lsal";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
   
 </body>
 </html>
