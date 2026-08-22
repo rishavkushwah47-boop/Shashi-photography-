@@ -1080,67 +1080,185 @@
       </div>
     </div>
   </header>
-<!-- 2. Careers Modal (Header ke bahar) -->
+
+<!-- 2. High-End Professional Careers Modal -->
 <div id="career-modal" class="career-modal">
   <div class="career-content">
     <span class="close-career">&times;</span>
-    <h2 style="color: #E2BA5E; margin-bottom: 5px;">Join Shashi Photography</h2>
-    <p style="font-size: 13px; color: #aaa; margin-bottom: 15px;">Submit your portfolio and resume link to start your journey with us.</p>
+    <h2 style="color: #E2BA5E; margin-bottom: 2px; font-size: 20px; letter-spacing: 0.5px; text-align: center;">SHASHI STUDIOS</h2>
+    <p style="font-size: 10px; color: #888; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-align: center;">Official Crew & Talent Application</p>
     
     <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="_replyto" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="portfolio" placeholder="Portfolio Link / Experience Details" rows="2" required></textarea>
       
-      <!-- Yeh wahi 'Upload' jaisa dikhega, par yahan user apna Resume/Drive Link daalega -->
-      <div class="file-upload-box">
-        <label style="display:block; margin-bottom:5px; color:#E2BA5E; font-size:12px;">Resume / Portfolio Link (Google Drive / PDF Link):</label>
-        <input type="text" name="resume_link" placeholder="Paste your Drive Link here..." required style="margin:0; background:#000; border:1px solid #333; color:#fff; padding:10px; width:100%; border-radius:6px;">
+      <!-- Full Name -->
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      
+      <!-- Single Call / WhatsApp Number Field -->
+      <input type="tel" name="contact_number" placeholder="Call / WhatsApp Number" required>
+      
+      <!-- Areas of Interest Checkboxes -->
+      <div style="margin: 10px 0; text-align: left; font-size: 12px; color: #E2BA5E;">
+        <label style="display:block; margin-bottom: 5px; font-weight: 600;">Select Your Areas of Interest:</label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; color: #ccc; font-size: 11px;">
+          <label><input type="checkbox" name="interest" value="Wedding Photography"> Wedding Photography</label>
+          <label><input type="checkbox" name="interest" value="Cinematography"> Cinematography</label>
+          <label><input type="checkbox" name="interest" value="Video Editing"> Video Editing</label>
+          <label><input type="checkbox" name="interest" value="Drone/FPV Pilot"> Drone / FPV Pilot</label>
+          <label><input type="checkbox" name="interest" value="Album Designing"> Album Designing</label>
+          <label><input type="checkbox" name="interest" value="Studio Management"> Studio Management</label>
+        </div>
+      </div>
+
+      <!-- Core Skills -->
+      <textarea name="core_skills" placeholder="List your key skills (e.g., Adobe Premiere, DaVinci, Lightroom, Gimbal Operations)..." rows="2" required></textarea>
+      
+      <!-- Portfolio & Social Media Link -->
+      <input type="text" name="portfolio_social_link" placeholder="Portfolio / Instagram Profile Link" required>
+      
+      <!-- Optional: Why do you want to join? -->
+      <textarea name="why_join" placeholder="Why do you want to join us? (Optional)" rows="2"></textarea>
+      
+      <!-- Terms & Conditions Checkbox -->
+      <div style="margin: 12px 0; text-align: left; background: #161616; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+        <label style="font-size: 11px; color: #ccc; display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+          <input type="checkbox" name="terms_agreement" required style="margin-top: 2px; accent-color: #E2BA5E;">
+          <span>I agree that as per studio requirements and situational needs, I am open to handling any studio-related creative or operational tasks assigned to me.</span>
+        </label>
       </div>
       
-      <button type="submit" class="submit-btn">Submit Application</button>
+      <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
     </form>
   </div>
 </div>
 
 <style>
-/* Button Styling */
+/* 1. Button Styling & Click Animation */
 .join-header-btn {
-  background: transparent; border: 1px solid #E2BA5E; color: #E2BA5E;
-  padding: 8px 18px; border-radius: 8px; font-weight: 600; cursor: pointer;
-  transition: all 0.3s ease; font-family: 'Segoe UI', sans-serif; margin-left: 10px;
+  background: transparent; 
+  border: 1px solid #E2BA5E; 
+  color: #E2BA5E;
+  padding: 6px 15px; 
+  border-radius: 6px; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+  font-family: 'Segoe UI', sans-serif; 
+  margin-left: 10px;
+  font-size: 13px;
 }
-.join-header-btn:hover { background: #E2BA5E; color: #000; }
+.join-header-btn:hover { 
+  background: #E2BA5E; 
+  color: #000; 
+  box-shadow: 0 0 12px rgba(226, 186, 94, 0.4);
+}
+.join-header-btn:active {
+  transform: scale(0.93);
+}
 
-/* Modal Styling */
+/* 2. Modal Popup Transition & Styling */
 .career-modal {
-  display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+  display: none; 
+  position: fixed; 
+  z-index: 100000; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.88); 
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .career-content {
-  background: #111; margin: 5% auto; padding: 25px; width: 350px; color: #fff;
-  border-radius: 12px; border: 1px solid #E2BA5E; position: relative;
+  background: #0d0d0d; 
+  margin: 3% auto; 
+  padding: 22px; 
+  width: 90%; 
+  max-width: 400px; 
+  color: #fff;
+  border-radius: 14px; 
+  border: 1px solid #E2BA5E; 
+  position: relative; 
+  max-height: 90vh; 
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(226, 186, 94, 0.2);
+  animation: slideUp 0.3s ease;
 }
-.close-career { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #E2BA5E; }
-.career-content input, .career-content textarea {
-  width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #333; 
-  color: #fff; border-radius: 6px; box-sizing: border-box;
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-.file-upload-box { margin: 12px 0; font-size: 13px; text-align: left; }
+
+.close-career { 
+  position: absolute; 
+  right: 18px; 
+  top: 15px; 
+  font-size: 26px; 
+  cursor: pointer; 
+  color: #E2BA5E; 
+  transition: 0.2s;
+}
+.close-career:hover { color: #fff; }
+
+/* Input fields optimization for mobile & desktop */
+.career-content input[type="text"], 
+.career-content input[type="tel"], 
+.career-content input[type="email"], 
+.career-content textarea {
+  width: 100%; 
+  padding: 10px 12px; 
+  margin: 6px 0; 
+  background: #000; 
+  border: 1px solid #333; 
+  color: #fff; 
+  border-radius: 6px; 
+  box-sizing: border-box; 
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.career-content input:focus, .career-content textarea:focus {
+  border-color: #E2BA5E; 
+}
+
+/* Submit Button */
 .submit-btn { 
-  width: 100%; padding: 12px; background: #E2BA5E; border: none; cursor: pointer; 
-  font-weight: bold; border-radius: 6px; margin-top: 10px; color: #000; text-transform: uppercase;
+  width: 100%; 
+  padding: 12px; 
+  background: #E2BA5E; 
+  border: none; 
+  cursor: pointer; 
+  font-weight: 800; 
+  border-radius: 6px; 
+  margin-top: 8px; 
+  color: #000; 
+  text-transform: uppercase; 
+  font-size: 12px; 
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.submit-btn:hover { 
+  background: #fff; 
+  box-shadow: 0 0 15px rgba(226, 186, 94, 0.4); 
 }
 </style>
 
 <script>
 const careerModal = document.getElementById("career-modal");
-document.getElementById("join-team-btn").onclick = () => careerModal.style.display = "block";
-document.querySelector(".close-career").onclick = () => careerModal.style.display = "none";
-window.onclick = (event) => { if (event.target == careerModal) careerModal.style.display = "none"; }
+document.getElementById("join-team-btn").onclick = () => {
+  careerModal.style.display = "block";
+};
+document.querySelector(".close-career").onclick = () => {
+  careerModal.style.display = "none";
+};
+window.onclick = (event) => { 
+  if (event.target == careerModal) careerModal.style.display = "none"; 
+}
 </script>
-
   
   <main id="top">
 
