@@ -1825,8 +1825,12 @@
 <!-- Clean Floating Chat Window (No Background Blur) -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
   <div class="popup-header">
-<span class="popup-title">Shashi Photography Assistant <span class="live-dot">● Live</span></span>
-    <button id="shashi-ai-expand" class="popup-expand" title="Full Screen">⛶</button>
+<div class="popup-header-content" style="display: flex; align-items: center; gap: 8px;">
+  <img src="file_00000000c204820bb7800b0f9fd33781.png" alt="AI" class="ai-avatar-logo">
+  <span class="popup-title">Shashi Photography Assistant <span class="live-dot">● Live</span></span>
+</div>
+    
+    <button id="shashi-ai-expand" class="popup-expand" title="Full Screen">⤢</button>
     <button id="shashi-ai-close" class="popup-close">&times;</button>
   </div>
   <div class="popup-body">
@@ -2061,10 +2065,27 @@ div[class*="chat-header"]:first-child {
   100% { opacity: 1; }
 }
   
+.ai-avatar-logo {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 1px solid #00ff00 !important; /* Green glowing border live feel ke liye */
+  }
   
 </style>
 
 <script>
+  <script>
+// Upar wale default header ko turant hatane ke liye
+window.addEventListener('DOMContentLoaded', (event) => {
+  const oldHeader = document.querySelector('.chatbase-window-header');
+  if (oldHeader) oldHeader.style.display = 'none';
+});
+
+// 100% Guaranteed Click Event Logic
+const triggerBtn = document.getElementById('...
+  
   // 100% Guaranteed Click Event Logic
   const triggerBtn = document.getElementById('shashi-ai-trigger');
   const chatPopup = document.getElementById('shashi-ai-modal');
