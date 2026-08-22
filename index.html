@@ -1815,14 +1815,14 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   
-<!-- SHASHI AI - 100% BULLETPROOF MAGICAL CAPSULE -->
+  <!-- 1. Screen ke right side par Floating Magic Capsule Button -->
 <button id="shashi-ai-trigger" class="shashi-tiny-capsule">
   <span class="magic-pulse"></span>
   <span class="sparkle-icon">✨</span>
   <span class="btn-text">Shashi AI</span>
 </button>
-  }
-<!-- Final Clean Chat Window -->
+
+<!-- 2. Chat Window Modal (Floating & Full-Screen Toggle Support) -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
   <div class="popup-header">
     <div class="popup-header-content">
@@ -1830,45 +1830,188 @@
       <span class="popup-title">Shashi Photography Assistant <span class="live-dot">● Live</span></span>
     </div>
     <div class="popup-header-actions">
-      <button id="shashi-ai-expand" class="popup-expand-btn">⤢</button>
-      <button id="shashi-ai-close" class="popup-close-btn">✕</button>
+      <button id="shashi-ai-expand" class="popup-expand-btn" title="Expand / Fullscreen">⤢</button>
+      <button id="shashi-ai-close" class="popup-close-btn" title="Close">✕</button>
     </div>
   </div>
   <div class="popup-body">
-    <!-- Yahan apna sahi Chatbase iframe src dalein -->
     <iframe src="https://www.chatbase.co/chatbot-iframe/vXjYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
 
 <style>
-/* 1. Unwanted default elements hide */
-.chatbase-window-header, div[class*="chat-header"], #chatbase-bubble-button {
+/* --- 1. Default Chatbase Elements Hide --- */
+.chatbase-window-header, 
+div[class*="chat-header"], 
+#chatbase-bubble-button {
   display: none !important;
 }
 
-/* 2. Modal Layout */
-.shashi-chat-popup {
-  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-  width: 100vw !important; height: 100dvh !important;
-  display: none; flex-direction: column !important;
-  background: #000 !important; z-index: 999999 !important;
+/* --- 2. Floating Capsule Trigger Button Style --- */
+.shashi-tiny-capsule {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: linear-gradient(135deg, #111, #222) !important;
+  color: #fff !important;
+  padding: 8px 14px !important;
+  border-radius: 50px !important;
+  border: 1px solid #444 !important;
+  cursor: pointer !important;
+  z-index: 99998 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }
 
-/* 3. Header & Logo Styling */
-.popup-header { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 10px 15px !important; background: #111 !important; }
-.ai-avatar-logo { width: 25px !important; height: 25px !important; border-radius: 50% !important; object-fit: cover !important; border: none !important; }
-.popup-title { color: #fff !important; font-size: 14px !important; font-weight: 600 !important; display: flex !important; align-items: center !important; }
+.magic-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 1px solid #00ff00;
+  animation: pulse-ring 2s infinite;
+  pointer-events: none;
+}
 
-/* 4. Live Dot */
-.live-dot { color: #00ff00 !important; font-size: 10px !important; animation: blink 1.5s infinite !important; margin-left: 8px !important; }
-@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
 
-/* 5. Buttons */
-.popup-expand-btn, .popup-close-btn { background: transparent !important; border: none !important; color: #fff !important; font-size: 18px !important; cursor: pointer !important; }
+/* --- 3. Floating Modal Box Style (Default Compact Floating View) --- */
+.shashi-chat-popup {
+  position: fixed !important;
+  bottom: 85px !important;
+  right: 20px !important;
+  width: 380px !important;
+  max-width: calc(100vw - 30px) !important;
+  height: 550px !important;
+  max-height: calc(100dvh - 110px) !important;
+  display: none; /* Default hidden */
+  flex-direction: column !important;
+  background: #000 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  z-index: 99999 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+  border: 1px solid #222 !important;
+  transition: all 0.3s ease-in-out !important;
+}
 
-/* 6. Body */
-.popup-body { flex: 1 !important; }
-.popup-body iframe { width: 100% !important; height: 100% !important; border: none !important; }
+/* --- 4. Fullscreen Mode Class (Toggle via JS) --- */
+.shashi-chat-popup.fullscreen-mode {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* --- 5. Custom Header Style --- */
+.popup-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 14px !important;
+  background: #111 !important;
+  border-bottom: 1px solid #222 !important;
+  flex-shrink: 0 !important;
+}
+
+.popup-header-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.ai-avatar-logo {
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: none !important;
+}
+
+.popup-title {
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  font-family: inherit !important;
+}
+
+/* --- 6. Live Blinking Dot --- */
+.live-dot {
+  color: #00ff00 !important;
+  font-size: 10px !important;
+  animation: blink 1.5s infinite !important;
+  margin-left: 6px !important;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* --- 7. Header Action Buttons --- */
+.popup-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.popup-expand-btn, .popup-close-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 17px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* --- 8. Body & Iframe Container (Keyboard Safe) --- */
+.popup-body {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #000 !important;
+  overflow: hidden !important;
+}
+
+.popup-body iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+}
+
+/* --- 9. Mobile Responsive Adjustments --- */
+@media (max-width: 480px) {
+  .shashi-chat-popup {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 85dvh !important;
+    max-height: 85dvh !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+  }
+}
 </style>
 
 <script>
@@ -1878,13 +2021,36 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.getElementById('shashi-ai-close');
   const expandBtn = document.getElementById('shashi-ai-expand');
 
-  if(trigger) trigger.addEventListener('click', () => modal.style.display = 'flex');
-  if(closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
-  
-  if(expandBtn) {
-    expandBtn.addEventListener('click', () => {
-      if (!document.fullscreenElement) modal.requestFullscreen();
-      else document.exitFullscreen();
+  // Open / Close Toggle via Trigger Button
+  if (trigger && modal) {
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      } else {
+        modal.style.display = 'flex';
+      }
+    });
+  }
+
+  // Close Button Click
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  }
+
+  // Expand / Fullscreen Toggle Button (⤢)
+  if (expandBtn && modal) {
+    expandBtn.addEventListener('click', function() {
+      modal.classList.toggle('fullscreen-mode');
+      if (modal.classList.contains('fullscreen-mode')) {
+        expandBtn.innerHTML = '❐'; // Collapse icon when in fullscreen
+        expandBtn.title = 'Restore Size';
+      } else {
+        expandBtn.innerHTML = '⤢'; // Expand icon when in floating mode
+        expandBtn.title = 'Expand / Fullscreen';
+      }
     });
   }
 });
