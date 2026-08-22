@@ -1075,11 +1075,78 @@
 
       <div class="nav-right">
         <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Your Event</button>
+        <button id="join-team-btn" class="join-header-btn">Join Our Team</button>
         <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
     </div>
   </header>
+<!-- Careers Modal -->
+<div id="career-modal" class="career-modal">
+  <div class="career-content">
+    <span class="close-career">&times;</span>
+    <h2 style="color: #E2BA5E; margin-top:0;">Join Shashi Photography</h2>
+    <p style="font-size: 14px; color: #aaa;">Submit your portfolio and resume to start your journey with us.</p>
+    
+    <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="_replyto" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="portfolio" placeholder="Portfolio Link / Experience Details" rows="3" required></textarea>
+      
+      <div class="file-upload-box">
+        <label>Upload Resume (PDF):</label>
+        <input type="file" name="resume" accept=".pdf" required>
+      </div>
+      
+      <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+  </div>
+</div>
 
+<style>
+/* Header Button Styling to match premium theme */
+.join-header-btn {
+  background: transparent;
+  border: 1px solid #E2BA5E;
+  color: #E2BA5E;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 10px;
+}
+.join-header-btn:hover { background: #E2BA5E; color: #000; }
+
+/* Modal Styling */
+.career-modal {
+  display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+}
+.career-content {
+  background: #111; margin: 5% auto; padding: 25px; width: 350px; color: #fff;
+  border-radius: 12px; border: 1px solid #E2BA5E; position: relative;
+}
+.close-career { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #E2BA5E; }
+.career-content input, .career-content textarea {
+  width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #333; 
+  color: #fff; border-radius: 6px; box-sizing: border-box;
+}
+.file-upload-box { margin: 10px 0; font-size: 13px; color: #aaa; }
+.submit-btn { 
+  width: 100%; padding: 12px; background: #E2BA5E; border: none; cursor: pointer; 
+  font-weight: bold; border-radius: 6px; margin-top: 10px; color: #000;
+}
+</style>
+
+<script>
+const careerModal = document.getElementById("career-modal");
+document.getElementById("join-team-btn").onclick = () => careerModal.style.display = "block";
+document.querySelector(".close-career").onclick = () => careerModal.style.display = "none";
+window.onclick = (event) => { if (event.target == careerModal) careerModal.style.display = "none"; }
+</script>
+  
   <main id="top">
 
     <!-- HERO BANNER -->
