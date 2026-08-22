@@ -2567,6 +2567,216 @@ window.addEventListener("click", function(e) {
   }
 }
 </style>
+    <!-- ==========================================
+   6. PROFESSIONAL FOOTER & CONTACT STRIP
+   ========================================== -->
+<footer class="serenity-footer-section">
+  <div class="footer-container">
+    
+    <!-- Top Contact Strip Box -->
+    <div class="footer-cta-box">
+      <div class="footer-cta-text">
+        <h3>Ready to capture your timeless moments?</h3>
+        <p>Let's create something extraordinary together.</p>
+      </div>
+      <button class="footer-cta-btn" onclick="openBookingModal()">
+        Book Your Session <span>&rarr;</span>
+      </button>
+    </div>
+
+    <!-- Main Footer Links & Brand Info -->
+    <div class="footer-main-grid">
+      
+      <!-- Brand Column -->
+      <div class="footer-brand-col">
+        <h2 class="footer-logo-text">Shashi Photography</h2>
+        <p class="footer-brand-desc">
+          Crafting unforgettable visual stories and luxury wedding moments with elegance and authenticity.
+        </p>
+      </div>
+
+      <!-- Quick Links Column -->
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact" onclick="openBookingModal()">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect Column -->
+      <div class="footer-social-col">
+        <h4>Connect</h4>
+        <div class="footer-social-links">
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">YouTube</a>
+          <a href="#" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="footer-bottom-bar">
+      <p>&copy; 2026 Shashi Photography. All rights reserved. Designed with minimalist elegance.</p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+/* Footer Section Styles */
+.serenity-footer-section {
+  background-color: var(--bg-color, #F7F4EF);
+  color: var(--text-main, #1A1A1A);
+  font-family: 'Segoe UI', serif;
+  padding: 60px 20px 30px 20px;
+  border-top: 1px solid var(--card-border, #E0DBD0);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CTA Strip Box */
+.footer-cta-box {
+  background-color: var(--text-main, #1A1A1A);
+  color: #FFF;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.footer-cta-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: #FFF;
+}
+
+.footer-cta-text p {
+  font-size: 13px;
+  color: #C5A880;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.footer-cta-btn {
+  background-color: var(--accent-gold, #C5A880);
+  color: #1A1A1A;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.footer-cta-btn:hover {
+  background-color: #FFF;
+  transform: translateY(-2px);
+}
+
+/* Main Grid */
+.footer-main-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--card-border, #E0DBD0);
+}
+
+.footer-brand-col {
+  flex: 2;
+  min-width: 284px;
+}
+
+.footer-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--text-main, #1A1A1A);
+  letter-spacing: 1px;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  color: var(--text-muted, #666);
+  line-height: 1.6;
+  max-width: 320px;
+  font-family: sans-serif;
+}
+
+.footer-links-col, .footer-social-col {
+  flex: 1;
+  min-width: 160px;
+}
+
+.footer-links-col h4, .footer-social-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: var(--text-main, #1A1A1A);
+  font-weight: 600;
+}
+
+.footer-links-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links-col ul li a, .footer-social-links a {
+  font-size: 13px;
+  color: var(--text-muted, #666);
+  text-decoration: none;
+  font-family: sans-serif;
+  transition: color 0.2s ease;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.footer-links-col ul li a:hover, .footer-social-links a:hover {
+  color: var(--accent-gold, #C5A880);
+}
+
+.footer-social-links {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted, #888);
+  font-family: sans-serif;
+}
+</style>
+    
     
     <!-- HOW WE WORK -->
     <section class="section-wrap process-section" id="process">
