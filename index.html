@@ -1371,20 +1371,295 @@ window.addEventListener("click", function(e) {
   
   <main id="top">
 
-    <!-- HERO BANNER -->
-    <section class="hero-banner">
-      <div class="hero-glass-card">
-        <span class="gold-eyebrow">Agra, Uttar Pradesh • Luxury Visual Studio</span>
-        <h1 class="hero-title">Shashi Photography Studio</h1>
-        <p class="hero-desc">
-          Capturing royal weddings, raw human emotions, timeless portraits, and cinematic visual stories crafted with luxury perfection.
-        </p>
-        <div class="hero-actions">
-          <a href="#portfolio" class="btn btn-gold">Explore Portfolio</a>
-          <button class="btn btn-outline" type="button" onclick="openBookingPage()">Book Your Event</button>
+   <!-- HERO BANNER (Serenity Luxury Redesign) -->
+<section class="serenity-hero">
+  <div class="hero-container">
+    
+    <!-- Left Column: Typography & Action -->
+    <div class="hero-left">
+      <span class="gold-eyebrow" style="color: #C5A880; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; display: block; margin-bottom: 10px;">Agra, Uttar Pradesh • Luxury Visual Studio</span>
+      <h1 class="hero-title">
+        Moments Are<br>
+        Framed with<br>
+        Love Grace
+      </h1>
+      <p class="hero-subtitle">
+        Capturing royal weddings, raw human emotions, timeless portraits, and cinematic visual stories crafted with luxury perfection.
+      </p>
+      
+      <div class="hero-action-row">
+        <a href="#portfolio" class="hero-explore-btn">Explore Portfolio</a>
+        <div class="hero-avatars">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="User">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="User">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="User">
+          <span class="avatar-plus">+</span>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Right Column: Iconic Oval Frame & Short Gallery -->
+    <div class="hero-right">
+      <div class="oval-main-frame">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800" alt="Wedding Couple">
+      </div>
+      
+      <div class="hero-side-content">
+        <div class="short-gallery-label" style="color: #1A1A1A; font-size: 12px; font-weight: 700; margin-bottom: 2px;">Short Gallery :</div>
+        <p class="short-gallery-desc" style="font-size: 11px; color: #666; margin-bottom: 10px;">Capturing timeless artistic frames</p>
+        
+        <div class="mini-thumbnails">
+          <div class="mini-thumb"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200" alt="Thumb 1"></div>
+          <div class="mini-thumb"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=200" alt="Thumb 2"></div>
+        </div>
+        
+        <div class="hero-rating-row">
+          <div class="stars" style="color: #C5A880; letter-spacing: 1px;">★★★★★</div>
+          <span class="rating-number" style="font-weight: 600; font-size: 12px; color: #1A1A1A;">(4.8)</span>
+        </div>
+        
+        <div class="hero-tags-grid">
+          <span>Model Photography</span>
+          <span>Outdoor</span>
+          <span>Lighting</span>
+          <span>Portrait</span>
+          <span>Drone Shooting</span>
+          <span>Photography</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Strip: Because Every Moment Matters -->
+  <div class="hero-bottom-strip">
+    <div class="strip-left">
+      <h3 style="color: #1A1A1A;">Because Every<br>Moment Matters</h3>
+    </div>
+    <div class="strip-middle">
+      <p>Providing exceptional visual documentation with state-of-the-art equipment and creative expertise for your special occasions.</p>
+    </div>
+    <div class="strip-right">
+      <h2>6.8+</h2>
+      <span>Year Of Experience</span>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Hero Section Scoped & Responsive Styles */
+.serenity-hero {
+  padding: 30px 15px 20px 15px;
+  background-color: var(--bg-color, #F7F4EF);
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 400;
+  line-height: 1.15;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 15px;
+  color: var(--text-main, #1A1A1A);
+}
+
+.hero-subtitle {
+  font-size: 13px;
+  color: var(--text-muted, #666);
+  line-height: 1.6;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-explore-btn {
+  background: var(--text-main, #1A1A1A);
+  color: #FFF;
+  padding: 11px 22px;
+  border-radius: 30px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+.hero-explore-btn:hover {
+  background: var(--accent-gold, #C5A880);
+  color: #000;
+}
+
+.hero-avatars {
+  display: flex;
+  align-items: center;
+}
+.hero-avatars img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #F7F4EF;
+  margin-left: -8px;
+  object-fit: cover;
+}
+.hero-avatars img:first-child { margin-left: 0; }
+.avatar-plus {
+  width: 34px;
+  height: 34px;
+  background: var(--accent-gold, #C5A880);
+  color: #FFF;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: -8px;
+  border: 2px solid #F7F4EF;
+}
+
+/* Right Column & Oval Frame */
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.oval-main-frame {
+  width: 210px;
+  height: 320px;
+  border-radius: 105px / 160px;
+  overflow: hidden;
+  border: 1px solid var(--accent-gold, #C5A880);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.oval-main-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-side-content {
+  max-width: 200px;
+}
+
+.mini-thumbnails {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.mini-thumb {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--card-border, #E0DBD0);
+}
+.mini-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.hero-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.hero-tags-grid span {
+  background: var(--card-bg, #EFECE6);
+  border: 1px solid var(--card-border, #E0DBD0);
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 9.5px;
+  color: var(--text-main, #333);
+  font-weight: 500;
+}
+
+/* Bottom Strip */
+.hero-bottom-strip {
+  max-width: 1200px;
+  margin: 30px auto 0 auto;
+  background: var(--card-bg, #EFECE6);
+  border: 1px solid var(--card-border, #E0DBD0);
+  border-radius: 12px;
+  padding: 20px 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.strip-left h3 {
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.strip-middle p {
+  font-size: 11.5px;
+  color: var(--text-muted, #666);
+  max-width: 420px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.strip-right {
+  text-align: right;
+}
+.strip-right h2 {
+  font-size: 24px;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-main, #1A1A1A);
+  margin: 0;
+}
+.strip-right span {
+  font-size: 10px;
+  color: var(--text-muted, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media(max-width: 768px) {
+  .hero-bottom-strip { text-align: left; }
+  .strip-right { text-align: left; }
+}
+</style>
+    
       <!-- PORTFOLIO SECTION -->
     <section class="section-wrap portfolio-section" id="portfolio">
       <div class="container">
