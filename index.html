@@ -1816,23 +1816,23 @@
   </script>
   
   }
-  <!-- 1. Trigger Button -->
+  <!-- Trigger Button -->
 <button id="shashi-ai-trigger" class="shashi-tiny-capsule">
   <span>✨ Shashi AI</span>
 </button>
 
-<!-- 2. Chat Modal -->
+<!-- Modal Container -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
   <!-- Custom Header -->
   <div class="shashi-custom-header">
     <div class="header-info">
-      <img src="file_00000000126c81fab5a24832572b788d.png" style="width:22px; height:22px; border-radius:50%; margin-right:8px; object-fit:cover;">
-      <span style="font-weight:600; font-size:14px; color:#fff;">Shashi AI</span>
+      <img src="file_00000000126c81fab5a24832572b788d.png" style="width:22px; height:22px; border-radius:50%; margin-right:8px;">
+      <span style="font-weight:600; color:#fff;">Shashi AI</span>
       <span class="live-dot">● Live</span>
     </div>
     <div class="header-btns">
-      <button id="shashi-ai-expand" style="background:none; border:none; color:#fff; font-size:16px; cursor:pointer;">⤢</button>
-      <button id="shashi-ai-close" style="background:none; border:none; color:#fff; font-size:16px; cursor:pointer;">✕</button>
+      <button id="shashi-ai-expand">⤢</button>
+      <button id="shashi-ai-close">✕</button>
     </div>
   </div>
   
@@ -1842,57 +1842,29 @@
 </div>
 
 <style>
-/* 1. Hide Chatbase's Default Header & Button */
-.chatbase-window-header, div[class*="chat-header"] { display: none !important; }
-#chatbase-bubble-button { display: none !important; }
-
-/* 2. Premium Gold Animated Capsule */
+/* 1. Capsule Button */
 .shashi-tiny-capsule {
-  position: fixed !important; bottom: 25px !important; right: 25px !important;
-  background: #000 !important; color: #E2BA5E !important; padding: 12px 20px !important;
-  border-radius: 50px !important; border: 1px solid #E2BA5E !important;
-  cursor: pointer !important; z-index: 99999 !important;
-  box-shadow: 0 4px 15px rgba(226,186,94,0.3) !important;
-  font-weight: 600 !important; animation: pulse-gold 2s infinite !important;
+  position: fixed; bottom: 25px; right: 25px; padding: 12px 20px;
+  background: #000; color: #E2BA5E; border: 1px solid #E2BA5E;
+  border-radius: 50px; cursor: pointer; z-index: 99999;
+  animation: breathing 3s ease-out infinite;
 }
-@keyframes pulse-gold {
-  0% { box-shadow: 0 0 0 0 rgba(226,186,94,0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(226,186,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(226,186,94,0); }
-}
+@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-/* 3. Modal Popup Styles */
+/* 2. Modal */
 .shashi-chat-popup {
-  position: fixed !important; bottom: 85px !important; right: 20px !important;
-  width: 320px !important; height: 460px !important; background: #000 !important;
-  display: none; flex-direction: column !important; border-radius: 14px !important;
-  overflow: hidden !important; z-index: 99999 !important; border: 1px solid #E2BA5E !important;
+  position: fixed; bottom: 85px; right: 20px; width: 320px; height: 460px;
+  background: #000; display: none; flex-direction: column;
+  border-radius: 14px; overflow: hidden; border: 1px solid #E2BA5E;
 }
-.shashi-chat-popup.fullscreen-mode {
-  top: 0 !important; left: 0 !important; width: 100vw !important; height: 100dvh !important; border-radius: 0 !important;
-}
-
-/* 4. Custom Header & Live Dot */
 .shashi-custom-header {
-  background: #000; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2BA5E;
+  background: #000; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
 }
 .live-dot { color: #00ff00; font-size: 10px; margin-left: 8px; animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .popup-body { flex: 1; }
+.header-btns button { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('shashi-ai-modal');
-  const trigger = document.getElementById('shashi-ai-trigger');
   
-  trigger.onclick = () => modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-  document.getElementById('shashi-ai-close').onclick = () => modal.style.display = 'none';
-  document.getElementById('shashi-ai-expand').onclick = () => modal.classList.toggle('fullscreen-mode');
-});
-</script>
-  
-  
-
 </body>
 </html>
