@@ -1074,8 +1074,8 @@
       </ul>
 
       <div class="nav-right">
-        <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Your Event</button>
-        <button id="join-team-btn" class="join-header-btn">Join Our Team</button>
+        <button class="premium-book-btn" onclick="openBookingModal()">Book Event</button>
+        <button id="join-team-btn" class="join-header-btn">Join Team</button>
         <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
     </div>
@@ -1109,7 +1109,6 @@
             <span id="skills-placeholder">Click to select your skills...</span>
           </div>
           <div id="skills-dropdown-list" class="skills-dropdown">
-            <!-- 20+ Clear Meaningful Skills -->
             <label><input type="checkbox" value="Professional Wedding Photography" onclick="updateSkills()"> Professional Wedding Photography</label>
             <label><input type="checkbox" value="Cinematic Wedding Filmmaking" onclick="updateSkills()"> Cinematic Wedding Filmmaking</label>
             <label><input type="checkbox" value="Advanced Video Editing (Premiere/DaVinci)" onclick="updateSkills()"> Advanced Video Editing (Premiere/DaVinci)</label>
@@ -1131,7 +1130,6 @@
             <label><input type="checkbox" value="Studio Management & Client Dealing" onclick="updateSkills()"> Studio Management & Client Dealing</label>
             <label><input type="checkbox" value="Creative Direction & Storyboarding" onclick="updateSkills()"> Creative Direction & Storyboarding</label>
           </div>
-          <!-- Hidden input to submit selected skills to Formspree -->
           <input type="hidden" name="selected_skills" id="hidden-skills-input" required>
         </div>
       </div>
@@ -1168,15 +1166,33 @@
 </div>
 
 <style>
-/* Button & Modal Styling */
-.join-header-btn {
-  background: transparent; border: 1px solid #E2BA5E; color: #E2BA5E;
-  padding: 6px 15px; border-radius: 6px; font-weight: 600; cursor: pointer;
-  transition: all 0.25s ease; font-family: 'Segoe UI', sans-serif; margin-left: 10px; font-size: 13px;
+/* 1. Ultra-Sleek Compact Header Buttons (Pill / Capsule Style) */
+.premium-book-btn, .join-header-btn {
+  background: transparent; 
+  border: 1px solid #E2BA5E; 
+  color: #E2BA5E;
+  padding: 4px 10px; 
+  border-radius: 30px; 
+  font-weight: 500; 
+  cursor: pointer;
+  transition: all 0.25s ease; 
+  font-family: 'Segoe UI', sans-serif; 
+  margin-left: 5px; 
+  font-size: 10.5px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-.join-header-btn:hover { background: #E2BA5E; color: #000; box-shadow: 0 0 12px rgba(226, 186, 94, 0.4); }
-.join-header-btn:active { transform: scale(0.93); }
+.premium-book-btn:hover, .join-header-btn:hover { 
+  background: #E2BA5E; 
+  color: #000; 
+  box-shadow: 0 0 8px rgba(226, 186, 94, 0.4); 
+}
+.premium-book-btn:active, .join-header-btn:active { 
+  transform: scale(0.95); 
+}
 
+/* Modal Styling */
 .career-modal {
   display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
@@ -1199,7 +1215,6 @@
   font-size: 11px;
   color: #E2BA5E;
   font-weight: 600;
-  margin-bottom: 4textpx;
   margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1305,6 +1320,7 @@ window.addEventListener("click", function(e) {
   }
 });
 </script>
+  
   
   
   <main id="top">
