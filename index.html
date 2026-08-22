@@ -1080,220 +1080,183 @@
       </div>
     </div>
   </header>
-
-  <!-- A. Book Event Modal -->
-<div id="booking-modal" class="career-modal">
-  <div class="career-content">
-    <span class="close-booking" onclick="closeBookingModal()">&times;</span>
-    <h2 style="color: #E2BA5E; margin-bottom: 2px; font-size: 20px; text-align: center;">BOOK YOUR EVENT</h2>
-    <p style="font-size: 10px; color: #888; margin-bottom: 18px; text-transform: uppercase; text-align: center;">Reserve Your Date with Shashi Studios</p>
-    
-    <form action="https://formspree.io/f/xoeabnba" method="POST">
-      <div class="field-group">
-        <label>Your Name *</label>
-        <input type="text" name="client_name" placeholder="Enter your name" required>
-      </div>
-      <div class="field-group">
-        <label>Phone / WhatsApp Number *</label>
-        <input type="tel" name="client_phone" placeholder="Enter active number" required>
-      </div>
-      <div class="field-group">
-        <label>Event Date *</label>
-        <input type="date" name="event_date" required style="width:150px; padding:10px; background:#000; border:1px solid #333; color:#fff; border-radius:6px;">
-      </div>
-      <div class="field-group">
-        <label>Event Type *</label>
-        <input type="text" name="event_type" placeholder="e.g., Wedding, Reception, Birthday" required>
-      </div>
-      <button type="submit" class="submit-btn">CONFIRM BOOKING</button>
-    </form>
-  </div>
-</div>
-
-<!-- B. Join Our Team Modal -->
-<div id="career-modal" class="career-modal">
-  <div class="career-content">
-    <span class="close-career">&times;</span>
-    <h2 style="color: #E2BA5E; margin-bottom: 2px; font-size: 20px; text-align: center;">SHASHI STUDIOS</h2>
-    <p style="font-size: 10px; color: #888; margin-bottom: 18px; text-transform: uppercase; text-align: center;">Official Crew & Talent Application</p>
-    
-    <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST">
-      <div class="field-group">
-        <label>Full Name *</label>
-        <input type="text" name="full_name" placeholder="Enter your full name" required>
-      </div>
-      
-      <div class="field-group">
-        <label>Call / WhatsApp Number *</label>
-        <input type="tel" name="contact_number" placeholder="Enter your active mobile number" required>
-      </div>
-      
-      <div class="field-group">
-        <label>Select Your Professional Skills (Choose multiple) *</label>
-        <div class="skills-dropdown-container">
-          <div id="selected-skills-display" class="selected-skills-box" onclick="toggleSkillDropdown()">
-            <span id="skills-placeholder">Click to select your skills...</span>
-          </div>
-          <div id="skills-dropdown-list" class="skills-dropdown">
-            <label><input type="checkbox" value="Professional Wedding Photography" onclick="updateSkills()"> Professional Wedding Photography</label>
-            <label><input type="checkbox" value="Cinematic Wedding Filmmaking" onclick="updateSkills()"> Cinematic Wedding Filmmaking</label>
-            <label><input type="checkbox" value="Advanced Video Editing (Premiere/DaVinci)" onclick="updateSkills()"> Advanced Video Editing (Premiere/DaVinci)</label>
-            <label><input type="checkbox" value="Professional Color Grading" onclick="updateSkills()"> Professional Color Grading</label>
-            <label><input type="checkbox" value="Drone & FPV Piloting" onclick="updateSkills()"> Drone & FPV Piloting</label>
-            <label><input type="checkbox" value="Traditional Photography" onclick="updateSkills()"> Traditional Photography</label>
-            <label><input type="checkbox" value="Traditional Videography" onclick="updateSkills()"> Traditional Videography</label>
-            <label><input type="checkbox" value="Candid Photography" onclick="updateSkills()"> Candid Photography</label>
-            <label><input type="checkbox" value="Pre-Wedding Shoot Specialist" onclick="updateSkills()"> Pre-Wedding Shoot Specialist</label>
-            <label><input type="checkbox" value="Fashion & Portrait Photography" onclick="updateSkills()"> Fashion & Portrait Photography</label>
-            <label><input type="checkbox" value="Commercial & Product Shoots" onclick="updateSkills()"> Commercial & Product Shoots</label>
-            <label><input type="checkbox" value="Advanced Photo Editing & Retouching" onclick="updateSkills()"> Advanced Photo Editing & Retouching (Photoshop/Lightroom)</label>
-            <label><input type="checkbox" value="Cinematic Album Designing" onclick="updateSkills()"> Cinematic Album Designing</label>
-            <label><input type="checkbox" value="Gimbal & Stabilizer Operation" onclick="updateSkills()"> Gimbal & Stabilizer Operation (Ronin etc.)</label>
-            <label><input type="checkbox" value="Lighting & Studio Setup" onclick="updateSkills()"> Lighting & Studio Setup</label>
-            <label><input type="checkbox" value="Audio Recording & Management" onclick="updateSkills()"> Audio Recording & Management</label>
-            <label><input type="checkbox" value="Reels & Short-Form Content Creation" onclick="updateSkills()"> Reels & Short-Form Content Creation</label>
-            <label><input type="checkbox" value="Live Streaming & Multi-Cam Setup" onclick="updateSkills()"> Live Streaming & Multi-Cam Setup</label>
-            <label><input type="checkbox" value="Studio Management & Client Dealing" onclick="updateSkills()"> Studio Management & Client Dealing</label>
-            <label><input type="checkbox" value="Creative Direction & Storyboarding" onclick="updateSkills()"> Creative Direction & Storyboarding</label>
-          </div>
-          <input type="hidden" name="selected_skills" id="hidden-skills-input" required>
-        </div>
-      </div>
-
-      <div class="field-group">
-        <label>Social Media Profile Link *</label>
-        <input type="text" name="social_media_link" placeholder="e.g., Instagram Profile Link / Facebook Link" required>
-      </div>
-
-      <div class="field-group">
-        <label>Portfolio / Resume Drive Link *</label>
-        <input type="text" name="portfolio_link" placeholder="Google Drive / Website / Behance Link" required>
-      </div>
-      
-      <div class="field-group">
-        <label>Why do you want to join us? (Optional)</label>
-        <textarea name="why_join" placeholder="Write a brief note..." rows="2"></textarea>
-      </div>
-      
-      <div class="terms-box">
-        <label class="terms-label">
-          <input type="checkbox" name="terms_agreement" required style="accent-color: #E2BA5E; margin-top: 3px;">
-          <span><strong>Studio Terms & Conditions:</strong> I agree that according to studio requirements and situational needs, I am completely open to handling any studio-related creative, technical, or operational tasks assigned to me.</span>
-        </label>
-      </div>
-      
-      <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
-    </form>
-  </div>
-</div>
-
 <style>
-/* Header Buttons */
+/* ==========================================
+   SERENITY LUXURY THEME - GLOBAL OVERRIDE
+   ========================================== */
+:root {
+  --bg-color: #F7F4EF;
+  --card-bg: #EFECE6;
+  --card-border: #E0DBD0;
+  --text-main: #1A1A1A;
+  --text-muted: #666666;
+  --accent-gold: #C5A880;
+  --accent-gold-hover: #B0936C;
+}
+
+/* Force Website Body & Background to Serenity Theme */
+body, html {
+  background-color: var(--bg-color) !important;
+  color: var(--text-main) !important;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Override general sections/containers if they were dark */
+section, header, footer {
+  background-color: transparent;
+  color: var(--text-main);
+}
+
+/* ==========================================
+   HEADER & NAVIGATION BUTTONS
+   ========================================== */
+header {
+  background-color: rgba(247, 244, 239, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+}
+
 .premium-book-btn, .join-header-btn {
-  background: transparent; border: 1px solid #E2BA5E; color: #E2BA5E;
-  padding: 4px 10px; border-radius: 30px; font-weight: 500; cursor: pointer;
-  transition: all 0.25s ease; font-family: 'Segoe UI', sans-serif; margin-left: 5px; 
-  font-size: 10.5px; letter-spacing: 0.3px; text-transform: uppercase; white-space: nowrap;
+  background: transparent !important; 
+  border: 1.5px solid var(--accent-gold) !important; 
+  color: var(--accent-gold) !important;
+  padding: 5px 14px !important; 
+  border-radius: 30px !important; 
+  font-weight: 600 !important; 
+  cursor: pointer;
+  transition: all 0.25s ease; 
+  font-size: 11px !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-.premium-book-btn:hover, .join-header-btn:hover { background: #E2BA5E; color: #000; box-shadow: 0 0 8px rgba(226, 186, 94, 0.4); }
-.premium-book-btn:active, .join-header-btn:active { transform: scale(0.95); }
+.premium-book-btn:hover, .join-header-btn:hover { 
+  background: var(--accent-gold) !important; 
+  color: #fff !important; 
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.3); 
+}
 
-/* Modals Styling */
+/* ==========================================
+   MODALS (POPUP WINDOWS) - SERENITY STYLE
+   ========================================== */
 .career-modal {
-  display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+  display: none; 
+  position: fixed; 
+  z-index: 100000; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(26, 26, 26, 0.65) !important; 
+  backdrop-filter: blur(6px);
 }
+
 .career-content {
-  background: #0d0d0d; margin: 2% auto; padding: 22px; width: 92%; max-width: 420px; color: #fff;
-  border-radius: 14px; border: 1px solid #E2BA5E; position: relative; max-height: 92vh; overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(226, 186, 94, 0.2);
+  background: #FFFFFF !important; 
+  color: var(--text-main) !important;
+  margin: 3% auto; 
+  padding: 25px; 
+  width: 92%; 
+  max-width: 420px; 
+  border-radius: 16px !important; 
+  border: 1px solid var(--card-border) !important; 
+  position: relative; 
+  max-height: 90vh; 
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
 }
-.close-career, .close-booking { position: absolute; right: 18px; top: 15px; font-size: 26px; cursor: pointer; color: #E2BA5E; }
-.close-career:hover, .close-booking:hover { color: #fff; }
 
-.field-group { margin-bottom: 12px; text-align: left; }
-.field-group label { display: block; font-size: 11px; color: #E2BA5E; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-.career-content input[type="text"], .career-content input[type="tel"], .career-content input[type="date"], .career-content textarea {
-  width: 100%; padding: 10px 12px; background: #000; border: 1px solid #333; 
-  color: #fff; border-radius: 6px; box-sizing: border-box; font-size: 13px; outline: none;
+.close-career, .close-booking { 
+  position: absolute; 
+  right: 18px; 
+  top: 15px; 
+  font-size: 24px; 
+  cursor: pointer; 
+  color: var(--accent-gold); 
+  transition: 0.2s;
 }
-.career-content input:focus, .career-content textarea:focus { border-color: #E2BA5E; }
+.close-career:hover, .close-booking:hover { color: var(--text-main); }
 
+/* Form Fields Styling for Light Cream Theme */
+.field-group { 
+  margin-bottom: 14px; 
+  text-align: left; 
+}
+.field-group label { 
+  display: block; 
+  font-size: 11px; 
+  color: var(--text-main); 
+  font-weight: 700; 
+  margin-bottom: 5px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+}
+
+.career-content input[type="text"], 
+.career-content input[type="tel"], 
+.career-content input[type="date"], 
+.career-content textarea {
+  width: 100%; 
+  padding: 11px 14px; 
+  background: var(--bg-color) !important; 
+  border: 1px solid var(--card-border) !important; 
+  color: var(--text-main) !important; 
+  border-radius: 8px !important; 
+  box-sizing: border-box; 
+  font-size: 13px; 
+  outline: none;
+  transition: border-color 0.2s;
+}
+.career-content input:focus, .career-content textarea:focus { 
+  border-color: var(--accent-gold) !important; 
+  background: #FFFFFF !important;
+}
+
+/* Skills Dropdown inside Modal */
 .skills-dropdown-container { position: relative; }
 .selected-skills-box {
-  width: 100%; min-height: 42px; background: #000; border: 1px solid #333;
-  border-radius: 6px; padding: 8px 10px; cursor: pointer; display: flex;
-  flex-wrap: wrap; gap: 5px; align-items: center; font-size: 12px; color: #aaa;
+  width: 100%; min-height: 44px; background: var(--bg-color) !important; 
+  border: 1px solid var(--card-border) !important;
+  border-radius: 8px; padding: 8px 12px; cursor: pointer; display: flex;
+  flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--text-muted);
 }
-.selected-skills-box:hover { border-color: #E2BA5E; }
-.skill-tag { background: #E2BA5E; color: #000; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+.selected-skills-box:hover { border-color: var(--accent-gold) !important; }
+.skill-tag { 
+  background: var(--accent-gold) !important; color: #FFFFFF !important; 
+  padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; 
+  display: inline-flex; align-items: center; gap: 4px; 
+}
 .skills-dropdown {
-  display: none; position: absolute; top: 100%; left: 0; width: 100%; max-height: 180px;
-  overflow-y: auto; background: #111; border: 1px solid #E2BA5E; border-radius: 6px;
-  z-index: 10; margin-top: 4px; padding: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  display: none; position: absolute; top: 100%; left: 0; width: 100%; max-height: 190px;
+  overflow-y: auto; background: #FFFFFF !important; border: 1px solid var(--accent-gold); 
+  border-radius: 8px; z-index: 10; margin-top: 4px; padding: 6px; 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-.skills-dropdown label { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #ddd; padding: 6px 8px; cursor: pointer; border-radius: 4px; text-transform: none; font-weight: normal; }
-.skills-dropdown label:hover { background: #222; color: #E2BA5E; }
+.skills-dropdown label { 
+  display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-main); 
+  padding: 8px 10px; cursor: pointer; border-radius: 6px; text-transform: none; font-weight: normal; 
+}
+.skills-dropdown label:hover { background: var(--bg-color); color: var(--accent-gold); }
 
-.terms-box { margin: 14px 0; text-align: left; background: #141414; padding: 12px; border-radius: 8px; border: 1px solid #333; }
-.terms-label { font-size: 11px; color: #ccc; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; line-height: 1.4; }
+/* Terms Box */
+.terms-box { 
+  margin: 16px 0; text-align: left; background: var(--card-bg); 
+  padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); 
+}
+.terms-label { font-size: 11px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px; cursor: pointer; line-height: 1.4; }
+.terms-label strong { color: var(--text-main); }
 
-.submit-btn { width: 100%; padding: 12px; background: #E2BA5E; border: none; cursor: pointer; font-weight: 800; border-radius: 6px; margin-top: 6px; color: #000; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; transition: 0.3s ease; }
-.submit-btn:hover { background: #fff; box-shadow: 0 0 15px rgba(226, 186, 94, 0.4); }
+/* Submit Button inside Modal */
+.submit-btn { 
+  width: 100%; padding: 13px; background: var(--accent-gold) !important; border: none; cursor: pointer; 
+  font-weight: 800; border-radius: 8px; margin-top: 8px; color: #FFFFFF !important; 
+  text-transform: uppercase; font-size: 12px; letter-spacing: 1px; transition: 0.3s ease; 
+}
+.submit-btn:hover { background: var(--text-main) !important; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 </style>
-
-<script>
-const careerModal = document.getElementById("career-modal");
-const bookingModal = document.getElementById("booking-modal");
-
-function openBookingModal() { bookingModal.style.display = "block"; }
-function closeBookingModal() { bookingModal.style.display = "none"; }
-
-document.getElementById("join-team-btn").onclick = () => { careerModal.style.display = "block"; }
-document.querySelector(".close-career").onclick = () => { careerModal.style.display = "none"; }
-
-window.onclick = (event) => { 
-  if (event.target == careerModal) careerModal.style.display = "none";
-  if (event.target == bookingModal) bookingModal.style.display = "none";
-}
-
-function toggleSkillDropdown() {
-  const dropdown = document.getElementById("skills-dropdown-list");
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-}
-
-function updateSkills() {
-  const checkboxes = document.querySelectorAll(".skills-dropdown input[type='checkbox']");
-  const displayBox = document.getElementById("selected-skills-display");
-  const placeholder = document.getElementById("skills-placeholder");
-  const hiddenInput = document.getElementById("hidden-skills-input");
-  
-  let selectedValues = [];
-  checkboxes.forEach(cb => { if (cb.checked) selectedValues.push(cb.value); });
-
-  displayBox.innerHTML = "";
-  if (selectedValues.length === 0) {
-    displayBox.appendChild(placeholder);
-    hiddenInput.value = "";
-  } else {
-    selectedValues.forEach(val => {
-      let tag = document.createElement("span");
-      tag.className = "skill-tag";
-      tag.innerText = val;
-      displayBox.appendChild(tag);
-    });
-    hiddenInput.value = selectedValues.join(", ");
-  }
-}
-
-window.addEventListener("click", function(e) {
-  if (!e.target.closest('.skills-dropdown-container')) {
-    document.getElementById("skills-dropdown-list").style.display = "none";
-  }
-});
-</script>
-  
   
   <main id="top">
 
