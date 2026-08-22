@@ -1075,27 +1075,28 @@
 
       <div class="nav-right">
         <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Your Event</button>
-<button id="join-team-btn" class="join-header-btn">Join Our Team</button>
+        <button id="join-team-btn" class="join-header-btn">Join Our Team</button>
         <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
     </div>
   </header>
-  <!-- Careers Modal -->
+<!-- 2. Careers Modal (Header ke bahar) -->
 <div id="career-modal" class="career-modal">
   <div class="career-content">
     <span class="close-career">&times;</span>
-    <h2 style="color: #E2BA5E; margin-top:0;">Join Shashi Photography</h2>
-    <p style="font-size: 14px; color: #aaa;">Submit your portfolio and resume to start your journey with us.</p>
+    <h2 style="color: #E2BA5E; margin-bottom: 5px;">Join Shashi Photography</h2>
+    <p style="font-size: 13px; color: #aaa; margin-bottom: 15px;">Submit your portfolio and resume link to start your journey with us.</p>
     
-    <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST" enctype="multipart/form-data">
+    <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST">
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="_replyto" placeholder="Email Address" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="portfolio" placeholder="Portfolio Link / Experience Details" rows="3" required></textarea>
+      <textarea name="portfolio" placeholder="Portfolio Link / Experience Details" rows="2" required></textarea>
       
+      <!-- Yeh wahi 'Upload' jaisa dikhega, par yahan user apna Resume/Drive Link daalega -->
       <div class="file-upload-box">
-        <label>Upload Resume (PDF):</label>
-        <input type="file" name="resume" accept=".pdf" required>
+        <label style="display:block; margin-bottom:5px; color:#E2BA5E; font-size:12px;">Resume / Portfolio Link (Google Drive / PDF Link):</label>
+        <input type="text" name="resume_link" placeholder="Paste your Drive Link here..." required style="margin:0; background:#000; border:1px solid #333; color:#fff; padding:10px; width:100%; border-radius:6px;">
       </div>
       
       <button type="submit" class="submit-btn">Submit Application</button>
@@ -1104,18 +1105,11 @@
 </div>
 
 <style>
-/* Header Button Styling to match premium theme */
+/* Button Styling */
 .join-header-btn {
-  background: transparent;
-  border: 1px solid #E2BA5E;
-  color: #E2BA5E;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', sans-serif;
-  margin-left: 10px;
+  background: transparent; border: 1px solid #E2BA5E; color: #E2BA5E;
+  padding: 8px 18px; border-radius: 8px; font-weight: 600; cursor: pointer;
+  transition: all 0.3s ease; font-family: 'Segoe UI', sans-serif; margin-left: 10px;
 }
 .join-header-btn:hover { background: #E2BA5E; color: #000; }
 
@@ -1133,10 +1127,10 @@
   width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #333; 
   color: #fff; border-radius: 6px; box-sizing: border-box;
 }
-.file-upload-box { margin: 10px 0; font-size: 13px; color: #aaa; }
+.file-upload-box { margin: 12px 0; font-size: 13px; text-align: left; }
 .submit-btn { 
   width: 100%; padding: 12px; background: #E2BA5E; border: none; cursor: pointer; 
-  font-weight: bold; border-radius: 6px; margin-top: 10px; color: #000;
+  font-weight: bold; border-radius: 6px; margin-top: 10px; color: #000; text-transform: uppercase;
 }
 </style>
 
@@ -1146,6 +1140,7 @@ document.getElementById("join-team-btn").onclick = () => careerModal.style.displ
 document.querySelector(".close-career").onclick = () => careerModal.style.display = "none";
 window.onclick = (event) => { if (event.target == careerModal) careerModal.style.display = "none"; }
 </script>
+
   
   <main id="top">
 
