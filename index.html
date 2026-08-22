@@ -2047,7 +2047,178 @@ window.addEventListener("click", function(e) {
       </div>
     </div>
     </section>
+<!-- ==========================================
+   3. OUR SIGNATURE TOUCH (Features / Services Cards)
+   ========================================== -->
+<section class="serenity-signature-section">
+  <div class="signature-container">
+    
+    <!-- Section Header -->
+    <div class="signature-header">
+      <span class="signature-number">02.</span>
+      <div class="signature-divider"></div>
+      <span class="signature-label">Our Signature Touch</span>
+    </div>
+    
+    <h2 class="signature-main-title">Crafting Unforgettable Moments</h2>
 
+    {/* 4 Luxury Feature Cards Grid */}
+    <div class="signature-cards-grid">
+      
+      <!-- Card 1 -->
+      <div class="signature-card">
+        <span class="card-num">01.</span>
+        <h3 class="card-title">Day Coordination</h3>
+        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button class="card-action-btn" onclick="openBookingModal()">+</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="signature-card">
+        <span class="card-num">02.</span>
+        <h3 class="card-title">Wedding Planning</h3>
+        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button class="card-action-btn" onclick="openBookingModal()">+</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="signature-card">
+        <span class="card-num">03.</span>
+        <h3 class="card-title">Intimate Wedding</h3>
+        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button class="card-action-btn" onclick="openBookingModal()">+</button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="signature-card">
+        <span class="card-num">04.</span>
+        <h3 class="card-title">Wedding Dress</h3>
+        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button class="card-action-btn" onclick="openBookingModal()">+</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* Signature Touch Section Styles */
+.serenity-signature-section {
+  padding: 60px 20px;
+  background-color: var(--bg-color, #F7F4EF);
+  color: var(--text-main, #1A1A1A);
+  font-family: 'Segoe UI', serif;
+}
+
+.signature-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.signature-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.signature-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--text-main, #1A1A1A);
+  font-weight: 600;
+}
+
+.signature-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--accent-gold, #C5A880);
+}
+
+.signature-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted, #666);
+  font-weight: 600;
+}
+
+.signature-main-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  margin-bottom: 35px;
+  color: var(--text-main, #1A1A1A);
+}
+
+.signature-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.signature-card {
+  background-color: var(--card-bg, #EFECE6);
+  border: 1px solid var(--card-border, #E0DBD0);
+  border-radius: 12px;
+  padding: 30px 24px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+
+.signature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.card-num {
+  font-size: 13px;
+  color: var(--text-muted, #666);
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.card-title {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-main, #1A1A1A);
+}
+
+.card-desc {
+  font-size: 12px;
+  color: var(--text-muted, #666);
+  line-height: 1.5;
+  margin-bottom: 25px;
+  font-family: sans-serif;
+}
+
+.card-action-btn {
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent-gold, #C5A880);
+  color: #FFF;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+}
+
+.card-action-btn:hover {
+  background-color: var(--text-main, #1A1A1A);
+}
+                                                 </style>  
     <!-- HOW WE WORK -->
     <section class="section-wrap process-section" id="process">
       <div class="container">
