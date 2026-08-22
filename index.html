@@ -1816,24 +1816,23 @@
   </script>
   
   }
-<!-- 1. Screen ke right side par Floating Magic Capsule Button -->
+  <!-- 1. Trigger Button -->
 <button id="shashi-ai-trigger" class="shashi-tiny-capsule">
-  <span class="magic-pulse"></span>
-  <span class="sparkle-icon">✨</span>
-  <span class="btn-text">Shashi AI</span>
+  <span>✨ Shashi AI</span>
 </button>
 
+<!-- 2. Chat Modal -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
-  <!-- Hamara Custom Clean Header -->
+  <!-- Custom Header -->
   <div class="shashi-custom-header">
     <div class="header-info">
-      <img src="file_00000000126c81fab5a24832572b788d.png" style="width:25px; height:25px; border-radius:50%; margin-right:8px; object-fit:cover;">
-      <span style="font-weight:600; font-size:14px;">Shashi AI</span>
+      <img src="file_00000000126c81fab5a24832572b788d.png" style="width:22px; height:22px; border-radius:50%; margin-right:8px; object-fit:cover;">
+      <span style="font-weight:600; font-size:14px; color:#fff;">Shashi AI</span>
       <span class="live-dot">● Live</span>
     </div>
     <div class="header-btns">
-      <button id="shashi-ai-expand" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">⤢</button>
-      <button id="shashi-ai-close" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">✕</button>
+      <button id="shashi-ai-expand" style="background:none; border:none; color:#fff; font-size:16px; cursor:pointer;">⤢</button>
+      <button id="shashi-ai-close" style="background:none; border:none; color:#fff; font-size:16px; cursor:pointer;">✕</button>
     </div>
   </div>
   
@@ -1841,158 +1840,58 @@
     <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
-  
 
-/* --- 2. Floating Capsule Trigger Button Style --- */
+<style>
+/* 1. Hide Chatbase's Default Header & Button */
+.chatbase-window-header, div[class*="chat-header"] { display: none !important; }
+#chatbase-bubble-button { display: none !important; }
+
+/* 2. Premium Gold Animated Capsule */
 .shashi-tiny-capsule {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  background: linear-gradient(135deg, #111, #222) !important;
-  color: #fff !important;
-  padding: 8px 14px !important;
-  border-radius: 50px !important;
-  border: 1px solid #444 !important;
-  cursor: pointer !important;
-  z-index: 99998 !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
-  font-family: inherit !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
+  position: fixed !important; bottom: 25px !important; right: 25px !important;
+  background: #000 !important; color: #E2BA5E !important; padding: 12px 20px !important;
+  border-radius: 50px !important; border: 1px solid #E2BA5E !important;
+  cursor: pointer !important; z-index: 99999 !important;
+  box-shadow: 0 4px 15px rgba(226,186,94,0.3) !important;
+  font-weight: 600 !important; animation: pulse-gold 2s infinite !important;
+}
+@keyframes pulse-gold {
+  0% { box-shadow: 0 0 0 0 rgba(226,186,94,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(226,186,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(226,186,94,0); }
 }
 
-.magic-pulse {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-  border: 1px solid #00ff00;
-  animation: pulse-ring 2s infinite;
-  pointer-events: none;
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.15); opacity: 0; }
-}
-
-/* --- 3. Floating Modal Box Style (Thoda aur chhota aur compact) --- */
+/* 3. Modal Popup Styles */
 .shashi-chat-popup {
-  position: fixed !important;
-  bottom: 85px !important;
-  right: 20px !important;
-  width: 320px !important; /* Width ko thoda aur chhota kar diya */
-  max-width: calc(100vw - 24px) !important;
-  height: 460px !important; /* Height ko bhi aur compact kar diya */
-  max-height: calc(100dvh - 100px) !important;
-  display: none;
-  flex-direction: column !important;
-  background: #000 !important;
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  z-index: 99999 !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
-  border: 1px solid #222 !important;
-  }
-
-/* --- 4. Fullscreen Mode --- */
+  position: fixed !important; bottom: 85px !important; right: 20px !important;
+  width: 320px !important; height: 460px !important; background: #000 !important;
+  display: none; flex-direction: column !important; border-radius: 14px !important;
+  overflow: hidden !important; z-index: 99999 !important; border: 1px solid #E2BA5E !important;
+}
 .shashi-chat-popup.fullscreen-mode {
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100dvh !important;
-  max-width: 100vw !important;
-  max-height: 100dvh !important;
-  border-radius: 0 !important;
-  border: none !important;
+  top: 0 !important; left: 0 !important; width: 100vw !important; height: 100dvh !important; border-radius: 0 !important;
 }
 
-/* --- 5. Floating Top Control Bar (Expand & Close over Chatbase Header) --- */
-.popup-top-bar {
-  position: absolute !important;
-  top: 10px !important;
-  right: 15px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  z-index: 100000 !important;
+/* 4. Custom Header & Live Dot */
+.shashi-custom-header {
+  background: #000; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2BA5E;
 }
-
-.popup-expand-btn, .popup-close-btn {
-  background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid #444 !important;
-  color: #fff !important;
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 50% !important;
-  font-size: 14px !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* --- 6. Body & Iframe --- */
-.popup-body {
-  flex: 1 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: #000 !important;
-}
-
-.popup-body iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
-}
-
-/* --- 7. Mobile Responsive --- */
-@media (max-width: 480px) {
-  .shashi-chat-popup {
-    bottom: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 85dvh !important;
-    max-height: 85dvh !important;
-    border-radius: 16px 16px 0 0 !important;
-  }
-}
+.live-dot { color: #00ff00; font-size: 10px; margin-left: 8px; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.popup-body { flex: 1; }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('shashi-ai-modal');
   const trigger = document.getElementById('shashi-ai-trigger');
-  const closeBtn = document.getElementById('shashi-ai-close');
-  const expandBtn = document.getElementById('shashi-ai-expand');
-
-  if (trigger && modal) {
-    trigger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-    });
-  }
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-  }
-
-  if (expandBtn && modal) {
-    expandBtn.addEventListener('click', function() {
-      modal.classList.toggle('fullscreen-mode');
-      expandBtn.innerHTML = modal.classList.contains('fullscreen-mode') ? '❐' : '⤢';
-    });
-  }
+  
+  trigger.onclick = () => modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+  document.getElementById('shashi-ai-close').onclick = () => modal.style.display = 'none';
+  document.getElementById('shashi-ai-expand').onclick = () => modal.classList.toggle('fullscreen-mode');
 });
 </script>
+  
   
 
 </body>
