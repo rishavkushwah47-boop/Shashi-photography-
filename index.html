@@ -1818,12 +1818,11 @@
   }
   <!-- Trigger Button -->
 <button id="shashi-ai-trigger" class="shashi-tiny-capsule">
-  <span>✨ Shashi AI</span>
+  ✨ Shashi AI
 </button>
 
-<!-- Modal Container -->
+<!-- Modal -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
-  <!-- Custom Header -->
   <div class="shashi-custom-header">
     <div class="header-info">
       <img src="file_00000000126c81fab5a24832572b788d.png" style="width:22px; height:22px; border-radius:50%; margin-right:8px;">
@@ -1831,40 +1830,53 @@
       <span class="live-dot">● Live</span>
     </div>
     <div class="header-btns">
-      <button id="shashi-ai-expand">⤢</button>
-      <button id="shashi-ai-close">✕</button>
+      <button id="shashi-ai-close" style="background:none; border:none; color:#fff; cursor:pointer;">✕</button>
     </div>
   </div>
-  
   <div class="popup-body">
     <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
-
+  
 <style>
-/* 1. Capsule Button */
+/* Capsule Button */
 .shashi-tiny-capsule {
-  position: fixed; bottom: 25px; right: 25px; padding: 12px 20px;
-  background: #000; color: #E2BA5E; border: 1px solid #E2BA5E;
+  position: fixed; bottom: 25px; right: 25px; padding: 12px 24px;
+  background: #000; color: #E2BA5E; border: 2px solid #E2BA5E;
   border-radius: 50px; cursor: pointer; z-index: 99999;
-  animation: breathing 3s ease-out infinite;
+  font-weight: bold; box-shadow: 0 4px 15px rgba(226,186,94,0.3);
+  animation: breathe 2s infinite ease-in-out;
 }
-@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
 
-/* 2. Modal */
+/* Popup Window */
 .shashi-chat-popup {
-  position: fixed; bottom: 85px; right: 20px; width: 320px; height: 460px;
+  position: fixed; bottom: 90px; right: 20px; width: 320px; height: 450px;
   background: #000; display: none; flex-direction: column;
-  border-radius: 14px; overflow: hidden; border: 1px solid #E2BA5E;
+  border-radius: 15px; overflow: hidden; border: 1px solid #E2BA5E; z-index: 99999;
 }
 .shashi-custom-header {
-  background: #000; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
+  background: #000; padding: 10px; display: flex; justify-content: space-between;
+  border-bottom: 1px solid #E2BA5E;
 }
 .live-dot { color: #00ff00; font-size: 10px; margin-left: 8px; animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .popup-body { flex: 1; }
-.header-btns button { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; }
 </style>
+  <script>
+document.getElementById('shashi-ai-trigger').addEventListener('click', function() {
+  const modal = document.getElementById('shashi-ai-modal');
+  modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+});
+
+document.getElementById('shashi-ai-close').addEventListener('click', function() {
+  document.getElementById('shashi-ai-modal').style.display = 'none';
+});
+  </script>
+  
   
 </body>
 </html>
