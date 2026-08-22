@@ -1823,22 +1823,25 @@
   <span class="btn-text">Shashi AI</span>
 </button>
 
-<!-- 2. Chat Window Modal (Direct Chatbase Iframe without custom duplicate header) -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
-  <div class="popup-top-bar">
-    <button id="shashi-ai-expand" class="popup-expand-btn" title="Expand / Fullscreen">⤢</button>
-    <button id="shashi-ai-close" class="popup-close-btn" title="Close">✕</button>
+  <!-- Hamara Custom Clean Header -->
+  <div class="shashi-custom-header">
+    <div class="header-info">
+      <img src="file_00000000126c81fab5a24832572b788d.png" style="width:25px; height:25px; border-radius:50%; margin-right:8px; object-fit:cover;">
+      <span style="font-weight:600; font-size:14px;">Shashi AI</span>
+      <span class="live-dot">● Live</span>
+    </div>
+    <div class="header-btns">
+      <button id="shashi-ai-expand" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">⤢</button>
+      <button id="shashi-ai-close" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">✕</button>
+    </div>
   </div>
+  
   <div class="popup-body">
     <iframe src="https://www.chatbase.co/chatbot-iframe/V3E3b1kDoYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
-
-<style>
-/* --- 1. Hide unwanted elements --- */
-#chatbase-bubble-button {
-  display: none !important;
-}
+  
 
 /* --- 2. Floating Capsule Trigger Button Style --- */
 .shashi-tiny-capsule {
