@@ -1075,77 +1075,67 @@
 
       <div class="nav-right">
         <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Your Event</button>
-        <button id="join-team-btn" class="join-header-btn">Join Our Team</button>
+        <button class="premium-book-btn">...</button> 
+<button id="join-team-btn" class="join-header-btn">Join Our Team</button> <!-- Ye line add karni hai -->
         <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
     </div>
   </header>
-<!-- Careers Modal -->
+  <!-- Careers Modal -->
 <div id="career-modal" class="career-modal">
   <div class="career-content">
     <span class="close-career">&times;</span>
-    <h2 style="color: #E2BA5E; margin-top:0;">Join Shashi Photography</h2>
-    <p style="font-size: 14px; color: #aaa;">Submit your portfolio and resume to start your journey with us.</p>
+    <h2 style="color: #E2BA5E; margin-bottom: 5px;">Careers @ Shashi Studio</h2>
+    <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">Join our creative team. Upload your Resume below.</p>
     
-    <form id="career-form" action="https://formspree.io/f/xoeabnba" method="POST" enctype="multipart/form-data">
+    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="access_key" value="2973fad6-a712-43d5-bc0e-79a34774b88c">
       <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="_replyto" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="portfolio" placeholder="Portfolio Link / Experience Details" rows="3" required></textarea>
-      
-      <div class="file-upload-box">
-        <label>Upload Resume (PDF):</label>
-        <input type="file" name="resume" accept=".pdf" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="Portfolio Link / About You..." rows="3" required></textarea>
+      <div class="premium-upload">
+        <label style="color:#E2BA5E; font-size:12px;">Upload Resume (PDF only)</label>
+        <input type="file" name="attachment" accept=".pdf" required style="border:none; padding:5px 0; color:#fff;">
       </div>
-      
-      <button type="submit" class="submit-btn">Submit Application</button>
+      <button type="submit" class="submit-btn">Apply Now</button>
     </form>
   </div>
 </div>
 
 <style>
-/* Header Button Styling to match premium theme */
 .join-header-btn {
-  background: transparent;
-  border: 1px solid #E2BA5E;
-  color: #E2BA5E;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', sans-serif;
-  margin-left: 10px;
+  background: transparent; border: 1px solid #E2BA5E; color: #E2BA5E;
+  padding: 8px 18px; border-radius: 8px; font-weight: 600; cursor: pointer;
+  transition: all 0.3s; margin-left: 10px; font-family: 'Segoe UI', sans-serif;
 }
 .join-header-btn:hover { background: #E2BA5E; color: #000; }
-
-/* Modal Styling */
 .career-modal {
-  display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+  display: none; position: fixed; z-index: 999999; left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
 }
 .career-content {
-  background: #111; margin: 5% auto; padding: 25px; width: 350px; color: #fff;
-  border-radius: 12px; border: 1px solid #E2BA5E; position: relative;
+  background: #0a0a0a; margin: 5% auto; padding: 25px; width: 350px; 
+  color: #fff; border-radius: 12px; border: 1px solid #333; position: relative;
 }
 .close-career { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #E2BA5E; }
-.career-content input, .career-content textarea {
-  width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #333; 
-  color: #fff; border-radius: 6px; box-sizing: border-box;
+.career-content input[type="text"], .career-content input[type="email"], .career-content textarea {
+  width: 100%; padding: 12px; margin: 8px 0; background: #000; border: 1px solid #333; 
+  color: #fff; border-radius: 8px; box-sizing: border-box;
 }
-.file-upload-box { margin: 10px 0; font-size: 13px; color: #aaa; }
+.premium-upload { margin: 15px 0; padding: 15px; border: 1px dashed #E2BA5E; border-radius: 8px; text-align: center; }
 .submit-btn { 
   width: 100%; padding: 12px; background: #E2BA5E; border: none; cursor: pointer; 
-  font-weight: bold; border-radius: 6px; margin-top: 10px; color: #000;
+  font-weight: 800; border-radius: 8px; color: #000; text-transform: uppercase;
 }
 </style>
 
 <script>
-const careerModal = document.getElementById("career-modal");
-document.getElementById("join-team-btn").onclick = () => careerModal.style.display = "block";
-document.querySelector(".close-career").onclick = () => careerModal.style.display = "none";
-window.onclick = (event) => { if (event.target == careerModal) careerModal.style.display = "none"; }
+const modal = document.getElementById("career-modal");
+document.getElementById("join-team-btn").onclick = () => modal.style.display = "block";
+document.querySelector(".close-career").onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
 </script>
+  
   
   <main id="top">
 
