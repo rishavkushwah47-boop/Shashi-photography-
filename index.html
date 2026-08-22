@@ -1821,179 +1821,75 @@
   <span class="sparkle-icon">✨</span>
   <span class="btn-text">Shashi AI</span>
 </button>
-  <!-- Clean Floating Chat Window -->
+  }
+<!-- Final Clean Chat Window -->
 <div id="shashi-ai-modal" class="shashi-chat-popup">
   <div class="popup-header">
     <div class="popup-header-content">
-      <img src="file_00000000c204820bb7800b0f9fd33781.png" alt="AI" class="ai-avatar-logo">
+      <img src="file_00000000126c81fab5a24832572b788d.png" alt="AI" class="ai-avatar-logo">
       <span class="popup-title">Shashi Photography Assistant <span class="live-dot">● Live</span></span>
     </div>
     <div class="popup-header-actions">
-      <button id="shashi-ai-expand" class="popup-expand-btn" title="Full Screen">⤢</button>
-      <button id="shashi-ai-close" class="popup-close-btn" title="Close">✕</button>
+      <button id="shashi-ai-expand" class="popup-expand-btn">⤢</button>
+      <button id="shashi-ai-close" class="popup-close-btn">✕</button>
     </div>
   </div>
   <div class="popup-body">
+    <!-- Yahan apna sahi Chatbase iframe src dalein -->
     <iframe src="https://www.chatbase.co/chatbot-iframe/vXjYvt7w_77Lsal" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
 
 <style>
-/* 1. Default Chatbase header ko hamesha ke liye hide karo */
-.chatbase-window-header, 
-div[class*="chat-header"]:first-child {
+/* 1. Unwanted default elements hide */
+.chatbase-window-header, div[class*="chat-header"], #chatbase-bubble-button {
   display: none !important;
 }
 
-/* 2. Full-screen mobile layout & positioning */
+/* 2. Modal Layout */
 .shashi-chat-popup {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100dvh !important;
-  max-width: 100vw !important;
-  max-height: 100dvh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-  display: none; /* Default hidden jab tak click na ho */
-  flex-direction: column !important;
-  background: #000 !important;
-  z-index: 999999 !important;
-  overflow: hidden !important;
+  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+  width: 100vw !important; height: 100dvh !important;
+  display: none; flex-direction: column !important;
+  background: #000 !important; z-index: 999999 !important;
 }
 
-/* 3. Custom Header Styling */
-.popup-header {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 12px 16px !important;
-  background: #111 !important;
-  border-bottom: 1px solid #222 !important;
-  flex-shrink: 0 !important;
-  box-sizing: border-box !important;
-}
+/* 3. Header & Logo Styling */
+.popup-header { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 10px 15px !important; background: #111 !important; }
+.ai-avatar-logo { width: 25px !important; height: 25px !important; border-radius: 50% !important; object-fit: cover !important; border: none !important; }
+.popup-title { color: #fff !important; font-size: 14px !important; font-weight: 600 !important; display: flex !important; align-items: center !important; }
 
-.popup-header-content {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-}
+/* 4. Live Dot */
+.live-dot { color: #00ff00 !important; font-size: 10px !important; animation: blink 1.5s infinite !important; margin-left: 8px !important; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
 
-/* 4. AI Logo Avatar styling */
-.ai-avatar-logo {
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  border: 1px solid #00ff00 !important;
-}
+/* 5. Buttons */
+.popup-expand-btn, .popup-close-btn { background: transparent !important; border: none !important; color: #fff !important; font-size: 18px !important; cursor: pointer !important; }
 
-.popup-title {
-  color: #fff !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  font-family: inherit !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* 5. Live Blinking Dot */
-.live-dot {
-  color: #00ff00 !important;
-  font-size: 11px !important;
-  animation: blink 1.5s infinite !important;
-  margin-left: 8px !important;
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* 6. Header Action Buttons */
-.popup-header-actions {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-.popup-expand-btn, .popup-close-btn {
-  background: transparent !important;
-  border: none !important;
-  color: #fff !important;
-  font-size: 18px !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-  line-height: 1 !important;
-}
-
-/* 7. Chat Body Container */
-.popup-body {
-  flex: 1 !important;
-  width: 100% !important;
-  height: 100% !important;
-  overflow-y: auto !important;
-  min-height: 0 !important;
-  background: #000 !important;
-}
-
-.popup-body iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
-}
+/* 6. Body */
+.popup-body { flex: 1 !important; }
+.popup-body iframe { width: 100% !important; height: 100% !important; border: none !important; }
 </style>
 
 <script>
-// 1. Forcefully remove any dynamic Chatbase default header on load
-window.addEventListener('DOMContentLoaded', (event) => {
-  const oldHeader = document.querySelector('.chatbase-window-header');
-  if (oldHeader) oldHeader.style.display = 'none';
-});
-
-// 2. 100% Guaranteed Click Event Logic for Opening/Closing Chat
 document.addEventListener('DOMContentLoaded', function() {
-  const triggerBtn = document.getElementById('shashi-ai-trigger');
-  const chatPopup = document.getElementById('shashi-ai-modal');
+  const modal = document.getElementById('shashi-ai-modal');
+  const trigger = document.getElementById('shashi-ai-trigger');
   const closeBtn = document.getElementById('shashi-ai-close');
   const expandBtn = document.getElementById('shashi-ai-expand');
 
-  if (triggerBtn && chatPopup) {
-    triggerBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (chatPopup.style.display === 'flex') {
-        chatPopup.style.display = 'none';
-      } else {
-        chatPopup.style.display = 'flex';
-      }
-    });
-  }
-
-  if (closeBtn && chatPopup) {
-    closeBtn.addEventListener('click', function() {
-      chatPopup.style.display = 'none';
-    });
-  }
-
-  // Optional: Expand toggle logic
-  if (expandBtn && chatPopup) {
-    expandBtn.addEventListener('click', function() {
-      // Toggle fullscreen or maximize state if needed
-      if (!document.fullscreenElement) {
-        chatPopup.requestFullscreen().catch(err => {});
-      } else {
-        document.exitFullscreen();
-      }
+  if(trigger) trigger.addEventListener('click', () => modal.style.display = 'flex');
+  if(closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  
+  if(expandBtn) {
+    expandBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) modal.requestFullscreen();
+      else document.exitFullscreen();
     });
   }
 });
 </script>
+  
   
 
 </body>
