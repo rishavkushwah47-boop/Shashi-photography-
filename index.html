@@ -1815,22 +1815,33 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   }
-<!-- 1. Floating Capsule Trigger Button -->
+  <!-- 1. Super Small, Compact & 24/7 Animated Trigger Button -->
 <button id="shashi-ai-trigger" class="shashi-tiny-capsule">
-  <span style="font-size: 14px;">✦</span> Shashi AI
+  <span class="btn-dot"></span> Shashi AI
 </button>
 
-<!-- 2. Chat Modal -->
-<div id="shashi-ai-modal" class="shashi-chat-popup">
+<!-- 2. Chat Modal (Opens Large/Fullscreen by Default, with Minimize to Float option) -->
+<div id="shashi-ai-modal" class="shashi-chat-popup fullscreen-default">
   <!-- Minimalist Custom Header -->
   <div class="shashi-custom-header">
     <div class="header-status">
-      <span class="live-indicator">🟢 Live</span>
+      <span class="live-indicator"><span class="dot"></span> Live</span>
     </div>
     <div class="header-controls">
+      <!-- Quick Prompts Button (+) -->
+      <div class="quick-prompt-wrapper">
+        <button id="shashi-ai-prompts-btn" title="Quick Prompts" class="header-icon-btn">+</button>
+        <!-- Quick Prompts Dropdown Menu -->
+        <div id="shashi-prompts-dropdown" class="prompts-dropdown">
+          <div class="prompt-title">Quick Prompts</div>
+          <button class="prompt-item" data-text="What are your wedding photography packages?">💍 Wedding Packages</button>
+          <button class="prompt-item" data-text="Is my event date available for booking?">📅 Check Date Availability</button>
+          <button class="prompt-item" data-text="I want to book a pre-wedding shoot.">📸 Pre-wedding Shoot</button>
+          <button class="prompt-item" data-text="How can I contact Shashi Photography Studio?">📞 Contact & WhatsApp</button>
+        </div>
+      </div>
       <button id="shashi-ai-refresh" title="New Chat" class="header-icon-btn">↻</button>
-      <button id="shashi-ai-quick" class="header-icon-btn" title="Quick Prompts">+</button>
-      <button id="shashi-ai-expand" title="Expand / Fullscreen" class="header-icon-btn">↗</button>
+      <button id="shashi-ai-expand" title="Minimize / Float Toggle" class="header-icon-btn">🗗</button>
       <button id="shashi-ai-close" title="Close" class="header-icon-btn">×</button>
     </div>
   </div>
@@ -1842,84 +1853,106 @@
 </div>
 
 <style>
-/* Hide default Chatbase elements if accessible */
+/* Hide default Chatbase elements */
 .chatbase-window-header, div[class*="chat-header"] { display: none !important; }
 #chatbase-bubble-button { display: none !important; }
 
-/* Premium Aesthetic Capsule Button */
+/* 1. Super Small, Compact & 24/7 Animated Trigger Button */
 .shashi-tiny-capsule {
   position: fixed !important;
-  bottom: 25px !important;
-  right: 25px !important;
+  bottom: 20px !important;
+  right: 20px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  background: linear-gradient(135deg, #1a1a1a, #000000) !important;
+  gap: 6px !important;
+  background: #000000 !important;
   color: #E2BA5E !important;
-  padding: 12px 22px !important;
-  border-radius: 100px !important;
+  padding: 8px 16px !important;
+  border-radius: 50px !important;
   border: 1px solid #E2BA5E !important;
   cursor: pointer !important;
   z-index: 99998 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(226, 186, 94, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(226, 186, 94, 0.3) !important;
   font-family: 'Segoe UI', sans-serif !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
-  animation: live-pulse-ring 2s infinite ease-in-out !important;
-  transition: transform 0.3s ease !important;
+  animation: permanent-glow 2s infinite ease-in-out !important;
+  transition: transform 0.2s ease !important;
 }
 
-@keyframes live-pulse-ring {
-  0% { box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 0 0 rgba(226, 186, 94, 0.4); }
-  70% { box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 0 10px rgba(226, 186, 94, 0); }
-  100% { box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 0 0 rgba(226, 186, 94, 0); }
+.btn-dot {
+  width: 5px !important;
+  height: 5px !important;
+  background-color: #00ff00 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 5px #00ff00 !important;
+}
+
+@keyframes permanent-glow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 0 0 rgba(226, 186, 94, 0.5); }
+  50% { box-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 0 8px rgba(226, 186, 94, 0); }
 }
 
 .shashi-tiny-capsule:hover {
-  transform: scale(1.04) !important;
+  transform: scale(1.05) !important;
   background: #E2BA5E !important;
   color: #000 !important;
 }
 
-/* Chat Popup Window */
+/* 2. Chat Modal (Default Large / Fullscreen View) */
 .shashi-chat-popup {
   position: fixed !important;
-  bottom: 85px !important;
+  bottom: 20px !important;
   right: 20px !important;
-  width: 320px !important;
-  height: 460px !important;
+  width: 380px !important;
+  height: 550px !important;
   max-width: calc(100vw - 20px) !important;
-  max-height: calc(100dvh - 100px) !important;
+  max-height: calc(100dvh - 40px) !important;
   background: #000 !important;
   display: none;
   flex-direction: column !important;
   border-radius: 14px !important;
   overflow: hidden !important;
   z-index: 99999 !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8) !important;
   border: 1px solid #333 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Fullscreen Mode */
-.shashi-chat-popup.fullscreen-mode {
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100dvh !important;
+/* Default Fullscreen/Large Mode when opened */
+.shashi-chat-popup.fullscreen-default {
+  top: 10px !important;
+  left: 10px !important;
+  right: 10px !important;
+  bottom: 10px !important;
+  width: calc(100vw - 20px) !important;
+  height: calc(100dvh - 20px) !important;
   max-width: 100vw !important;
-  max-height: 100dvh !important;
-  border-radius: 0 !important;
-  border: none !important;
+  max-height: 100vh !important;
+  border-radius: 12px !important;
+  border: 1px solid #E2BA5E !important;
+}
+
+/* Floating Small Mode (when user toggles it) */
+.shashi-chat-popup.floating-mode {
+  top: auto !important;
+  left: auto !important;
+  bottom: 75px !important;
+  right: 20px !important;
+  width: 320px !important;
+  height: 450px !important;
+  border-radius: 14px !important;
 }
 
 /* Minimalist Custom Header */
 .shashi-custom-header {
   background: #000 !important;
-  padding: 10px 14px !important;
+  padding: 12px 16px !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
   border-bottom: 1px solid #222 !important;
+  position: relative !important;
 }
 
 .header-status {
@@ -1927,24 +1960,36 @@
   align-items: center !important;
 }
 
+/* Choti aur clean CSS bindi styling */
 .live-indicator {
-  color: #00ff00 !important;
+  color: #ccc !important;
   font-size: 12px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.5px !important;
-  animation: blink-live 1.5s infinite !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
 }
 
-@keyframes blink-live {
+.dot {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: #00ff00 !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  box-shadow: 0 0 5px #00ff00 !important;
+  animation: blink-dot 1.5s infinite !important;
+}
+
+@keyframes blink-dot {
   0% { opacity: 1; }
-  50% { opacity: 0.4; }
+  50% { opacity: 0.3; }
   100% { opacity: 1; }
 }
 
 .header-controls {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 14px !important;
 }
 
 .header-icon-btn {
@@ -1961,6 +2006,58 @@
   color: #fff !important;
 }
 
+/* Quick Prompts Dropdown Styles */
+.quick-prompt-wrapper {
+  position: relative !important;
+}
+
+.prompts-dropdown {
+  display: none;
+  position: absolute;
+  top: 32px;
+  right: 0;
+  width: 210px;
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+  z-index: 100000;
+  padding: 8px;
+}
+
+.prompts-dropdown.active {
+  display: block;
+}
+
+.prompt-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  padding: 4px 8px 6px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #222;
+  margin-bottom: 4px;
+}
+
+.prompt-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.prompt-item:hover {
+  background: #E2BA5E;
+  color: #000;
+  font-weight: 500;
+}
+
 .popup-body {
   flex: 1 !important;
   background: #000 !important;
@@ -1968,14 +2065,14 @@
 
 /* Mobile Adjustments */
 @media (max-width: 480px) {
-  .shashi-chat-popup {
-    bottom: 0 !important;
-    right: 0 !important;
+  .shashi-chat-popup.fullscreen-default {
+    top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100vw !important;
-    height: 82dvh !important;
-    max-height: 82dvh !important;
-    border-radius: 16px 16px 0 0 !important;
+    height: 100dvh !important;
+    border-radius: 0 !important;
   }
 }
 </style>
@@ -1987,31 +2084,82 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.getElementById('shashi-ai-close');
   const expandBtn = document.getElementById('shashi-ai-expand');
   const refreshBtn = document.getElementById('shashi-ai-refresh');
+  const promptsBtn = document.getElementById('shashi-ai-prompts-btn');
+  const promptsDropdown = document.getElementById('shashi-prompts-dropdown');
   const iframe = document.getElementById('chatbase-iframe');
 
-  // Toggle Modal Open/Close
+  // Toggle Modal Open/Close (Opens in Large/Fullscreen by default)
   trigger.addEventListener('click', function(e) {
     e.stopPropagation();
-    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    if (modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    } else {
+      modal.style.display = 'flex';
+      // Ensure it opens large/fullscreen initially as requested
+      modal.classList.add('fullscreen-default');
+      modal.classList.remove('floating-mode');
+      expandBtn.textContent = '🗗'; // Icon to minimize/float
+    }
   });
 
   // Close Button
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
+    promptsDropdown.classList.remove('active');
   });
 
-  // Expand / Fullscreen Toggle
+  // Toggle between Large/Fullscreen and Small Floating Mode
   expandBtn.addEventListener('click', function() {
-    modal.classList.toggle('fullscreen-mode');
-    expandBtn.textContent = modal.classList.contains('fullscreen-mode') ? '❐' : '↗';
+    if (modal.classList.contains('fullscreen-default')) {
+      modal.classList.remove('fullscreen-default');
+      modal.classList.add('floating-mode');
+      expandBtn.textContent = '↗'; // Icon to expand back
+    } else {
+      modal.classList.add('fullscreen-default');
+      modal.classList.remove('floating-mode');
+      expandBtn.textContent = '🗗'; // Icon to minimize/float
+    }
   });
 
-  // New Chat / Refresh Button (Reloads iframe to start fresh conversation safely)
+  // New Chat / Refresh Button
   refreshBtn.addEventListener('click', function() {
     iframe.src = iframe.src;
+    promptsDropdown.classList.remove('active');
+  });
+
+  // Toggle Quick Prompts Dropdown (+)
+  promptsBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    promptsDropdown.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!promptsDropdown.contains(e.target) && e.target !== promptsBtn) {
+      promptsDropdown.classList.remove('active');
+    }
+  });
+
+  // Handle Quick Prompt Click
+  const promptItems = document.querySelectorAll('.prompt-item');
+  promptItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const textToQuery = this.getAttribute('data-text');
+      promptsDropdown.classList.remove('active');
+      
+      try {
+        iframe.contentWindow.postMessage({
+          type: 'chatbase-send-message',
+          message: textToQuery
+        }, '*');
+      } catch (err) {
+        console.log("Quick prompt selected:", textToQuery);
+      }
+    });
   });
 });
-                 </script>
+    </script>
+  
   
   
   
