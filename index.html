@@ -2041,6 +2041,25 @@ div[class*="chat-header"]:first-child {
   animation: blink 1.5s infinite !important;
   margin-left: 8px !important;
 }
+/* Chatbase ke default upar wale header ko hamesha ke liye gayab karne ke liye */
+.chatbase-window-header, 
+div[class*="chat-header"]:first-child {
+  display: none !important;
+}
+
+/* Live dot ki styling */
+.live-dot {
+  color: #00ff00 !important;
+  font-size: 10px !important;
+  animation: blink 1.5s infinite !important;
+  margin-left: 8px !important;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
   
   
 </style>
