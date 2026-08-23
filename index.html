@@ -2312,32 +2312,53 @@ document.addEventListener('DOMContentLoaded', function() {
     iframe.src = iframe.src;
     promptsDropdown.classList.remove('active');
   });
-
-  // Toggle Quick Prompts Dropdown (+)
-<!-- VIP Golden Pass Modal HTML -->
-<div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center;">
-  <div style="background:#141414; border:2px solid #D4AF37; padding:25px; border-radius:15px; width:90%; max-width:400px; text-align:center; color:#fff; box-shadow:0 0 20px rgba(212,175,55,0.3);">
+<!-- VIP Golden Pass Modal & Card Display HTML -->
+<div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box;">
+  
+  <!-- Step 1: Input Form Box -->
+  <div id="vipFormBox" style="background:#141414; border:2px solid #D4AF37; padding:25px; border-radius:15px; width:100%; max-width:400px; text-align:center; color:#fff; box-shadow:0 0 25px rgba(212,175,55,0.4);">
     <h3 style="color:#D4AF37; margin-bottom:10px; font-family:serif;">Shashi Studios VIP Pass</h3>
-    <p style="font-size:12px; color:#aaa; margin-bottom:20px;">Generate your exclusive digital pass for priority booking.</p>
+    <p style="font-size:12px; color:#aaa; margin-bottom:20px;">Get your exclusive digital pass instantly.</p>
     
-    <input type="text" id="vipName" placeholder="Enter Your Name" style="width:100%; padding:10px; margin-bottom:12px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
+    <input type="text" id="vipName" placeholder="Enter Your Name" style="width:100%; padding:12px; margin-bottom:12px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
     
-    <select id="vipEventType" style="width:100%; padding:10px; margin-bottom:15px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
+    <select id="vipEventType" style="width:100%; padding:12px; margin-bottom:20px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
       <option value="Royal Wedding">Royal Wedding</option>
       <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
       <option value="Cinematic Portrait">Cinematic Portrait</option>
     </select>
     
-    <button type="button" onclick="generateVIPPass()" style="width:100%; padding:12px; background:linear-gradient(135deg, #D4AF37, #AA7C11); border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:14px; margin-bottom:10px;">Generate My Pass</button>
-    <button type="button" onclick="closeVIPModal()" style="background:transparent; border:none; color:#777; cursor:pointer; font-size:12px;">Close</button>
+    <button type="button" onclick="generateAndSendVIPPass()" style="width:100%; padding:12px; background:linear-gradient(135deg, #D4AF37, #AA7C11); border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:14px; margin-bottom:10px;">Generate Digital Pass</button>
+    <button type="button" onclick="closeVIPModal()" style="background:transparent; border:none; color:#777; cursor:pointer; font-size:12px;">Cancel</button>
   </div>
+
+  <!-- Step 2: Generated Digital Pass Card (Initially Hidden) -->
+  <div id="vipCardDisplayBox" style="display:none; background:linear-gradient(135deg, #1a1a1a, #0a0a0a); border:3px solid #D4AF37; padding:25px; border-radius:20px; width:100%; max-width:420px; text-align:center; color:#fff; box-shadow:0 0 30px rgba(212,175,55,0.5); position:relative;">
+    <div style="font-size:10px; letter-spacing:3px; color:#D4AF37; text-transform:uppercase; margin-bottom:5px;">Shashi Studios Exclusive</div>
+    <h2 style="font-family:serif; color:#fff; margin:5px 0 15px 0; font-size:22px;">VIP ACCESS PASS</h2>
+    
+    <div style="background:#222; border:1px dashed #D4AF37; padding:15px; border-radius:10px; margin-bottom:15px; text-align:left;">
+      <p style="margin:5px 0; font-size:13px; color:#bbb;">Holder Name: <strong id="cardHolderName" style="color:#D4AF37; font-size:16px;">-</strong></p>
+      <p style="margin:5px 0; font-size:13px; color:#bbb;">Event Type: <strong id="cardEventType" style="color:#fff;">-</strong></p>
+      <p style="margin:5px 0; font-size:12px; color:#888;">Pass ID: #SHASHI-<span id="cardPassId">0000</span></p>
+    </div>
+
+    <p style="font-size:11px; color:#888; margin-bottom:20px;">Present this digital pass at Shashi Studios or mention Pass ID for priority booking.</p>
+    
+    <button type="button" onclick="alert('Pass saved successfully! Take a screenshot for your records.'); closeVIPModal();" style="width:100%; padding:10px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:13px; margin-bottom:10px;">Done / Close</button>
+    <button type="button" onclick="resetVIPForm()" style="background:transparent; border:none; color:#aaa; cursor:pointer; font-size:11px; text-decoration:underline;">Create Another Pass</button>
+  </div>
+
 </div>
 
 <script>
-// Safe Modal Handlers
 function openVIPModal() {
   const modal = document.getElementById('vipPassModal');
-  if(modal) modal.style.display = 'flex';
+  if(modal) {
+    modal.style.display = 'flex';
+    document.getElementById('vipFormBox').style.display = 'block';
+    document.getElementById('vipCardDisplayBox').style.display = 'none';
+  }
 }
 
 function closeVIPModal() {
@@ -2345,7 +2366,13 @@ function closeVIPModal() {
   if(modal) modal.style.display = 'none';
 }
 
-function generateVIPPass() {
+function resetVIPForm() {
+  document.getElementById('vipFormBox').style.display = 'block';
+  document.getElementById('vipCardDisplayBox').style.display = 'none';
+  document.getElementById('vipName').value = '';
+}
+
+function generateAndSendVIPPass() {
   const nameInput = document.getElementById('vipName');
   const eventSelect = document.getElementById('vipEventType');
   
@@ -2356,27 +2383,41 @@ function generateVIPPass() {
   
   const name = nameInput.value.trim();
   const eventType = eventSelect ? eventSelect.value : 'Royal Wedding';
+  const randomId = Math.floor(1000 + Math.random() * 9000);
   
-  const message = `Hello Shashi Studios! My name is ${name}. I have generated a VIP Pass for ${eventType}. I want to discuss booking details.`;
-  const whatsappUrl = `https://wa.me/919199999999?text=${encodeURIComponent(message)}`; // Replace with your number
+  // Card par details set karna
+  document.getElementById('cardHolderName').textContent = name;
+  document.getElementById('cardEventType').textContent = eventType;
+  document.getElementById('cardPassId').textContent = randomId;
   
-  window.open(whatsappUrl, '_blank');
-  closeVIPModal();
+  // Form chhipana aur Digital Card dikhana
+  document.getElementById('vipFormBox').style.display = 'none';
+  document.getElementById('vipCardDisplayBox').style.display = 'block';
+  
+  // --- TELEGRAM BOT BACKGROUND NOTIFICATION ---
+  // Yahan apna Telegram Bot Token aur Chat ID daalna hai
+  const botToken = "YOUR_BOT_TOKEN_HERE"; 
+  const chatId = "YOUR_CHAT_ID_HERE";
+  
+  if(botToken !== "YOUR_BOT_TOKEN_HERE" && chatId !== "YOUR_CHAT_ID_HERE") {
+    const text = `🎉 *New VIP Pass Generated!*\n\n👤 Name: ${name}\n🎬 Event: ${eventType}\n🆔 Pass ID: #SHASHI-${randomId}`;
+    const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+    
+    // Background request bhejna bina user ko roke
+    fetch(telegramApiUrl).catch(err => console.log("Telegram notification error:", err));
+  }
 }
 
-// Attach safe listener to the plus trigger safely if it exists
-document.addEventListener('DOMContentLoaded', () => {
-  const promptsBtn = document.querySelector('#promptsBtn, .prompts-toggle-btn, [data-action="toggle-prompts"]');
-  if(promptsBtn) {
-    promptsBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      openVIPModal();
-    });
+// Universal listener jo plus (+) icon ko pakad kar modal kholega
+document.addEventListener('click', function(e) {
+  const target = e.target.closest('#promptsBtn, .prompts-toggle-btn, [data-action="toggle-prompts"], .chat-toggle-plus, .fa-plus');
+  if (target) {
+    e.preventDefault();
+    e.stopPropagation();
+    openVIPModal();
   }
-});
+}, true);
 </script>
-  
                           
     </script> 
   <style>
