@@ -2350,13 +2350,20 @@ document.addEventListener('DOMContentLoaded', function() {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 6px; 
+  gap: 5px; 
 }
 .premium-book-btn, .join-header-btn {
-  font-size: 10px !important;
-  padding: 6px 8px !important;
+  font-size: 8px !important;
+  padding: 5px 6px !important;
   white-space: nowrap;
 }
+
+/* Logo size chota karne aur left side fit karne ke liye */
+header .logo img, header .logo svg, .logo img {
+  max-height: 35px !important; /* Isse logo ka size chota ho jayega */
+  width: auto !important;
+}
   </style>
+  
 </body>
 </html>
