@@ -2374,8 +2374,211 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
     </script>
+  <!-- ==========================================
+   SHASHI AI - CLEAN DARK WIDGET
+   ========================================== -->
+
+<!-- Floating AI Trigger Button -->
+<div class="shashi-ai-badge" onclick="toggleShashiAI()">
+  <span class="ai-pulse-dot"></span>
+  <span class="ai-badge-text">Shashi AI</span>
+</div>
+
+<!-- AI Chat Overlay Window -->
+<div class="shashi-ai-modal" id="shashiAiModal">
+  <div class="ai-modal-header">
+    <div class="ai-header-info">
+      <h4>Shashi AI Concierge</h4>
+      <p>Online • Instant Booking & Assistant</p>
+    </div>
+    <button class="ai-close-btn" onclick="toggleShashiAI()">&times;</button>
+  </div>
+
+  <div class="ai-chat-body" id="aiChatBody">
+    <div class="ai-msg bot-msg">
+      Namaste! 🙏 Welcome to Shashi Photography. Tell me your event date or requirements, and I'll note it down for our team.
+    </div>
+  </div>
+
+  <div class="ai-chat-footer">
+    <input type="text" id="aiUserInput" placeholder="Type your query or date here..." onkeypress="handleAiKeyPress(event)">
+    <button onclick="sendAiMessage()">Send</button>
+  </div>
+</div>
+
+<style>
+/* Dark Theme Shashi AI Styles */
+.shashi-ai-badge {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #070709;
+  color: #C5A880;
+  border: 1px solid #C5A880;
+  padding: 10px 18px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ai-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+}
+
+.shashi-ai-modal {
+  position: fixed;
+  bottom: 85px;
+  right: 25px;
+  width: 340px;
+  height: 420px;
+  background-color: #0e0e12;
+  border: 1px solid #C5A880;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  display: none;
+  flex-direction: column;
+  z-index: 10000;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.ai-modal-header {
+  background-color: #070709;
+  color: #FFF;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.ai-header-info h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #C5A880;
+}
+
+.ai-header-info p {
+  margin: 2px 0 0 0;
+  font-size: 10px;
+  color: #888;
+}
+
+.ai-close-btn {
+  background: none;
+  border: none;
+  color: #FFF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.ai-chat-body {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ai-msg {
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 85%;
+  line-height: 1.4;
+}
+
+.bot-msg {
+  background-color: #1a1a20;
+  color: #ddd;
+  align-self: flex-start;
+}
+
+.user-msg {
+  background-color: #C5A880;
+  color: #070709;
+  align-self: flex-end;
+  font-weight: 500;
+}
+
+.ai-chat-footer {
+  padding: 10px;
+  background-color: #070709;
+  border-top: 1px solid #222;
+  display: flex;
+  gap: 6px;
+}
+
+.ai-chat-footer input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  outline: none;
+  font-size: 12px;
+  background-color: #121216;
+  color: #fff;
+}
+
+.ai-chat-footer button {
+  background-color: #C5A880;
+  color: #070709;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+function toggleShashiAI() {
+  const modal = document.getElementById('shashiAiModal');
+  if (modal) {
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+  }
+}
+
+function handleAiKeyPress(e) {
+  if (e.key === 'Enter') sendAiMessage();
+}
+
+function sendAiMessage() {
+  const input = document.getElementById('aiUserInput');
+  const chatBody = document.getElementById('aiChatBody');
+  if (!input || !chatBody) return;
   
-  
+  const text = input.value.trim();
+  if (!text) return;
+
+  const userDiv = document.createElement('div');
+  userDiv.className = 'ai-msg user-msg';
+  userDiv.innerText = text;
+  chatBody.appendChild(userDiv);
+  input.value = '';
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  setTimeout(() => {
+    const botDiv = document.createElement('div');
+    botDiv.className = 'ai-msg bot-msg';
+    botDiv.innerText = "Got it! I have saved your details. Our manager will check the availability and reach out to you shortly.";
+    chatBody.appendChild(botDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 1000);
+}
+  </script>
   
   
 </body>
