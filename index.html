@@ -2333,14 +2333,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const textToQuery = this.getAttribute('data-text');
       promptsDropdown.classList.remove('active');
       
-      try {
-        iframe.contentWindow.postMessage({
+          try {
+      // Chatbot ke iframe ko dhoond kar message bhejenge
+      const chatIframe = document.querySelector('iframe[src*="chatbase"], iframe'); 
+      if (chatIframe && chatIframe.contentWindow) {
+        chatIframe.contentWindow.postMessage({
           type: 'chatbase-send-message',
           message: textToQuery
         }, '*');
-      } catch (err) {
-        console.log("Quick prompt selected:", textToQuery);
       }
+    } catch (err) {
+      console.log("Quick prompt selected error:", err);
+    }
+
     });
   });
 });
