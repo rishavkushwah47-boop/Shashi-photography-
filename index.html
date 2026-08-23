@@ -2336,21 +2336,6 @@ header .logo img, header .logo svg, .logo img {
   width: auto !important;
 }
 </style>
-  <style>
- <script>
-  // Page load hone ke baad yeh script us protected text ko hide kar degi
-  document.addEventListener("DOMContentLoaded", function() {
-    const observer = new MutationObserver(function(mutations) {
-      document.querySelectorAll('div, span, p').forEach(function(el) {
-        if (el.textContent && el.textContent.includes("Images & Content Protected")) {
-          // Is element ko screen se hata denge par code background me wahi rahega
-          el.style.display = 'none';
-        }
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  });
-</script>
   
 </body>
 </html>
