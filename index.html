@@ -2335,24 +2335,13 @@ header .logo img, header .logo svg, .logo img {
   max-height: 30px !important;
   width: auto !important;
 }
-</style>
-  <!-- Style to hide old broken chat widget safely -->
-<style>
-  #chatbase-bubble-window, 
-  .chatbase-bubble-window, 
-  #shashi-ai-modal,
-  #shashi-ai-trigger {
-    display: none !important;
-  }
-</style>
-
-<!-- Google Gemini Free Custom Chat Widget Code -->
+<!-- Free Public Chat Widget (No API Key Required) -->
 <div id="geminiChatWidget" style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; font-family: sans-serif;">
   
   <!-- Floating Toggle Button -->
   <button onclick="toggleGeminiChat()" style="background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 15px rgba(212,175,55,0.4); font-size: 24px; display: flex; align-items: center; justify-content: center; font-weight: bold;">💬</button>
 
-  <!-- Chat Box Window (Initially Hidden) -->
+  <!-- Chat Box Window -->
   <div id="geminiChatBox" style="display: none; position: absolute; bottom: 75px; right: 0; width: 320px; height: 420px; background: #141414; border: 2px solid #D4AF37; border-radius: 15px; flex-direction: column; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.8);">
     
     <!-- Chat Header -->
@@ -2378,15 +2367,9 @@ header .logo img, header .logo svg, .logo img {
 </div>
 
 <script>
-const GEMINI_API_KEY = "AQ.Ab8RN6Lao3PcXNuqrtP7FsoKmGD6B9wawCtHa08eXR-o2nWUeg"; 
-
 function toggleGeminiChat() {
   const box = document.getElementById('geminiChatBox');
-  if(box.style.display === 'flex') {
-    box.style.display = 'none';
-  } else {
-    box.style.display = 'flex';
-  }
+  box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
 }
 
 async function sendToGemini() {
@@ -2405,20 +2388,21 @@ async function sendToGemini() {
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: "You are a helpful assistant for Shashi Photography studio in Agra. Answer concisely: " + userText }] }]
-      })
+    // Free public Hugging Face / Open API proxy endpoint
+    const response = await fetch("https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ inputs: "You are a photography booking assistant for Shashi Photography in Agra. User: " + userText + "\nAssistant:" })
     });
     
     const data = await response.json();
     document.getElementById(loadingId).remove();
     
-    let aiReply = "Sorry, I couldn't process that right now.";
-    if(data.candidates && data.candidates[0].content.parts[0].text) {
-      aiReply = data.candidates[0].content.parts[0].text;
+    let aiReply = "Thanks for your message! Please contact us directly for bookings.";
+    if(Array.isArray(data) && data[0]?.generated_text) {
+      aiReply = data[0].generated_text.split("Assistant:").pop().trim();
+    } else if(data?.generated_text) {
+      aiReply = data.generated_text.split("Assistant:").pop().trim();
     }
     
     messagesDiv.innerHTML += `<div style="background: #222; color: #fff; padding: 10px; border-radius: 8px; max-width: 80%; align-self: flex-start; border-left: 3px solid #D4AF37;">${aiReply}</div>`;
@@ -2426,7 +2410,8 @@ async function sendToGemini() {
     
   } catch (error) {
     document.getElementById(loadingId).remove();
-    messagesDiv.innerHTML += `<div style="background: #222; color: #ff6b6b; padding: 10px; border-radius: 8px; max-width: 80%; align-self: flex-start;">Connection error. Please try again.</div>`;
+    // Fallback response so user never gets stuck
+    messagesDiv.innerHTML += `<div style="background: #222; color: #fff; padding: 10px; border-radius: 8px; max-width: 80%; align-self: flex-start; border-left: 3px solid #D4AF37;">Hello! To book a shoot with Shashi Photography in Agra, please drop a message or call us directly!</div>`;
   }
 }
 </script>
