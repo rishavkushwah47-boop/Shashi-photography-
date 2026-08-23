@@ -1080,36 +1080,85 @@
       </div>
     </div>
   </header>
-
-  <!-- A. Book Event Modal -->
+  
+<!-- A. Book Event Modal (Complete Options + Telegram Google Script) -->
 <div id="booking-modal" class="career-modal">
   <div class="career-content">
     <span class="close-booking" onclick="closeBookingModal()">&times;</span>
     <h2 style="color: #E2BA5E; margin-bottom: 2px; font-size: 20px; text-align: center;">BOOK YOUR EVENT</h2>
-    <p style="font-size: 10px; color: #888; margin-bottom: 18px; text-transform: uppercase; text-align: center;">Reserve Your Date with Shashi Studios</p>
+    <p style="font-size: 10px; color: #888; margin-bottom: 18px; text-transform: uppercase; text-align: center;">Lock in your shoot date. Fill in all details below and our team will receive your request immediately on Telegram.</p>
     
-    <form action="https://formspree.io/f/xoeabnba" method="POST">
+    <form action="https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec" method="POST">
+      
       <div class="field-group">
-        <label>Your Name *</label>
-        <input type="text" name="client_name" placeholder="Enter your name" required>
+        <label>FULL NAME *</label>
+        <input type="text" name="client_name" placeholder="Your full name" required>
       </div>
+
       <div class="field-group">
-        <label>Phone / WhatsApp Number *</label>
-        <input type="tel" name="client_phone" placeholder="Enter active number" required>
+        <label>MOBILE NUMBER *</label>
+        <input type="tel" name="client_phone" placeholder="e.g. 9012323224" required>
       </div>
+
       <div class="field-group">
-        <label>Event Date *</label>
-        <input type="date" name="event_date" required style="width:150px; padding:10px; background:#000; border:1px solid #333; color:#fff; border-radius:6px;">
+        <label>EMAIL ADDRESS</label>
+        <input type="email" name="client_email" placeholder="example@gmail.com">
       </div>
+
       <div class="field-group">
-        <label>Event Type *</label>
-        <input type="text" name="event_type" placeholder="e.g., Wedding, Reception, Birthday" required>
+        <label>EVENT TYPE *</label>
+        <select name="event_type" required style="width:100%; padding:10px; background:#121216; border:1px solid #333; color:#fff; border-radius:6px;">
+          <option value="Wedding">Wedding</option>
+          <option value="Reception">Reception</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Portrait">Portrait</option>
+          <option value="Commercial">Commercial</option>
+        </select>
       </div>
-      <button type="submit" class="submit-btn">CONFIRM BOOKING</button>
+
+      <div class="field-group">
+        <label>EVENT DATE (CALENDAR) *</label>
+        <input type="date" name="event_date" required style="width:100%; padding:10px; background:#121216; border:1px solid #333; color:#fff; border-radius:6px;">
+      </div>
+
+      <div class="field-group">
+        <label>APPROX. GUESTS</label>
+        <input type="text" name="approx_guests" placeholder="e.g. 300">
+      </div>
+
+      <div class="field-group">
+        <label>EVENT LOCATION *</label>
+        <input type="text" name="event_location" placeholder="e.g. Agra, UP / Destination" required>
+      </div>
+
+      <div class="field-group">
+        <label>SERVICE REQUIRED</label>
+        <select name="service_required" style="width:100%; padding:10px; background:#121216; border:1px solid #333; color:#fff; border-radius:6px;">
+          <option value="Photography">Photography</option>
+          <option value="Cinematography">Cinematography</option>
+          <option value="Both">Both (Photo + Cinema)</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>PREFERRED CONTACT METHOD</label>
+        <select name="contact_method" style="width:100%; padding:10px; background:#121216; border:1px solid #333; color:#fff; border-radius:6px;">
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Email">Email</option>
+          <option value="Phone Call">Phone Call</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>REQUIREMENTS / DETAILS</label>
+        <textarea name="client_requirements" placeholder="Share specific timings, venues, or artistic expectations..." rows="3" style="width:100%; padding:10px; background:#121216; border:1px solid #333; color:#fff; border-radius:6px;"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" style="width:100%; margin-top:15px; padding:12px; background:#C5A880; color:#000; font-weight:bold; border:none; border-radius:6px; cursor:pointer;">SUBMIT BOOKING REQUEST</button>
     </form>
   </div>
 </div>
-
+  
 <!-- B. Join Our Team Modal -->
 <div id="career-modal" class="career-modal">
   <div class="career-content">
