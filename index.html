@@ -2335,6 +2335,16 @@ header .logo img, header .logo svg, .logo img {
   max-height: 30px !important;
   width: auto !important;
 }
+    <style>
+  /* Yeh code purane Chatbase ya kisi bhi purane widget ko screen se gayab kar dega */
+  #chatbase-bubble-window, 
+  .chatbase-bubble-window, 
+  #shashi-ai-modal,
+  iframe[src*="chatbase"] {
+    display: none !important;
+  }
+</style>
+  
 <!-- Free Public Chat Widget (No API Key Required) -->
 <div id="geminiChatWidget" style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; font-family: sans-serif;">
   
