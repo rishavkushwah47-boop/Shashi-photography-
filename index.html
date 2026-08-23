@@ -2336,6 +2336,14 @@ header .logo img, header .logo svg, .logo img {
   width: auto !important;
 }
 </style>
+  <style>
+ /* Protection background mein chalta rahega par badge screen par nahi dikhega */
+  div[style*="Images & Content Protected"], 
+  .content-protected-tooltip,
+  div:has(> *:contains("Images & Content Protected")) {
+    display: none !important;
+  }
+  </style>
   
 </body>
 </html>
