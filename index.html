@@ -2369,41 +2369,60 @@ header .logo img, header .logo svg, .logo img {
   width: auto !important;
 }
 </style>
-  <!-- VIP Golden Pass Modal & Card Display HTML -->
-<div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box;">
+  <!-- Luxury VIP Pass Modal & Aesthetic Card HTML -->
+<div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box; backdrop-filter:blur(5px);">
   
   <!-- Step 1: Input Form Box -->
-  <div id="vipFormBox" style="background:#141414; border:2px solid #D4AF37; padding:25px; border-radius:15px; width:100%; max-width:400px; text-align:center; color:#fff; box-shadow:0 0 25px rgba(212,175,55,0.4);">
-    <h3 style="color:#D4AF37; margin-bottom:10px; font-family:serif;">Shashi Studios VIP Pass</h3>
-    <p style="font-size:12px; color:#aaa; margin-bottom:20px;">Get your exclusive digital pass instantly.</p>
+  <div id="vipFormBox" style="background:#111; border:2px solid #D4AF37; padding:30px; border-radius:20px; width:100%; max-width:420px; text-align:center; color:#fff; box-shadow:0 0 30px rgba(212,175,55,0.3);">
+    <h3 style="color:#D4AF37; margin-bottom:5px; font-family:serif; font-size:22px; letter-spacing:1px;">Shashi Studios</h3>
+    <p style="font-size:12px; color:#aaa; margin-bottom:20px; text-transform:uppercase; letter-spacing:2px;">Exclusive Digital Pass Generator</p>
     
-    <input type="text" id="vipName" placeholder="Enter Your Name" style="width:100%; padding:12px; margin-bottom:12px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
+    <input type="text" id="vipName" placeholder="Enter Your Full Name" style="width:100%; padding:12px; margin-bottom:12px; background:#1a1a1a; border:1px solid #444; color:#fff; border-radius:8px; font-size:14px; box-sizing:border-box; outline:none;">
     
-    <select id="vipEventType" style="width:100%; padding:12px; margin-bottom:20px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
-      <option value="Royal Wedding">Royal Wedding</option>
-      <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
-      <option value="Cinematic Portrait">Cinematic Portrait</option>
+    <select id="vipEventType" style="width:100%; padding:12px; margin-bottom:15px; background:#1a1a1a; border:1px solid #444; color:#fff; border-radius:8px; font-size:14px; box-sizing:border-box; outline:none;">
+      <option value="Royal Wedding Celebration">Royal Wedding Celebration</option>
+      <option value="Pre-Wedding Cinematic Shoot">Pre-Wedding Cinematic Shoot</option>
+      <option value="Luxury Portrait Session">Luxury Portrait Session</option>
+      <option value="Exclusive VIP Photoshoot">Exclusive VIP Photoshoot</option>
+    </select>
+
+    <select id="vipDateOption" style="width:100%; padding:12px; margin-bottom:20px; background:#1a1a1a; border:1px solid #444; color:#fff; border-radius:8px; font-size:14px; box-sizing:border-box; outline:none;">
+      <option value="Priority Booking (Instant)">Priority Booking (Instant)</option>
+      <option value="Weekend Special Slot">Weekend Special Slot</option>
+      <option value="Evening Golden Hour Slot">Evening Golden Hour Slot</option>
     </select>
     
-    <button type="button" onclick="generateAndSendVIPPass()" style="width:100%; padding:12px; background:linear-gradient(135deg, #D4AF37, #AA7C11); border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:14px; margin-bottom:10px;">Generate Digital Pass</button>
-    <button type="button" onclick="closeVIPModal()" style="background:transparent; border:none; color:#777; cursor:pointer; font-size:12px;">Cancel</button>
+    <button type="button" onclick="generateAndSendVIPPass()" style="width:100%; padding:14px; background:linear-gradient(135deg, #D4AF37, #AA7C11); border:none; color:#000; font-weight:bold; border-radius:8px; cursor:pointer; font-size:15px; margin-bottom:10px; letter-spacing:1px; text-transform:uppercase;">Generate VIP Pass</button>
+    <button type="button" onclick="closeVIPModal()" style="background:transparent; border:none; color:#888; cursor:pointer; font-size:12px;">Cancel</button>
   </div>
 
-  <!-- Step 2: Generated Digital Pass Card (Initially Hidden) -->
-  <div id="vipCardDisplayBox" style="display:none; background:linear-gradient(135deg, #1a1a1a, #0a0a0a); border:3px solid #D4AF37; padding:25px; border-radius:20px; width:100%; max-width:420px; text-align:center; color:#fff; box-shadow:0 0 30px rgba(212,175,55,0.5); position:relative;">
-    <div style="font-size:10px; letter-spacing:3px; color:#D4AF37; text-transform:uppercase; margin-bottom:5px;">Shashi Studios Exclusive</div>
-    <h2 style="font-family:serif; color:#fff; margin:5px 0 15px 0; font-size:22px;">VIP ACCESS PASS</h2>
+  <!-- Step 2: Aesthetic Luxury Card (Reference Card Style) -->
+  <div id="vipCardDisplayBox" style="display:none; background:#f4f6f0; border:4px solid #D4AF37; padding:30px; border-radius:20px; width:100%; max-width:440px; text-align:center; color:#2c3e50; box-shadow:0 0 40px rgba(212,175,55,0.5); position:relative; box-sizing:border-box; font-family:serif;">
     
-    <div style="background:#222; border:1px dashed #D4AF37; padding:15px; border-radius:10px; margin-bottom:15px; text-align:left;">
-      <p style="margin:5px 0; font-size:13px; color:#bbb;">Holder Name: <strong id="cardHolderName" style="color:#D4AF37; font-size:16px;">-</strong></p>
-      <p style="margin:5px 0; font-size:13px; color:#bbb;">Event Type: <strong id="cardEventType" style="color:#fff;">-</strong></p>
-      <p style="margin:5px 0; font-size:12px; color:#888;">Pass ID: #SHASHI-<span id="cardPassId">0000</span></p>
+    <!-- Aesthetic Floral/Gold Corner Accents -->
+    <div style="font-size:10px; letter-spacing:4px; color:#8c7853; text-transform:uppercase; margin-bottom:5px; font-weight:bold;">Together With Their Families</div>
+    <div style="font-size:11px; color:#555; margin-bottom:15px; font-style:italic;">Shashi Studios Presents</div>
+    
+    <h2 id="cardHolderName" style="color:#3e2723; margin:10px 0; font-size:28px; font-weight:normal; border-bottom:1px solid #d4af37; border-top:1px solid #d4af37; padding:10px 0; font-family:cursive;">Guest Name</h2>
+    
+    <p style="font-size:13px; color:#666; margin:15px 0 5px 0; text-transform:uppercase; letter-spacing:1px;">You Are Invited To Join The</p>
+    <h4 id="cardEventType" style="color:#5c4033; font-size:16px; margin:0 0 20px 0; font-weight:bold;">Royal Wedding Celebration</h4>
+    
+    <div style="display:flex; justify-content:space-around; align-items:center; border-top:1px dashed #b89753; border-bottom:1px dashed #b89753; padding:12px 0; margin-bottom:15px;">
+      <div>
+        <span style="font-size:10px; display:block; color:#777; letter-spacing:1px;">STATUS</span>
+        <strong style="font-size:13px; color:#2c3e50;">CONFIRMED</strong>
+      </div>
+      <div style="border-left:1px solid #ccc; padding-left:20px;">
+        <span style="font-size:10px; display:block; color:#777; letter-spacing:1px;">PASS ID</span>
+        <strong style="font-size:14px; color:#8c7853;" id="cardPassId">#SH-0000</strong>
+      </div>
     </div>
 
-    <p style="font-size:11px; color:#888; margin-bottom:20px;">Take a screenshot of this pass to save it on your device.</p>
+    <p style="font-size:11px; color:#777; margin-bottom:20px; font-style:italic;">Agra, Uttar Pradesh • Luxury Visual Studio</p>
     
-    <button type="button" onclick="alert('Pass saved! You can take a screenshot.'); closeVIPModal();" style="width:100%; padding:10px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:13px; margin-bottom:10px;">Done / Close</button>
-    <button type="button" onclick="resetVIPForm()" style="background:transparent; border:none; color:#aaa; cursor:pointer; font-size:11px; text-decoration:underline;">Create Another Pass</button>
+    <button type="button" onclick="alert('Pass saved successfully! Take a screenshot to keep it on your device.'); closeVIPModal();" style="width:100%; padding:12px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:6px; cursor:pointer; font-size:14px; margin-bottom:10px; font-family:sans-serif;">Done / Close</button>
+    <button type="button" onclick="resetVIPForm()" style="background:transparent; border:none; color:#555; cursor:pointer; font-size:12px; text-decoration:underline; font-family:sans-serif;">Create Another Pass</button>
   </div>
 
 </div>
@@ -2434,27 +2453,32 @@ function resetVIPForm() {
 function generateAndSendVIPPass() {
   const nameInput = document.getElementById('vipName');
   const eventSelect = document.getElementById('vipEventType');
+  const dateSelect = document.getElementById('vipDateOption');
   
   if(!nameInput || !nameInput.value.trim()) {
-    alert('Please enter your name!');
+    alert('Please enter your full name!');
     return;
   }
   
   const name = nameInput.value.trim();
-  const eventType = eventSelect ? eventSelect.value : 'Royal Wedding';
+  const eventType = eventSelect ? eventSelect.value : 'Royal Wedding Celebration';
+  const slotOption = dateSelect ? dateSelect.value : 'Priority Booking';
   const randomId = Math.floor(1000 + Math.random() * 9000);
   
+  // Card par details set karna (jaise reference card me aesthetic look hai)
   document.getElementById('cardHolderName').textContent = name;
   document.getElementById('cardEventType').textContent = eventType;
-  document.getElementById('cardPassId').textContent = randomId;
+  document.getElementById('cardPassId').textContent = '#SH-' + randomId;
   
+  // Form chhipana aur Royal Card dikhana
   document.getElementById('vipFormBox').style.display = 'none';
   document.getElementById('vipCardDisplayBox').style.display = 'block';
   
+  // Background me Google Script ke zariye Telegram par details bhejna
   if(SCRIPT_URL) {
     const formData = new URLSearchParams();
     formData.append('name', name);
-    formData.append('eventType', eventType);
+    formData.append('eventType', eventType + ' (' + slotOption + ')');
     formData.append('passId', randomId);
     
     fetch(SCRIPT_URL, {
