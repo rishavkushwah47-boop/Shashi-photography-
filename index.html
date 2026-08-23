@@ -2358,12 +2358,16 @@ document.addEventListener('DOMContentLoaded', function() {
   white-space: nowrap;
 }
 
-/* Logo size chota karne aur left side fit karne ke liye */
+/* Logo ko left mein shift karne aur chota karne ke liye */
+header .logo, .logo {
+  margin-left: -5px !important; /* Isse logo aur left border ke beech ki extra jagah khatam ho jayegi aur wo aur left khisak jayega */
+}
+
 header .logo img, header .logo svg, .logo img {
-  max-height: 30px !important; /* Isse logo ka size chota ho jayega */
+  max-height: 35px !important;
   width: auto !important;
 }
-  </style>
+</style>
   
 </body>
 </html>
