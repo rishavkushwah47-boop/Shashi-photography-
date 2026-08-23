@@ -1853,7 +1853,7 @@ window.addEventListener("click", function(e) {
         try {
           await sendDataToTelegramWebhook(payload);
           enquiryAlert.className = 'feedback-box success';
-          enquiryAlert.innerHTML = '✔ <b>Enquiry Sent Successfully!</b><br>Thank you! Your message send successfully.';
+          enquiryAlert.innerHTML = '✔ <b>Enquiry Sent Successfully!</b><br>Thank you!.';
           enquiryForm.reset();
         } catch (err) {
           enquiryAlert.className = 'feedback-box error';
@@ -2334,28 +2334,6 @@ header .logo img, header .logo svg, .logo img {
   max-height: 30px !important;
   width: auto !important;
 }
-<style>
-    /* Screen ko horizontal scroll hone se bachane ke liye */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-    }
-    <style>
-    /* Image Protector badge ko transparent aur chhota karne ke liye */
-div:has(> *:contains("Protected")), 
-div[style*="position: fixed"]:has(:contains("Protected")),
-.image-protector {
-  opacity: 0.2 !important;          /* Ekdam dhundhla/transparent kar dega */
-  transform: scale(0.65) !important; /* Size chhota kar dega */
-  transform-origin: bottom left;    /* Corner mein chhota hone ki jagah set rakhega */
-  transition: opacity 0.3s ease;
-}
 
-/* Jab is par touch ya mouse jaye tab thoda sa dikhe */
-div:has(> *:contains("Protected")):hover {
-  opacity: 0.8 !important;
-    }
-    
-  
 </body>
 </html>
