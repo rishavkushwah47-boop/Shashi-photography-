@@ -1074,7 +1074,7 @@
       </ul>
 
             <div class="nav-right">
-        <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Your Event</button>
+        <button class="premium-book-btn" type="button" onclick="openBookingPage()">Book Event</button>
         <button id="join-team-btn" class="join-header-btn">Join Our Team</button>
         <button class="mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Toggle Menu">&#9776;</button>
       </div>
@@ -1277,6 +1277,8 @@ window.addEventListener("click", function(e) {
           Capturing royal weddings, raw human emotions, timeless portraits, and cinematic visual stories crafted with luxury perfection.
         </p>
         <div class="hero-actions">
+          <!-- VIP Pass Navigation Button -->
+          <a href="javascript:void(0);" onclick="openVIPModal()" style="background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block; margin-left: 10px; box-shadow: 0 4px 10px rgba(212,175,55,0.3);">VIP PASS</a>
           <a href="#portfolio" class="btn btn-gold">Explore Portfolio</a>
           <button class="btn btn-outline" type="button" onclick="openBookingPage()">Book Your Event</button>
         </div>
@@ -2367,6 +2369,102 @@ header .logo img, header .logo svg, .logo img {
   width: auto !important;
 }
 </style>
+  <!-- VIP Golden Pass Modal & Card Display HTML -->
+<div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box;">
+  
+  <!-- Step 1: Input Form Box -->
+  <div id="vipFormBox" style="background:#141414; border:2px solid #D4AF37; padding:25px; border-radius:15px; width:100%; max-width:400px; text-align:center; color:#fff; box-shadow:0 0 25px rgba(212,175,55,0.4);">
+    <h3 style="color:#D4AF37; margin-bottom:10px; font-family:serif;">Shashi Studios VIP Pass</h3>
+    <p style="font-size:12px; color:#aaa; margin-bottom:20px;">Get your exclusive digital pass instantly.</p>
+    
+    <input type="text" id="vipName" placeholder="Enter Your Name" style="width:100%; padding:12px; margin-bottom:12px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
+    
+    <select id="vipEventType" style="width:100%; padding:12px; margin-bottom:20px; background:#222; border:1px solid #444; color:#fff; border-radius:5px; font-size:14px; box-sizing:border-box;">
+      <option value="Royal Wedding">Royal Wedding</option>
+      <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
+      <option value="Cinematic Portrait">Cinematic Portrait</option>
+    </select>
+    
+    <button type="button" onclick="generateAndSendVIPPass()" style="width:100%; padding:12px; background:linear-gradient(135deg, #D4AF37, #AA7C11); border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:14px; margin-bottom:10px;">Generate Digital Pass</button>
+    <button type="button" onclick="closeVIPModal()" style="background:transparent; border:none; color:#777; cursor:pointer; font-size:12px;">Cancel</button>
+  </div>
+
+  <!-- Step 2: Generated Digital Pass Card (Initially Hidden) -->
+  <div id="vipCardDisplayBox" style="display:none; background:linear-gradient(135deg, #1a1a1a, #0a0a0a); border:3px solid #D4AF37; padding:25px; border-radius:20px; width:100%; max-width:420px; text-align:center; color:#fff; box-shadow:0 0 30px rgba(212,175,55,0.5); position:relative;">
+    <div style="font-size:10px; letter-spacing:3px; color:#D4AF37; text-transform:uppercase; margin-bottom:5px;">Shashi Studios Exclusive</div>
+    <h2 style="font-family:serif; color:#fff; margin:5px 0 15px 0; font-size:22px;">VIP ACCESS PASS</h2>
+    
+    <div style="background:#222; border:1px dashed #D4AF37; padding:15px; border-radius:10px; margin-bottom:15px; text-align:left;">
+      <p style="margin:5px 0; font-size:13px; color:#bbb;">Holder Name: <strong id="cardHolderName" style="color:#D4AF37; font-size:16px;">-</strong></p>
+      <p style="margin:5px 0; font-size:13px; color:#bbb;">Event Type: <strong id="cardEventType" style="color:#fff;">-</strong></p>
+      <p style="margin:5px 0; font-size:12px; color:#888;">Pass ID: #SHASHI-<span id="cardPassId">0000</span></p>
+    </div>
+
+    <p style="font-size:11px; color:#888; margin-bottom:20px;">Take a screenshot of this pass to save it on your device.</p>
+    
+    <button type="button" onclick="alert('Pass saved! You can take a screenshot.'); closeVIPModal();" style="width:100%; padding:10px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:13px; margin-bottom:10px;">Done / Close</button>
+    <button type="button" onclick="resetVIPForm()" style="background:transparent; border:none; color:#aaa; cursor:pointer; font-size:11px; text-decoration:underline;">Create Another Pass</button>
+  </div>
+
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";
+
+function openVIPModal() {
+  const modal = document.getElementById('vipPassModal');
+  if(modal) {
+    modal.style.display = 'flex';
+    document.getElementById('vipFormBox').style.display = 'block';
+    document.getElementById('vipCardDisplayBox').style.display = 'none';
+  }
+}
+
+function closeVIPModal() {
+  const modal = document.getElementById('vipPassModal');
+  if(modal) modal.style.display = 'none';
+}
+
+function resetVIPForm() {
+  document.getElementById('vipFormBox').style.display = 'block';
+  document.getElementById('vipCardDisplayBox').style.display = 'none';
+  document.getElementById('vipName').value = '';
+}
+
+function generateAndSendVIPPass() {
+  const nameInput = document.getElementById('vipName');
+  const eventSelect = document.getElementById('vipEventType');
+  
+  if(!nameInput || !nameInput.value.trim()) {
+    alert('Please enter your name!');
+    return;
+  }
+  
+  const name = nameInput.value.trim();
+  const eventType = eventSelect ? eventSelect.value : 'Royal Wedding';
+  const randomId = Math.floor(1000 + Math.random() * 9000);
+  
+  document.getElementById('cardHolderName').textContent = name;
+  document.getElementById('cardEventType').textContent = eventType;
+  document.getElementById('cardPassId').textContent = randomId;
+  
+  document.getElementById('vipFormBox').style.display = 'none';
+  document.getElementById('vipCardDisplayBox').style.display = 'block';
+  
+  if(SCRIPT_URL) {
+    const formData = new URLSearchParams();
+    formData.append('name', name);
+    formData.append('eventType', eventType);
+    formData.append('passId', randomId);
+    
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).catch(err => console.log("Telegram notification error:", err));
+  }
+}
+</script>
   
 </body>
 </html>
