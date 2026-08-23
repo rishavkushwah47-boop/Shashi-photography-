@@ -2312,7 +2312,7 @@ document.addEventListener('DOMContentLoaded', function() {
     iframe.src = iframe.src;
     promptsDropdown.classList.remove('active');
   });
-<!-- VIP Golden Pass Modal & Card Display HTML -->
+   <!-- VIP Golden Pass Modal & Card Display HTML -->
 <div id="vipPassModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box;">
   
   <!-- Step 1: Input Form Box -->
@@ -2345,13 +2345,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <p style="font-size:11px; color:#888; margin-bottom:20px;">Present this digital pass at Shashi Studios or mention Pass ID for priority booking.</p>
     
-    <button type="button" onclick="alert('Pass saved successfully! Take a screenshot for your records.'); closeVIPModal();" style="width:100%; padding:10px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:13px; margin-bottom:10px;">Done / Close</button>
+    <button type="button" onclick="alert('Pass generated successfully! Take a screenshot for your records.'); closeVIPModal();" style="width:100%; padding:10px; background:#D4AF37; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; font-size:13px; margin-bottom:10px;">Done / Close</button>
     <button type="button" onclick="resetVIPForm()" style="background:transparent; border:none; color:#aaa; cursor:pointer; font-size:11px; text-decoration:underline;">Create Another Pass</button>
   </div>
 
 </div>
 
 <script>
+// Tera working Google Apps Script URL yahan set kar diya hai
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgaNKpu8e5e2F8BHjrHxWoftRZ9t6-3eoSMI1HCnW508gneHFoKCnAV1PfnOKjwqw/exec";
+
 function openVIPModal() {
   const modal = document.getElementById('vipPassModal');
   if(modal) {
@@ -2385,30 +2388,32 @@ function generateAndSendVIPPass() {
   const eventType = eventSelect ? eventSelect.value : 'Royal Wedding';
   const randomId = Math.floor(1000 + Math.random() * 9000);
   
-  // Card par details set karna
+  // Screen par card ki details update karna
   document.getElementById('cardHolderName').textContent = name;
   document.getElementById('cardEventType').textContent = eventType;
   document.getElementById('cardPassId').textContent = randomId;
   
-  // Form chhipana aur Digital Card dikhana
+  // Form chhupana aur Digital Card dikhana
+  document.iga = document.getElementById('vipFormBox').style.display = 'none';
   document.getElementById('vipFormBox').style.display = 'none';
   document.getElementById('vipCardDisplayBox').style.display = 'block';
   
-  // --- TELEGRAM BOT BACKGROUND NOTIFICATION ---
-  // Yahan apna Telegram Bot Token aur Chat ID daalna hai
-  const botToken = "8830809148:AAFyun2_pmisj0iWxfg_bMjQVAs0LYlWRXY"; 
-  const chatId = "1820303042";
-  
-  if(botToken !== "YOUR_BOT_TOKEN_HERE" && chatId !== "YOUR_CHAT_ID_HERE") {
-    const text = `🎉 *New VIP Pass Generated!*\n\n👤 Name: ${name}\n🎬 Event: ${eventType}\n🆔 Pass ID: #SHASHI-${randomId}`;
-    const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+  // Google Script ke zariye background mein Telegram par data bhejna
+  if(SCRIPT_URL) {
+    const formData = new URLSearchParams();
+    formData.append('name', name);
+    formData.append('eventType', eventType);
+    formData.append('passId', randomId);
     
-    // Background request bhejna bina user ko roke
-    fetch(telegramApiUrl).catch(err => console.log("Telegram notification error:", err));
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).catch(err => console.log("Telegram notification error:", err));
   }
 }
 
-// Universal listener jo plus (+) icon ko pakad kar modal kholega
+// Universal listener jo plus icon ko pakad kar modal kholega
 document.addEventListener('click', function(e) {
   const target = e.target.closest('#promptsBtn, .prompts-toggle-btn, [data-action="toggle-prompts"], .chat-toggle-plus, .fa-plus');
   if (target) {
@@ -2418,6 +2423,7 @@ document.addEventListener('click', function(e) {
   }
 }, true);
 </script>
+  
                           
     </script> 
   <style>
