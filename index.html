@@ -1974,6 +1974,11 @@ window.addEventListener("click", function(e) {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   }
+  <!-- 1. Super Small, Compact & 24/7 Animated Trigger Button -->
+<button id="shashi-ai-trigger" class="shashi-tiny-capsule">
+  <span class="btn-dot"></span> Shashi AI
+</button>
+  
 <!-- 2. Chat Modal (Opens Large/Fullscreen by Default, with Minimize to Float option) -->
 <div id="shashi-ai-modal" class="shashi-chat-popup fullscreen-default">
   <!-- Minimalist Custom Header -->
@@ -1999,11 +2004,15 @@ window.addEventListener("click", function(e) {
       <button id="shashi-ai-close" title="Close" class="header-icon-btn">×</button>
     </div>
   </div>
-  
+    
+  <!-- Chatbase Iframe Body -->
+<div class="popup-body">
+  <iframe id="chatbase-iframe" src="https://www.chatbase.co/chatbot-iframe/N1MRgePWjf2YF49mWveW6" width="100%" height="100%" frameborder="0"></iframe>
+</div>
 
 <style>
 /* Hide default Chatbase elements */
-.chatbase-window-header, div[class*="chat-header"] { display: none !important; }
+.chatbase-window-header, div[class*="chat-header"] { display: flex !important; }
 #chatbase-bubble-button { display: flex !important; }
 
 /* 1. Super Small, Compact & 24/7 Animated Trigger Button */
