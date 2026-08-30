@@ -1975,7 +1975,7 @@ window.addEventListener("click", function(e) {
   </script>
   }
   <!-- AESTHETIC SHASHI AI BUTTON -->
-<button onclick="window.chatbase('show')" class="shashi-mini-ai-btn">
+<button id="custom-chat-btn" class="shashi-mini-ai-btn">
   <span class="ai-sparkle">✨</span> Shashi AI
 </button>
   <a href="https://www.chatbase.co/chatbot-iframe/N1MRgePWjf2YF49mWveW6" target="_blank" class="ai-floating-btn" title="Chat with Shashi Studio AI">
@@ -1996,7 +1996,7 @@ window.addEventListener("click", function(e) {
   align-items: center !important;
   gap: 6px !important;
   background: #000000 !important;
-  color: #E2BA5E !important; /* Tera signature luxury gold color */
+  color: #E2BA5E !important;
   padding: 6px 12px !important;
   border-radius: 30px !important;
   border: 1px solid #E2BA5E !important;
@@ -2018,7 +2018,7 @@ window.addEventListener("click", function(e) {
 .ai-sparkle {
   font-size: 11px !important;
 }
-  </style>
+    
   <style>
 /* Header buttons alignment fix */
 .nav-right {
@@ -2042,5 +2042,22 @@ header .logo img, header .logo svg, .logo img {
   width: auto !important;
 }
 </style>
+    <script>
+  // 1. Chatbase ki official script load karne ke liye
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="N1MRgePWjf2YF49mWveW6";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+
+  // 2. Apne custom button par click hone par chat kholne ke liye
+  document.addEventListener("DOMContentLoaded", function() {
+    const myBtn = document.getElementById("custom-chat-btn");
+    if (myBtn) {
+      myBtn.addEventListener("click", function() {
+        if (window.chatbase) {
+          window.chatbase("show");
+        }
+      });
+    }
+  });
+    </script>
+    
 </body>
 </html>
