@@ -1988,48 +1988,36 @@ window.addEventListener("click", function(e) {
   100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
-.ai-floating-btn {
+<style>
+.shashi-ai-aesthetic-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(135deg, #111111 0%, #222222 100%);
-  color: #d4af37;
-  padding: 12px 22px;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999999;
+  background: linear-gradient(135deg, #4834d4, #686de0);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 8px 18px; /* Chhota aur compact */
   border-radius: 50px;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(72, 52, 212, 0.4);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
-  z-index: 999999;
-  border: 1.5px solid #d4af37;
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
-  animation: pulseGlow 2.5s infinite;
-  transition: all 0.3s ease;
+  gap: 6px;
+  /* Glow effect */
+  animation: glowEffect 2s infinite;
 }
 
-.ai-floating-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-  color: #111111;
-  border-color: #fff;
+.shashi-ai-aesthetic-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(72, 52, 212, 0.6);
 }
 
-.ai-icon {
-  font-size: 18px;
-}
-
-@media (max-width: 768px) {
-  .ai-floating-btn {
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 18px;
-    font-size: 13px;
-  }
-}
-</style> 
+.sparkles { animation: pulse 1.5s infinite; }
   <style>
 /* Header buttons alignment fix */
 .nav-right {
