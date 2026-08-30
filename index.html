@@ -1974,179 +1974,63 @@ window.addEventListener("click", function(e) {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   }
-<!-- 1. Custom Chhota aur Stylish Button -->
-<button id="shashi-custom-ai-btn" class="shashi-mini-ai-btn">
-  <span class="ai-sparkle">✨</span> Shashi AI
+  <!-- AESTHETIC SHASHI AI BUTTON -->
+<button onclick="window.chatbase('show')" class="shashi-ai-aesthetic-btn">
+  <span class="sparkles">✨</span> Shashi AI
 </button>
+  <a href="https://www.chatbase.co/chatbot-iframe/N1MRgePWjf2YF49mWveW6" target="_blank" class="ai-floating-btn" title="Chat with Shashi Studio AI">
 
-<!-- 2. Button ki Styling (CSS) -->
+
 <style>
-.shashi-mini-ai-btn {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  background: #000000 !important;
-  color: #E2BA5E !important;
-  padding: 6px 12px !important;
-  border-radius: 30px !important;
-  border: 1px solid #E2BA5E !important;
-  cursor: pointer !important;
-  z-index: 999999 !important;
-  font-family: 'Segoe UI', sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(226, 186, 94, 0.3) !important;
-  transition: transform 0.2s ease, background 0.2s ease !important;
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
-.shashi-mini-ai-btn:hover {
-  transform: scale(1.05) !important;
-  background: #E2BA5E !important;
-  color: #000000 !important;
+.ai-floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #111111 0%, #222222 100%);
+  color: #d4af37;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999999;
+  border: 1.5px solid #d4af37;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
+  animation: pulseGlow 2.5s infinite;
+  transition: all 0.3s ease;
 }
 
-.ai-sparkle {
-  font-size: 11px !important;
+.ai-floating-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+  color: #111111;
+  border-color: #fff;
 }
 
-/* Chatbase ke default floating button ko chupane ke liye taaki overlap na ho */
-#chatbase-bubble-button {
-  display: none !important;
+.ai-icon {
+  font-size: 18px;
 }
-</style>
 
-<!-- 3. Chatbase Script aur Click Handler (JavaScript) -->
-<script>
-(function(){
-  if(!window.chatbase || window.chatbase("getState") !== "initialized") {
-    window.chatbase = (...arguments) => {
-      if(!window.chatbase.q) { window.chatbase.q = []; }
-      window.chatbase.q.push(arguments);
-    };
-    window.chatbase = new Proxy(window.chatbase, {
-      get(target, prop) {
-        if(prop === "q") { return target.q; }
-        return (...args) => target(prop, ...args);
-      }
-    });
+@media (max-width: 768px) {
+  .ai-floating-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    font-size: 13px;
   }
+}
+</style> 
   
-  const onLoad = function() {
-    const script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "N1MRgePWjf2YF49mWveW6";
-    script.domain = "www.chatbase.co";
-    document.body.appendChild(script);
-  };
-
-  if(document.readyState === "complete") {
-    onLoad();
-  } else {
-    window.addEventListener("load", onLoad);
-<!-- 1. Custom Chhota aur Stylish Button -->
-<button id="shashi-custom-ai-btn" class="shashi-mini-ai-btn">
-  <span class="ai-sparkle">✨</span> Shashi AI
-</button>
-
-<!-- 2. Button ki Styling, Layout aur Mobile Viewport Fix (CSS) -->
-<style>
-.shashi-mini-ai-btn {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  background: #000000 !important;
-  color: #E2BA5E !important;
-  padding: 6px 12px !important;
-  border-radius: 30px !important;
-  border: 1px solid #E2BA5E !important;
-  cursor: pointer !important;
-  z-index: 999999 !important;
-  font-family: 'Segoe UI', sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(226, 186, 94, 0.3) !important;
-  transition: transform 0.2s ease, background 0.2s ease !important;
-}
-
-.shashi-mini-ai-btn:hover {
-  transform: scale(1.05) !important;
-  background: #E2BA5E !important;
-  color: #000000 !important;
-}
-
-.ai-sparkle {
-  font-size: 11px !important;
-}
-
-/* Chatbase ke default floating button ko chupane ke liye taaki overlap na ho */
-#chatbase-bubble-button {
-  display: none !important;
-}
-
-/* Mobile Devices par Keyboard khulne par Chat window aur input box ko fix rakhne ke liye */
-@media (max-width: 480px) {
-  /* Chatbase ke main container/iframe par dvh apply karne ke liye */
-  #chatbase-bubble-window, iframe[src*="chatbase"] {
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-  }
-}
-</style>
-
-<!-- 3. Chatbase Script aur Click Handler (JavaScript) -->
-<script>
-(function(){
-  if(!window.chatbase || window.chatbase("getState") !== "initialized") {
-    window.chatbase = (...arguments) => {
-      if(!window.chatbase.q) { window.chatbase.q = []; }
-      window.chatbase.q.push(arguments);
-    };
-    window.chatbase = new Proxy(window.chatbase, {
-      get(target, prop) {
-        if(prop === "q") { return target.q; }
-        return (...args) => target(prop, ...args);
-      }
-    });
-  }
-  
-  const onLoad = function() {
-    const script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "N1MRgePWjf2YF49mWveW6";
-    script.domain = "www.chatbase.co";
-    document.body.appendChild(script);
-  };
-
-  if(document.readyState === "complete") {
-    onLoad();
-  } else {
-    window.addEventListener("load", onLoad);
-  }
-})();
-
-/* Button click event jisse chat popup 100% khulega */
-document.addEventListener("DOMContentLoaded", function() {
-  const btn = document.getElementById("shashi-custom-ai-btn");
-  if(btn) {
-    btn.addEventListener("click", function() {
-      if(window.chatbase) {
-        window.chatbase("open");
-      }
-    });
-  }
-});
-</script>
-
 <script>
   
 /* Header buttons alignment fix */
