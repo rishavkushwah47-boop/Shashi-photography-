@@ -2046,6 +2046,91 @@ window.addEventListener("click", function(e) {
     onLoad();
   } else {
     window.addEventListener("load", onLoad);
+<!-- 1. Custom Chhota aur Stylish Button -->
+<button id="shashi-custom-ai-btn" class="shashi-mini-ai-btn">
+  <span class="ai-sparkle">✨</span> Shashi AI
+</button>
+
+<!-- 2. Button ki Styling, Layout aur Mobile Viewport Fix (CSS) -->
+<style>
+.shashi-mini-ai-btn {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #000000 !important;
+  color: #E2BA5E !important;
+  padding: 6px 12px !important;
+  border-radius: 30px !important;
+  border: 1px solid #E2BA5E !important;
+  cursor: pointer !important;
+  z-index: 999999 !important;
+  font-family: 'Segoe UI', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(226, 186, 94, 0.3) !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.shashi-mini-ai-btn:hover {
+  transform: scale(1.05) !important;
+  background: #E2BA5E !important;
+  color: #000000 !important;
+}
+
+.ai-sparkle {
+  font-size: 11px !important;
+}
+
+/* Chatbase ke default floating button ko chupane ke liye taaki overlap na ho */
+#chatbase-bubble-button {
+  display: none !important;
+}
+
+/* Mobile Devices par Keyboard khulne par Chat window aur input box ko fix rakhne ke liye */
+@media (max-width: 480px) {
+  /* Chatbase ke main container/iframe par dvh apply karne ke liye */
+  #chatbase-bubble-window, iframe[src*="chatbase"] {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+  }
+}
+</style>
+
+<!-- 3. Chatbase Script aur Click Handler (JavaScript) -->
+<script>
+(function(){
+  if(!window.chatbase || window.chatbase("getState") !== "initialized") {
+    window.chatbase = (...arguments) => {
+      if(!window.chatbase.q) { window.chatbase.q = []; }
+      window.chatbase.q.push(arguments);
+    };
+    window.chatbase = new Proxy(window.chatbase, {
+      get(target, prop) {
+        if(prop === "q") { return target.q; }
+        return (...args) => target(prop, ...args);
+      }
+    });
+  }
+  
+  const onLoad = function() {
+    const script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.id = "N1MRgePWjf2YF49mWveW6";
+    script.domain = "www.chatbase.co";
+    document.body.appendChild(script);
+  };
+
+  if(document.readyState === "complete") {
+    onLoad();
+  } else {
+    window.addEventListener("load", onLoad);
   }
 })();
 
@@ -2061,8 +2146,9 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+
+<script>
   
-  <style>
 /* Header buttons alignment fix */
 .nav-right {
   display: flex;
