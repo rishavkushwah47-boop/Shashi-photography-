@@ -1992,19 +1992,19 @@ window.addEventListener("click", function(e) {
 
 .ai-floating-btn {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 14px;
+  right: 14px;
   background: linear-gradient(135deg, #111111 0%, #222222 100%);
   color: #d4af37;
-  padding: 7px 15px;
+  padding: 7px 14px;
   border-radius: 50px;
   font-family: inherit;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   z-index: 999999;
   border: 1.5px solid #d4af37;
   box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
@@ -2020,15 +2020,15 @@ window.addEventListener("click", function(e) {
 }
 
 .ai-icon {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 @media (max-width: 768px) {
   .ai-floating-btn {
-    bottom: 20px;
-    right: 20px;
-    padding: 8px 16px;
-    font-size: 12px;
+    bottom: 15px;
+    right: 15px;
+    padding: 7px 14px;
+    font-size: 10px;
   }
 }
 </style> 
@@ -2056,22 +2056,33 @@ header .logo img, header .logo svg, .logo img {
   max-height: 30px !important;
   width: auto !important;
 }
-  /* Enquiry section ya form ke neeche ka extra gap kam karne ke liye */
-.enquiry-section, .contact-section, footer {
-  margin-bottom: 0 !important;
-  padding-bottom: 10px !important;
-}
+  /* === BRAHMASTRA CODE: Faltu Gap aur Lines Khatam Karne Ke Liye === */
 
-/* Agar wahan koi extra horizontal line (<hr>) ya border hai toh use hatane ke liye */
+/* 1. Form ke neeche jitne bhi dividers, lines ya hr hain sab gayab */
+form ~ hr, 
+form ~ div, 
+.enquiry-section hr, 
+.enquiry-section .line, 
 hr {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Footer ya container ka bottom border remove karne ke liye agar zaroorat ho */
-footer, .footer-container {
+/* 2. Form aur Footer ke beech ka saara margin aur padding zero */
+form, .enquiry-form-container, section {
+  margin-bottom: 0 !important;
+  padding-bottom: 5px !important;
+}
+
+/* 3. Footer ko upar kheench kar chipkane ke liye */
+footer, .site-footer, .footer-container {
+  margin-top: 0 !important;
+  padding-top: 10px !important;
   border-top: none !important;
-  }
-  
+}
 </style>
     
 </body>
