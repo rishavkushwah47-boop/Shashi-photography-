@@ -2053,9 +2053,17 @@ window.addEventListener("click", function(e) {
   }
 
   header .logo img, header .logo svg {
-    max-height: 24px !important;
+    max-height: 22px !important;
     width: auto !important;
   }
+  /* Header patti ko upar-niche se patla karne ke liye */
+header, .navbar, .header-container {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  min-height: unset !important;
+  height: auto !important;
+}
+  
 </style>
     
 </body>
