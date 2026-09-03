@@ -2098,24 +2098,5 @@ header, .navbar, .header-container {
     position: relative !important;
   }
 </style>
-
-<script>
-  /* === HARD CODE JS: Text mein jo '{' aara hai aur aakhri gap hai usey code se ukhad ke fenkne ke liye === */
-  document.addEventListener("DOMContentLoaded", function() {
-    // Faltu lines aur hr elements ko DOM se permanently delete karna
-    const deadElements = document.querySelectorAll('hr, .line, .divider');
-    deadElements.forEach(el => el.remove());
-
-    // Agar kahin galti se akela '{' text node mein bacha ho toh use dhoond kar saaf karna
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    while(walker.nextNode()) {
-      let node = walker.currentNode;
-      if(node.nodeValue.trim() === "{") {
-        node.nodeValue = ""; // Text ko khali kar do
-      }
-    }
-  });
-</script>
-  
 </body>
 </html>
