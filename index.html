@@ -968,7 +968,6 @@
   right: 15px !important;       /* Screen ke right corner se hamesha 15px andar rahega */
   bottom: 20px !important;      /* Neeche se bhi safe distance par rahega */
   display: flex !important;
-  flex-wrap: wrap;
   flex-direction: column !important;
   gap: 10px !important;
   z-index: 9999 !important;
@@ -1006,14 +1005,13 @@
   transform: translateY(2px) !important;
   box-shadow: 0 2px 5px rgba(212, 175, 55, 0.4) !important;
 }   
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       .masonry-grid { column-count: 1; }
-      .logo-anchor img { height: 46px; }
+      .logo-anchor img { height: 35px; }
       .hero-title { font-size: 2.3rem; }
-      .section-wrap { padding: 75px 0; }
+      .section-wrap { padding: 65px 0; }
       .btn { width: 100%; }
       .side-social-bar { display: flex; }
-      flex-wrap: wrap;
     }
   /* REELS / SHORTS MOBILE & DESKTOP OPTIMIZED GRID */
 .reels-grid {
