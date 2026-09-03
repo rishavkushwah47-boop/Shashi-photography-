@@ -995,7 +995,7 @@
   transform: translateY(2px) !important;
   box-shadow: 0 2px 5px rgba(212, 175, 55, 0.4) !important;
 }   
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       .masonry-grid { column-count: 1; }
       .logo-anchor img { height: 46px; }
       .hero-title { font-size: 2.3rem; }
@@ -1003,45 +1003,7 @@
       .btn { width: 100%; }
       .side-social-bar { display: none; }
     }
-    /* REELS / SHORTS MOBILE & DESKTOP OPTIMIZED GRID */
-.reels-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px; 
-  margin-top: 25px;
-  padding: 0 10px;
-}
-
-@media (min-width: 768px) {
-  .reels-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    padding: 0;
-  }
-}
-
-.reel-item {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  border-radius: 12px; 
-  overflow: hidden;
-  background: #0e0e13;
-  border: 1px solid rgba(212, 175, 55, 0.3); 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.reel-item iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-  #copyrightToast{
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  } 
-  </style>
+    
 </head>
 <body oncontextmenu="return false;">
 
@@ -2063,59 +2025,6 @@ header, .navbar, .header-container {
 }
   
 </style>
-  <style>
-  /* === HARD CODE OVERRIDE: Purane sabhi gaps aur lines ka patta saaf karne ke liye === */
-  
-  /* 1. Form ke baad jitne bhi sections ya divs hain, sabka margin/padding zero */
-  form ~ *, 
-  .enquiry-section ~ div, 
-  section + *, 
-  .contact-section + * {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* 2. Har tarah ki line, divider ya aisi cheez ko gayab karna */
-  hr, .divider, .line, br + br {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-  }
-
-  /* 3. Footer ko upar khinch kar chipkana aur body ki height fix karna */
-  html, body {
-    height: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  footer, .site-footer, .footer-container {
-    margin-top: 0 !important;
-    padding-top: 10px !important;
-    padding-bottom: 25px !important; /* WhatsApp/AI button ke liye thodi si jagah */
-    border-top: none !important;
-    position: relative !important;
-  }
-</style>
-
-<script>
-  /* === HARD CODE JS: Text mein jo '{' aara hai aur aakhri gap hai usey code se ukhad ke fenkne ke liye === */
-  document.addEventListener("DOMContentLoaded", function() {
-    // Faltu lines aur hr elements ko DOM se permanently delete karna
-    const deadElements = document.querySelectorAll('hr, .line, .divider');
-    deadElements.forEach(el => el.remove());
-
-    // Agar kahin galti se akela '{' text node mein bacha ho toh use dhoond kar saaf karna
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    while(walker.nextNode()) {
-      let node = walker.currentNode;
-      if(node.nodeValue.trim() === "{") {
-        node.nodeValue = ""; // Text ko khali kar do
-      }
-    }
-  });
-</script>
   
 </body>
 </html>
