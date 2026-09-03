@@ -995,7 +995,7 @@
   transform: translateY(2px) !important;
   box-shadow: 0 2px 5px rgba(212, 175, 55, 0.4) !important;
 }   
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       .masonry-grid { column-count: 1; }
       .logo-anchor img { height: 46px; }
       .hero-title { font-size: 2.3rem; }
@@ -1003,7 +1003,45 @@
       .btn { width: 100%; }
       .side-social-bar { display: none; }
     }
-    
+  /* REELS / SHORTS MOBILE & DESKTOP OPTIMIZED GRID */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px; 
+  margin-top: 25px;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .reels-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 0;
+  }
+}
+
+.reel-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px; 
+  overflow: hidden;
+  background: #0e0e13;
+  border: 1px solid rgba(212, 175, 55, 0.3); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.reel-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+  #copyrightToast{
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  } 
+  </style>
 </head>
 <body oncontextmenu="return false;">
 
