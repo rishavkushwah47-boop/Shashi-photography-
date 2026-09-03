@@ -2063,40 +2063,5 @@ header, .navbar, .header-container {
 }
   
 </style>
- <style>
-  /* === HARD CODE OVERRIDE: Purane sabhi gaps aur lines ka patta saaf karne ke liye === */
-  
-  /* 1. Form ke baad jitne bhi sections ya divs hain, sabka margin/padding zero */
-  form ~ *, 
-  .enquiry-section ~ div, 
-  section + *, 
-  .contact-section + * {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* 2. Har tarah ki line, divider ya aisi cheez ko gayab karna */
-  hr, .divider, .line, br + br {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-  }
-
-  /* 3. Footer ko upar khinch kar chipkana aur body ki height fix karna */
-  html, body {
-    height: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  footer, .site-footer, .footer-container {
-    margin-top: 0 !important;
-    padding-top: 10px !important;
-    padding-bottom: 25px !important; /* WhatsApp/AI button ke liye thodi si jagah */
-    border-top: none !important;
-    position: relative !important;
-  }
-</style>
 </body>
 </html>
