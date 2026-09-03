@@ -2033,30 +2033,29 @@ window.addEventListener("click", function(e) {
 }
 </style> 
   
-<script>
-  
-/* Header buttons alignment fix */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 4px; 
-}
-.premium-book-btn, .join-header-btn {
-  font-size: 5px !important;
-  padding: 2px 3px !important;
-  white-space: nowrap;
-}
+<style>
+  /* Header buttons alignment fix */
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
 
-/* Logo ko left mein shift karne aur chota karne ke liye */
-header .logo, .logo {
-  margin-left: -20px !important; /* Isse logo aur left border ke beech ki extra jagah khatam ho jayegi aur wo aur left khisak jayega */
-}
+  .premium-book-btn, .join-header-btn {
+    font-size: 10px !important; /* 5px se badha kar 10px kiya taaki saaf dikhe */
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+  }
 
-header .logo img, header .logo svg, .logo img {
-  max-height: 20px !important;
-  width: auto !important;
-}
+  /* Logo ko adjust karne ke liye */
+  header .logo, .logo {
+    margin-left: -10px !important;
+  }
 
+  header .logo img, header .logo svg {
+    max-height: 24px !important;
+    width: auto !important;
+  }
 </style>
     
 </body>
