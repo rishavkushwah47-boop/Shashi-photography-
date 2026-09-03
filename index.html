@@ -2065,6 +2065,35 @@ header, .navbar, .header-container {
 }
   
 </style>
+ <style>
+  /* === BRAHMASTRA CSS: Force-fully zero spacing & hidden lines === */
+  form ~ *, .enquiry-section ~ *, body > div:last-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  hr, .divider, .line, br + br {
+    display: none !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  footer, .site-footer {
+    margin-top: 0 !important;
+    border-top: none !important;
+  }
+</style>
+
+<script>
+  /* === BRAHMASTRA JS: Khud kabza karke aakhri kachra/lines udaane ke liye === */
+  document.addEventListener("DOMContentLoaded", function() {
+    // Form ya Enquiry ke baad jitne bhi faltu empty elements hain unhe hatao
+    const extraSpaceElements = document.querySelectorAll('hr, .line, .divider');
+    extraSpaceElements.forEach(el => el.remove());
     
+    console.log("Brahmastra executed: Extra space and lines cleared!");
+  });
+</script>
+  
 </body>
 </html>
